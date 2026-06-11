@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peptide Reconstitution Calculator | Glow With Heather</title>
+<meta name="description" content="Free peptide reconstitution calculator: enter your dose, vial strength, and bacteriostatic water to get concentration, draw volume, insulin-syringe units, and doses per vial. Educational tool, not medical advice.">
+<link rel="canonical" href="https://glowwithheather.com/calculators/reconstitution/">
+<meta property="og:title" content="Peptide Reconstitution Calculator">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://glowwithheather.com/calculators/reconstitution/">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How does the reconstitution calculator work?","acceptedAnswer":{"@type":"Answer","text":"Concentration equals vial strength divided by the water added. Draw volume equals your dose divided by that concentration. Units are the draw volume times 100 on a U-100 insulin syringe."}},
+{"@type":"Question","name":"What is bacteriostatic water?","acceptedAnswer":{"@type":"Answer","text":"It is sterile water containing a small amount of benzyl alcohol that helps limit bacterial growth. The volume you add sets the final concentration."}},
+{"@type":"Question","name":"Is this medical advice?","acceptedAnswer":{"@type":"Answer","text":"No. This is an educational math tool only. Always consult a qualified healthcare professional."}}]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">Glow With Heather</a>
+    <nav class="main-nav" aria-label="Primary"><a href="/codes/">Codes</a><a href="/quiz/">Quiz</a><a href="/serums/">Serums</a><a href="/calculators/">Tools</a><a href="/peptides/">Dictionary</a><a href="/community/">Community</a></nav>
+    <a class="live-chip" data-live-chip href="https://www.tiktok.com/@glow_with.heather"><span class="live-dot"></span><span data-live-label>\uD83D\uDD34 Live tonight 8PM ET</span></a>
+  </div>
+</header>
+
+<main class="container section">
+  <h1>Peptide Reconstitution Calculator</h1>
+  <p class="answer-block">A peptide reconstitution calculator turns three numbers \u2014 your desired dose, the vial strength, and the bacteriostatic water you add \u2014 into the concentration, the exact volume to draw, the matching insulin-syringe units, and how many doses the vial holds. Enter your numbers below.</p>
+
+  <form id="calc-recon" class="card calc-grid">
+    <div class="calc-field"><label for="recon-dose">Desired dose</label>
+      <div style="display:flex;gap:8px">
+        <input id="recon-dose" type="number" step="any" inputmode="decimal" placeholder="250" required>
+        <select id="recon-dose-unit" aria-label="Dose unit"><option value="mcg">mcg</option><option value="mg">mg</option></select>
+      </div>
+    </div>
+    <div class="calc-field"><label for="recon-vial">Vial strength (mg)</label><input id="recon-vial" type="number" step="any" inputmode="decimal" placeholder="10" required></div>
+    <div class="calc-field"><label for="recon-water">Bacteriostatic water added (mL)</label><input id="recon-water" type="number" step="any" inputmode="decimal" placeholder="3" required></div>
+    <button class="btn btn-primary" type="submit">Calculate</button>
+    <div id="recon-out" class="calc-result" hidden></div>
+  </form>
+
+  <p class="muted" style="margin-top:16px"><strong>Worked example:</strong> 250 mcg dose, 10 mg vial, 3 mL water \u2192 3.33 mg/mL, 0.075 mL draw, 7.5 units, 40 doses.</p>
+  <p class="disclaimer-mini">Educational tool \u2014 not medical advice.</p>
+
+  <section class="section">
+    <h2>FAQ</h2>
+    <div class="card"><h3>How does it work?</h3><p>Concentration = vial \u00F7 water. Draw volume = dose \u00F7 concentration. Units = draw volume \u00D7 100 on a U-100 syringe.</p></div>
+    <div class="card" style="margin-top:16px"><h3>What is bacteriostatic water?</h3><p>Sterile water with a small amount of benzyl alcohol to limit bacterial growth. The volume you add sets the final concentration.</p></div>
+  </section>
+
+  <div class="email-capture fade-up">
+    <h3>\uD83D\uDCE7 Email me my results + the free guide</h3>
+    <form class="email-form" data-email-form action="ESP_FORM_ACTION" method="post">
+      <input type="hidden" name="tag" value="general">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
+      <button class="btn btn-gold" type="submit">Get Glowing \u2728</button>
+      <p class="microcopy">No spam, ever.</p>
+    </form>
+  </div>
+</main>
+
+<nav class="mobile-bar" aria-label="Quick actions">
+  <a href="/codes/"><span class="ico">\uD83C\uDFF7\uFE0F</span>Codes</a><a href="/quiz/"><span class="ico">\u2728</span>Quiz</a><a href="/community/"><span class="ico">\uD83D\uDC6F</span>Community</a><a href="https://www.tiktok.com/@glow_with.heather"><span class="ico">\uD83D\uDD34</span>Live</a>
+</nav>
+<footer class="site-footer"><div class="container">
+  <p class="brand-line">Glow With Heather</p>
+  <div class="footer-social"><a href="https://www.tiktok.com/@glow_with.heather">TikTok</a><a href="https://www.instagram.com/GlowWithHeather">Instagram</a><a href="https://www.youtube.com/@GlowWithHeather">YouTube</a><a href="https://www.facebook.com/profile.php?id=61583331223495">Facebook</a></div>
+  <nav class="footer-nav" aria-label="Footer"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclosure/">Disclosure</a></nav>
+  <p class="footer-disclaimer">This website is for educational and informational purposes only. Content is not intended as medical advice. Always consult a qualified healthcare professional before starting any wellness protocol. Affiliate links may be present on this page.</p>
+</div></footer>
+<script src="/js/main.js" defer></script>
+<script src="/js/calculators.js" defer></script>
+</body>
+</html>
