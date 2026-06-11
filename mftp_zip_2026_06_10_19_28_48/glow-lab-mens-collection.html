@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow Lab Men's Collection — Father's Day Gift Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --lavender: #b8a9c9;
+    --lavender-light: #e8e2f0;
+    --lavender-dark: #7a6b8a;
+    --charcoal: #2c2c2c;
+    --warm-white: #faf9f7;
+    --gold: #c9a84c;
+    --gold-light: #f0e6c8;
+    --navy: #1a2340;
+    --slate: #4a5568;
+    --muted: #8a8fa8;
+    --border: #e2dff0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #2d3a5c 60%, #3d2e4a 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 24px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(184,169,201,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.1) 0%, transparent 50%);
+  }
+  .hero-inner { position: relative; max-width: 780px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: white;
+  }
+  .hero h1 em { font-style: italic; color: var(--lavender); }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 40px;
+    padding: 10px 22px;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* INTRO STRIP */
+  .intro-strip {
+    background: var(--lavender-light);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .intro-strip p {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 15px;
+    color: var(--slate);
+    line-height: 1.75;
+  }
+  .intro-strip strong { color: var(--charcoal); font-weight: 600; }
+
+  /* SECTION LABEL */
+  .section-label {
+    text-align: center;
+    padding: 56px 24px 8px;
+  }
+  .section-label .eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--lavender-dark);
+    margin-bottom: 12px;
+  }
+  .section-label h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  /* GRID */
+  .stacks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+
+  /* CARD */
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .card:hover {
+    box-shadow: 0 12px 40px rgba(90,70,120,0.12);
+    transform: translateY(-3px);
+  }
+  .card.featured {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1px var(--gold), 0 8px 32px rgba(201,168,76,0.15);
+  }
+  .card.featured:hover {
+    box-shadow: 0 0 0 1px var(--gold), 0 16px 48px rgba(201,168,76,0.2);
+  }
+
+  .card-header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid var(--lavender-light);
+    background: linear-gradient(135deg, var(--warm-white) 0%, white 100%);
+  }
+  .card.featured .card-header {
+    background: linear-gradient(135deg, var(--gold-light) 0%, white 100%);
+  }
+
+  .card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lavender-dark);
+    background: var(--lavender-light);
+    border-radius: 20px;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+  }
+  .card.featured .card-tag {
+    color: #8a6a00;
+    background: var(--gold-light);
+  }
+
+  .card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .card-goal {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .card-body { padding: 20px 24px; flex: 1; }
+
+  .card-tagline {
+    font-size: 14px;
+    color: var(--slate);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    border-left: 2px solid var(--lavender);
+    padding-left: 12px;
+  }
+
+  .peptides-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .peptides-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .peptide-pill {
+    background: var(--lavender-light);
+    color: var(--lavender-dark);
+    border-radius: 20px;
+    padding: 5px 13px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  .card.featured .peptide-pill {
+    background: var(--gold-light);
+    color: #7a5e00;
+  }
+
+  .card-footer {
+    padding: 16px 24px 24px;
+    border-top: 1px solid var(--lavender-light);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-compare {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 13px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    background: var(--navy);
+    color: white;
+    border: none;
+  }
+  .btn-compare:hover { background: #243060; }
+  .card.featured .btn-compare {
+    background: linear-gradient(135deg, #b8860b, var(--gold));
+  }
+  .card.featured .btn-compare:hover {
+    background: linear-gradient(135deg, #a07800, #c9a84c);
+  }
+
+  .btn-info {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--lavender-dark);
+    border: 1px solid var(--border);
+  }
+  .btn-info:hover {
+    background: var(--lavender-light);
+    border-color: var(--lavender);
+  }
+
+  .peptracker-note {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--muted);
+    justify-content: center;
+    padding-top: 2px;
+  }
+  .peptracker-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--lavender);
+    flex-shrink: 0;
+  }
+
+  /* HOW IT WORKS */
+  .how-it-works {
+    background: var(--navy);
+    color: white;
+    padding: 64px 24px;
+    text-align: center;
+  }
+  .how-it-works h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 600;
+    color: white;
+    margin-bottom: 12px;
+  }
+  .how-it-works .sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 48px;
+  }
+  .steps {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .step {
+    flex: 1;
+    min-width: 180px;
+    max-width: 220px;
+  }
+  .step-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(184,169,201,0.2);
+    border: 1px solid rgba(184,169,201,0.4);
+    color: var(--lavender);
+    font-size: 16px;
+    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .step h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 8px;
+  }
+  .step p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    background: var(--lavender-light);
+    border-top: 1px solid var(--border);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .disclaimer p {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .disclaimer strong { color: var(--slate); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 12px;
+  }
+  .footer a { color: var(--lavender); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .stacks-grid { grid-template-columns: 1fr; }
+    .steps { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Glow Lab Men's Collection &nbsp;·&nbsp; Father's Day 2025</p>
+    <h1>Give Him the Gift of <em>Actually Feeling Good</em> Again</h1>
+    <p class="hero-sub">Curated peptide stacks for the men in your life — researched, recommended, and ready to compare prices across trusted vendors.</p>
+    <div class="hero-badge">
+      🔬 Price comparison powered by PepTracker
+    </div>
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <p>These stacks were hand-picked for real men's goals — not generic wellness fluff. Each one includes a direct link to <strong>PepTracker</strong> so you can compare prices across vetted vendors before you buy. No guesswork. No overpaying.</p>
+</div>
+
+<!-- STACKS -->
+<div class="section-label">
+  <p class="eyebrow">Find His Stack</p>
+  <h2>Shop by Goal</h2>
+</div>
+
+<div class="stacks-grid">
+
+  <!-- Dad Bod Destroyer -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-tag">🔥 Body Recomp</div>
+      <h3>The Dad Bod Destroyer</h3>
+      <p class="card-goal">Belly fat · Metabolism · Recomposition</p>
+    </div>
+    <div class="card-body">
+      <p class="card-tagline">Attack stubborn belly fat. Reignite metabolism. Build momentum.</p>
+      <p class="peptides-label">Includes</p>
+      <div class="peptides-list">
+        <span class="peptide-pill">Tesamorelin</span>
+        <span class="peptide-pill">MOTS-c</span>
+        <span class="peptide-pill">5-Amino-1MQ</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="https://pepstracker.com/search?q=tesamorelin+mots-c+5-amino-1mq&utm_source=gwh&utm_campaign=fathers-day&utm_content=dad-bod" class="btn-compare" target="_blank">Compare Prices on PepTracker →</a>
+      <a href="#" class="btn-info">What do these peptides do?</a>
+    </div>
+  </div>
+
+  <!-- Alpha Reset -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-tag">⚡ Energy & Vitality</div>
+      <h3>The Alpha Reset</h3>
+      <p class="card-goal">Energy · Vitality · Confidence</p>
+    </div>
+    <div class="card-body">
+      <p class="card-tagline">For the man who remembers what it felt like to wake up ready to conquer the day.</p>
+      <p class="peptides-label">Includes</p>
+      <div class="peptides-list">
+        <span class="peptide-pill">CJC-1295</span>
+        <span class="peptide-pill">Ipamorelin</span>
+        <span class="peptide-pill">MOTS-c</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="https://pepstracker.com/search?q=cjc-1295+ipamorelin+mots-c&utm_source=gwh&utm_campaign=fathers-day&utm_content=alpha-reset" class="btn-compare" target="_blank">Compare Prices on PepTracker →</a>
+      <a href="#" class="btn-info">What do these peptides do?</a>
+    </div>
+  </div>
+
+  <!-- Weekend Warrior -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-tag">🦵 Recovery</div>
+      <h3>The Weekend Warrior</h3>
+      <p class="card-goal">Recovery · Joint Support</p>
+    </div>
+    <div class="card-body">
+      <p class="card-tagline">Because your mind is still 25 but your knees disagree.</p>
+      <p class="peptides-label">Includes</p>
+      <div class="peptides-list">
+        <span class="peptide-pill">BPC-157</span>
+        <span class="peptide-pill">TB-500</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="https://pepstracker.com/search?q=bpc-157+tb-500&utm_source=gwh&utm_campaign=fathers-day&utm_content=weekend-warrior" class="btn-compare" target="_blank">Compare Prices on PepTracker →</a>
+      <a href="#" class="btn-info">What do these peptides do?</a>
+    </div>
+  </div>
+
+  <!-- Iron Man -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-tag">💪 Muscle & Recovery</div>
+      <h3>The Iron Man</h3>
+      <p class="card-goal">Muscle Retention · Recovery</p>
+    </div>
+    <div class="card-body">
+      <p class="card-tagline">Train harder. Recover faster. Stay in the game longer.</p>
+      <p class="peptides-label">Includes</p>
+      <div class="peptides-list">
+        <span class="peptide-pill">CJC-1295</span>
+        <span class="peptide-pill">Ipamorelin</span>
+        <span class="peptide-pill">BPC-157</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="https://pepstracker.com/search?q=cjc-1295+ipamorelin+bpc-157&utm_source=gwh&utm_campaign=fathers-day&utm_content=iron-man" class="btn-compare" target="_blank">Compare Prices on PepTracker →</a>
+      <a href="#" class="btn-info">What do these peptides do?</a>
+    </div>
+  </div>
+
+  <!-- Executive Edge -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-tag">🧠 Focus & Performance</div>
+      <h3>The Executive Edge</h3>
+      <p class="card-goal">Focus · Energy · Burnout Prevention</p>
+    </div>
+    <div class="card-body">
+      <p class="card-tagline">Sharper thinking. Better energy. Less burnout.</p>
+      <p class="peptides-label">Includes</p>
+      <div class="peptides-list">
+        <span class="peptide-pill">MOTS-c</span>
+        <span class="peptide-pill">SS-31</span>
+        <span class="peptide-pill">Selank</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="https://pepstracker.com/search?q=mots-c+ss-31+selank&utm_source=gwh&utm_campaign=fathers-day&utm_content=executive-edge" class="btn-compare" target="_blank">Compare Prices on PepTracker →</a>
+      <a href="#" class="btn-info">What do these peptides do?</a>
+    </div>
+  </div>
+
+  <!-- Back Nine -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-tag">⛳ Mobility & Golf</div>
+      <h3>The Back Nine</h3>
+      <p class="card-goal">Golf · Mobility · Recovery</p>
+    </div>
+    <div class="card-body">
+      <p class="card-tagline">Move better. Swing harder. Wake up with less pain.</p>
+      <p class="peptides-label">Includes</p>
+      <div class="peptides-list">
+        <span class="peptide-pill">BPC-157</span>
+        <span class="peptide-pill">TB-500</span>
+        <span class="peptide-pill">ARA-290</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="https://pepstracker.com/search?q=bpc-157+tb-500+ara-290&utm_source=gwh&utm_campaign=fathers-day&utm_content=back-nine" class="btn-compare" target="_blank">Compare Prices on PepTracker →</a>
+      <a href="#" class="btn-info">What do these peptides do?</a>
+    </div>
+  </div>
+
+  <!-- Longevity -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-tag">🕰️ Longevity</div>
+      <h3>The Men's Longevity</h3>
+      <p class="card-goal">Healthy Aging · Cellular Health</p>
+    </div>
+    <div class="card-body">
+      <p class="card-tagline">Support your cells today for the decades ahead.</p>
+      <p class="peptides-label">Includes</p>
+      <div class="peptides-list">
+        <span class="peptide-pill">Epithalon</span>
+        <span class="peptide-pill">MOTS-c</span>
+        <span class="peptide-pill">SS-31</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="https://pepstracker.com/search?q=epithalon+mots-c+ss-31&utm_source=gwh&utm_campaign=fathers-day&utm_content=longevity" class="btn-compare" target="_blank">Compare Prices on PepTracker →</a>
+      <a href="#" class="btn-info">What do these peptides do?</a>
+    </div>
+  </div>
+
+  <!-- Date Night -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-tag">🌹 Libido</div>
+      <h3>The Date Night</h3>
+      <p class="card-goal">Libido · Confidence</p>
+    </div>
+    <div class="card-body">
+      <p class="card-tagline">When desire isn't the problem — but life keeps getting in the way.</p>
+      <p class="peptides-label">Includes</p>
+      <div class="peptides-list">
+        <span class="peptide-pill">PT-141</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="https://pepstracker.com/search?q=pt-141&utm_source=gwh&utm_campaign=fathers-day&utm_content=date-night" class="btn-compare" target="_blank">Compare Prices on PepTracker →</a>
+      <a href="#" class="btn-info">What do these peptides do?</a>
+    </div>
+  </div>
+
+  <!-- Silverback -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-tag">🦍 Men 50+</div>
+      <h3>The Silverback</h3>
+      <p class="card-goal">Strength · Energy · Longevity</p>
+    </div>
+    <div class="card-body">
+      <p class="card-tagline">Strength. Energy. Longevity. Leadership. This is the "I refuse to age quietly" stack.</p>
+      <p class="peptides-label">Includes</p>
+      <div class="peptides-list">
+        <span class="peptide-pill">Tesamorelin</span>
+        <span class="peptide-pill">Epithalon</span>
+        <span class="peptide-pill">MOTS-c</span>
+        <span class="peptide-pill">SS-31</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="https://pepstracker.com/search?q=tesamorelin+epithalon+mots-c+ss-31&utm_source=gwh&utm_campaign=fathers-day&utm_content=silverback" class="btn-compare" target="_blank">Compare Prices on PepTracker →</a>
+      <a href="#" class="btn-info">What do these peptides do?</a>
+    </div>
+  </div>
+
+  <!-- Kingmaker — FEATURED -->
+  <div class="card featured">
+    <div class="card-header">
+      <div class="card-tag">👑 Premium Flagship</div>
+      <h3>The Kingmaker</h3>
+      <p class="card-goal">The Ultimate Men's Stack</p>
+    </div>
+    <div class="card-body">
+      <p class="card-tagline">Built for men who aren't finished building their legacy.</p>
+      <p class="peptides-label">Includes</p>
+      <div class="peptides-list">
+        <span class="peptide-pill">Tesamorelin</span>
+        <span class="peptide-pill">MOTS-c</span>
+        <span class="peptide-pill">SS-31</span>
+        <span class="peptide-pill">BPC-157</span>
+        <span class="peptide-pill">Epithalon</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="https://pepstracker.com/search?q=tesamorelin+mots-c+ss-31+bpc-157+epithalon&utm_source=gwh&utm_campaign=fathers-day&utm_content=kingmaker" class="btn-compare" target="_blank">Compare Prices on PepTracker →</a>
+      <a href="#" class="btn-info">What do these peptides do?</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <h2>How This Works</h2>
+  <p class="sub">No vendor bias. No guesswork. Just the best price.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Pick His Stack</h4>
+      <p>Choose based on his goals — recovery, energy, longevity, performance.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Compare on PepTracker</h4>
+      <p>See real-time prices across vetted vendors so you never overpay.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Order Direct</h4>
+      <p>Purchase from your preferred vendor. Straightforward, no middleman.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <p><strong>Research Use Disclaimer:</strong> These peptides are sold for research purposes only and are not intended to diagnose, treat, cure, or prevent any disease. This page contains affiliate links. Heather may receive a commission at no additional cost to you. Always consult a qualified healthcare provider before beginning any new supplement or peptide protocol.</p>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 Glow With Heather &nbsp;·&nbsp; <a href="https://pepstracker.com">PepTracker.com</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>

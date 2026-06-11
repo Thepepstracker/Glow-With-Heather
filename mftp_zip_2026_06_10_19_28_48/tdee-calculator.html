@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDEE Calculator — Glow With Heather</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#E8436A;--rose-light:#F7839A;--rose-pale:#FDE8ED;--gold:#D4993A;--gold-pale:#FEF6E4;--plum:#7B3FA8;--plum-pale:#F5EEFF;--teal:#2aaaa0;--teal-pale:#E6F7F6;--white:#FFFFFF;--gray-100:#F8F5F2;--gray-200:#EDE8E3;--gray-400:#B0A89E;--gray-700:#5C5148;--dark:#2A1F18;--font-head:'Playfair Display',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;--shadow-sm:0 2px 8px rgba(232,67,106,.10);--shadow-md:0 6px 24px rgba(0,0,0,.10);--radius:16px;--radius-pill:50px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--gray-100);color:var(--dark);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.navbar-inner{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 28px;max-width:1140px;margin:0 auto}
+.nav-logo{font-family:var(--font-head);font-size:1.2rem;color:var(--rose);font-weight:700;display:flex;flex-direction:column;line-height:1.15}
+.nav-logo span{font-family:var(--font-body);font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);font-weight:500}
+.nav-back{display:flex;align-items:center;gap:6px;font-size:.88rem;font-weight:500;color:var(--gray-700);padding:7px 16px;border-radius:var(--radius-pill);border:1.5px solid var(--gray-200);transition:all .18s}
+.nav-back:hover{border-color:var(--rose);color:var(--rose)}
+.page-header{padding:120px 24px 60px;text-align:center;background:linear-gradient(160deg,#FFF5F8 0%,#F5F0FF 100%)}
+.eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+.page-header h1{font-family:var(--font-head);font-size:clamp(2rem,4vw,3rem);color:var(--dark);margin-bottom:12px}
+.divider-rose{width:48px;height:4px;background:linear-gradient(to right,var(--rose),#f2c96e);border-radius:4px;margin:16px auto 0}
+.main-wrap{max-width:860px;margin:0 auto;padding:48px 24px 80px}
+.card{background:white;border-radius:var(--radius);padding:32px 36px;box-shadow:var(--shadow-md);margin-bottom:28px}
+.card h2{font-family:var(--font-head);font-size:1.3rem;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--gray-100)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:.82rem;font-weight:600;color:var(--gray-700)}
+.form-group input,.form-group select{padding:12px 16px;border:2px solid var(--gray-200);border-radius:10px;font-size:.95rem;font-family:var(--font-body);outline:none;transition:border .18s}
+.form-group input:focus,.form-group select:focus{border-color:var(--rose)}
+.unit-toggle{display:flex;gap:0;margin-bottom:20px;border:2px solid var(--gray-200);border-radius:10px;overflow:hidden;width:fit-content}
+.unit-btn{padding:8px 20px;font-size:.85rem;font-weight:600;border:none;background:white;color:var(--gray-400);cursor:pointer;transition:all .18s;font-family:var(--font-body)}
+.unit-btn.active{background:var(--rose);color:white}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 28px;border-radius:var(--radius-pill);font-size:.92rem;font-weight:600;cursor:pointer;border:none;transition:all .22s;font-family:var(--font-body)}
+.btn-rose{background:linear-gradient(135deg,var(--rose),#C42E58);color:white;box-shadow:0 4px 16px rgba(232,67,106,.38)}
+.btn-rose:hover{transform:translateY(-2px)}
+.btn-full{width:100%;margin-top:20px}
+.results-card{background:white;border-radius:var(--radius);padding:32px 36px;box-shadow:var(--shadow-md);margin-bottom:28px;display:none}
+.results-card.show{display:block}
+.tdee-big{text-align:center;padding:28px;background:linear-gradient(135deg,var(--rose-pale),var(--plum-pale));border-radius:var(--radius);margin-bottom:24px}
+.tdee-big .label{font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:6px}
+.tdee-big .value{font-size:3.5rem;font-weight:700;color:var(--rose);font-family:var(--font-head);line-height:1}
+.tdee-big .sub{font-size:.9rem;color:var(--gray-700);margin-top:6px}
+.goals-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.goal-box{background:var(--gray-100);border-radius:12px;padding:16px;text-align:center}
+.goal-box .goal-label{font-size:.72rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--gray-400);margin-bottom:6px}
+.goal-box .goal-cal{font-size:1.4rem;font-weight:700;color:var(--dark);font-family:var(--font-head)}
+.goal-box.highlight{background:var(--teal-pale);border:2px solid var(--teal)}
+.goal-box.highlight .goal-cal{color:var(--teal)}
+.macro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.macro-box{background:var(--gray-100);border-radius:12px;padding:16px;text-align:center}
+.macro-box .macro-icon{font-size:1.4rem;margin-bottom:6px}
+.macro-box .macro-label{font-size:.72rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.8px}
+.macro-box .macro-val{font-size:1.3rem;font-weight:700;color:var(--dark)}
+.info-box{background:var(--gold-pale);border-left:4px solid var(--gold);border-radius:10px;padding:16px 20px;font-size:.85rem;color:var(--gray-700);line-height:1.7;margin-top:20px}
+.info-box strong{color:var(--gold)}
+.footer-mini{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:24px;font-size:.8rem}
+.footer-mini a{color:var(--rose-light)}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.card{padding:22px 18px}.macro-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="nav-logo">Glow With Heather<span>Peptides · Longevity · Beauty · Energy</span></a>
+    <a href="/" class="nav-back">← Back to Glow Lab</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="eyebrow">🔥 Wellness Tools</div>
+  <h1>TDEE Calculator</h1>
+  <div class="divider-rose"></div>
+  <p style="margin-top:14px;color:var(--gray-700);max-width:540px;margin-left:auto;margin-right:auto">Estimate your Total Daily Energy Expenditure, BMR, and personalized calorie targets for weight loss, maintenance, or muscle gain.</p>
+</div>
+
+<div class="main-wrap">
+
+  <div class="card">
+    <h2>📊 Your Details</h2>
+    <div style="margin-bottom:16px">
+      <div class="unit-toggle">
+        <button class="unit-btn active" id="btnImperial" onclick="setUnit('imperial')">Imperial (lbs/ft)</button>
+        <button class="unit-btn" id="btnMetric" onclick="setUnit('metric')">Metric (kg/cm)</button>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" id="age" placeholder="e.g. 45" min="18" max="100">
+      </div>
+      <div class="form-group">
+        <label>Sex</label>
+        <select id="sex">
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+      </div>
+      <div class="form-group" id="weightGroup">
+        <label id="weightLabel">Weight (lbs)</label>
+        <input type="number" id="weight" placeholder="e.g. 150">
+      </div>
+      <div class="form-group" id="heightGroup">
+        <label id="heightLabel">Height (ft, in)</label>
+        <div style="display:flex;gap:8px">
+          <input type="number" id="heightFt" placeholder="5" min="3" max="8" style="flex:1">
+          <input type="number" id="heightIn" placeholder="5" min="0" max="11" style="flex:1">
+        </div>
+      </div>
+      <div class="form-group" style="grid-column:1/-1">
+        <label>Activity Level</label>
+        <select id="activity">
+          <option value="1.2">Sedentary (desk job, little/no exercise)</option>
+          <option value="1.375">Lightly Active (light exercise 1–3 days/week)</option>
+          <option value="1.55" selected>Moderately Active (exercise 3–5 days/week)</option>
+          <option value="1.725">Very Active (hard exercise 6–7 days/week)</option>
+          <option value="1.9">Extra Active (very hard exercise + physical job)</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn btn-rose btn-full" onclick="calcTDEE()">Calculate My TDEE →</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results-card" id="results">
+    <h2>✅ Your Results</h2>
+    <div class="tdee-big">
+      <div class="label">Your TDEE (Maintenance Calories)</div>
+      <div class="value" id="r-tdee">—</div>
+      <div class="sub">calories per day to maintain your current weight</div>
+    </div>
+
+    <h3 style="font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:14px">Calorie Targets by Goal</h3>
+    <div class="goals-grid">
+      <div class="goal-box">
+        <div class="goal-label">Aggressive Loss</div>
+        <div class="goal-cal" id="r-agg">—</div>
+        <div style="font-size:.72rem;color:var(--gray-400)">-1,000 cal/day</div>
+      </div>
+      <div class="goal-box">
+        <div class="goal-label">Moderate Loss</div>
+        <div class="goal-cal" id="r-mod">—</div>
+        <div style="font-size:.72rem;color:var(--gray-400)">-500 cal/day</div>
+      </div>
+      <div class="goal-box highlight">
+        <div class="goal-label">Maintenance</div>
+        <div class="goal-cal" id="r-main">—</div>
+        <div style="font-size:.72rem;color:var(--teal)">Your TDEE</div>
+      </div>
+      <div class="goal-box">
+        <div class="goal-label">Lean Gain</div>
+        <div class="goal-cal" id="r-lean">—</div>
+        <div style="font-size:.72rem;color:var(--gray-400)">+250 cal/day</div>
+      </div>
+      <div class="goal-box">
+        <div class="goal-label">Muscle Gain</div>
+        <div class="goal-cal" id="r-bulk">—</div>
+        <div style="font-size:.72rem;color:var(--gray-400)">+500 cal/day</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:1rem;font-weight:700;color:var(--dark);margin:24px 0 4px">Estimated Macros (Maintenance)</h3>
+    <p style="font-size:.8rem;color:var(--gray-400);margin-bottom:0">Based on a balanced macro split (30% protein / 40% carbs / 30% fat)</p>
+    <div class="macro-grid">
+      <div class="macro-box">
+        <div class="macro-icon">🥩</div>
+        <div class="macro-label">Protein</div>
+        <div class="macro-val" id="r-protein">—<span style="font-size:.8rem;font-weight:400">g</span></div>
+      </div>
+      <div class="macro-box">
+        <div class="macro-icon">🍞</div>
+        <div class="macro-label">Carbs</div>
+        <div class="macro-val" id="r-carbs">—<span style="font-size:.8rem;font-weight:400">g</span></div>
+      </div>
+      <div class="macro-box">
+        <div class="macro-icon">🥑</div>
+        <div class="macro-label">Fat</div>
+        <div class="macro-val" id="r-fat">—<span style="font-size:.8rem;font-weight:400">g</span></div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>💡 Tip:</strong> Your BMR (Basal Metabolic Rate — calories burned at rest) is <strong id="r-bmr">—</strong> calories/day. TDEE accounts for your activity level on top of BMR. These are estimates — individual results vary based on muscle mass, hormones, and metabolic rate.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💡 Understanding Your Numbers</h2>
+    <div style="display:flex;flex-direction:column;gap:14px;font-size:.9rem;color:var(--gray-700)">
+      <div><strong style="color:var(--dark)">BMR (Basal Metabolic Rate):</strong> The calories your body burns at complete rest — just to keep your heart beating, lungs breathing, and cells functioning. Think of it as your body's "idle" calorie burn.</div>
+      <div><strong style="color:var(--dark)">TDEE (Total Daily Energy Expenditure):</strong> Your BMR multiplied by your activity level. This is your true daily calorie burn — the number you use to set your nutrition targets.</div>
+      <div><strong style="color:var(--dark)">For weight loss:</strong> Eat 250–500 calories below your TDEE for steady, sustainable fat loss (0.5–1 lb/week). Avoid aggressive deficits which can trigger muscle loss.</div>
+      <div><strong style="color:var(--dark)">Peptides and metabolism:</strong> Peptides like MOTS-C, Tirzepatide, and Retatrutide can influence metabolic rate, appetite, and fat oxidation — meaning your effective TDEE may shift over time during a research protocol.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer-mini">
+  <p>© 2026 Glow With Heather · <a href="/">Home</a> · <a href="/calculators">All Calculators</a> · For educational purposes only.</p>
+</footer>
+
+<script>
+let unit = 'imperial';
+function setUnit(u) {
+  unit = u;
+  document.getElementById('btnImperial').classList.toggle('active', u === 'imperial');
+  document.getElementById('btnMetric').classList.toggle('active', u === 'metric');
+  document.getElementById('weightLabel').textContent = u === 'imperial' ? 'Weight (lbs)' : 'Weight (kg)';
+  document.getElementById('heightLabel').textContent = u === 'imperial' ? 'Height (ft, in)' : 'Height (cm)';
+  const inGroup = document.getElementById('heightIn').parentElement;
+  inGroup.style.display = u === 'imperial' ? 'flex' : 'none';
+  document.getElementById('heightFt').placeholder = u === 'imperial' ? '5' : 'e.g. 165';
+}
+
+function calcTDEE() {
+  const age = parseFloat(document.getElementById('age').value);
+  const sex = document.getElementById('sex').value;
+  const activity = parseFloat(document.getElementById('activity').value);
+  let weightKg, heightCm;
+
+  if (unit === 'imperial') {
+    const lbs = parseFloat(document.getElementById('weight').value);
+    const ft = parseFloat(document.getElementById('heightFt').value) || 0;
+    const inches = parseFloat(document.getElementById('heightIn').value) || 0;
+    weightKg = lbs / 2.2046;
+    heightCm = (ft * 30.48) + (inches * 2.54);
+  } else {
+    weightKg = parseFloat(document.getElementById('weight').value);
+    heightCm = parseFloat(document.getElementById('heightFt').value);
+  }
+
+  if (!age || !weightKg || !heightCm) { alert('Please fill in all fields.'); return; }
+
+  // Mifflin-St Jeor formula
+  let bmr;
+  if (sex === 'female') {
+    bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) - 161;
+  } else {
+    bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) + 5;
+  }
+  const tdee = Math.round(bmr * activity);
+  const bmrR = Math.round(bmr);
+
+  document.getElementById('r-tdee').textContent = tdee.toLocaleString();
+  document.getElementById('r-bmr').textContent = bmrR.toLocaleString();
+  document.getElementById('r-agg').textContent = Math.max(1200, tdee - 1000).toLocaleString();
+  document.getElementById('r-mod').textContent = Math.max(1200, tdee - 500).toLocaleString();
+  document.getElementById('r-main').textContent = tdee.toLocaleString();
+  document.getElementById('r-lean').textContent = (tdee + 250).toLocaleString();
+  document.getElementById('r-bulk').textContent = (tdee + 500).toLocaleString();
+
+  // Macros at 30/40/30
+  document.getElementById('r-protein').innerHTML = Math.round((tdee * 0.30) / 4) + '<span style="font-size:.8rem;font-weight:400">g</span>';
+  document.getElementById('r-carbs').innerHTML = Math.round((tdee * 0.40) / 4) + '<span style="font-size:.8rem;font-weight:400">g</span>';
+  document.getElementById('r-fat').innerHTML = Math.round((tdee * 0.30) / 9) + '<span style="font-size:.8rem;font-weight:400">g</span>';
+
+  const results = document.getElementById('results');
+  results.classList.add('show');
+  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>

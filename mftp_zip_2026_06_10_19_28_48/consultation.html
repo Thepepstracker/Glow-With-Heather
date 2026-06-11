@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Consultation — Glow With Heather</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#E8436A;--rose-pale:#FDE8ED;--gold:#D4993A;--gold-pale:#FEF6E4;--plum:#7B3FA8;--plum-pale:#F5EEFF;--gray-100:#F8F5F2;--gray-200:#EDE8E3;--gray-400:#B0A89E;--gray-700:#5C5148;--dark:#2A1F18;--font-head:'Playfair Display',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;--shadow-md:0 6px 24px rgba(0,0,0,.10);--shadow-lg:0 16px 48px rgba(0,0,0,.14);--radius:16px;--radius-pill:50px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--gray-100);color:var(--dark);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200)}
+.navbar-inner{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 28px;max-width:1140px;margin:0 auto}
+.nav-logo{font-family:var(--font-head);font-size:1.2rem;color:var(--rose);font-weight:700;display:flex;flex-direction:column;line-height:1.15}
+.nav-logo span{font-family:var(--font-body);font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);font-weight:500}
+.nav-back{font-size:.88rem;font-weight:500;color:var(--gray-700);padding:7px 16px;border-radius:var(--radius-pill);border:1.5px solid var(--gray-200);transition:all .18s}
+.nav-back:hover{border-color:var(--rose);color:var(--rose)}
+.page-header{padding:120px 24px 60px;text-align:center;background:linear-gradient(160deg,#FFF5F8 0%,#F5F0FF 100%)}
+.eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+.page-header h1{font-family:var(--font-head);font-size:clamp(2rem,4vw,3rem);color:var(--dark);margin-bottom:12px}
+.divider-rose{width:48px;height:4px;background:linear-gradient(to right,var(--rose),#f2c96e);border-radius:4px;margin:16px auto 0}
+.main-wrap{max-width:1060px;margin:0 auto;padding:48px 24px 80px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.card{background:white;border-radius:var(--radius);padding:32px 36px;box-shadow:var(--shadow-md);margin-bottom:24px}
+.card h2{font-family:var(--font-head);font-size:1.3rem;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--gray-100)}
+.price-hero{text-align:center;background:linear-gradient(135deg,var(--rose-pale),var(--plum-pale));border-radius:var(--radius);padding:32px;margin-bottom:24px}
+.price-amount{font-family:var(--font-head);font-size:4rem;font-weight:700;color:var(--rose);line-height:1}
+.price-label{font-size:.9rem;color:var(--gray-700);margin-top:6px}
+.includes-list{list-style:none;margin-bottom:24px}
+.includes-list li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--gray-100)}
+.includes-list li:last-child{border-bottom:none}
+.check{width:22px;height:22px;background:var(--rose);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.includes-list li div{font-size:.92rem;color:var(--gray-700);line-height:1.5}
+.includes-list li strong{color:var(--dark)}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-group label{font-size:.82rem;font-weight:600;color:var(--gray-700)}
+.form-group input,.form-group select,.form-group textarea{padding:12px 16px;border:2px solid var(--gray-200);border-radius:10px;font-size:.93rem;font-family:var(--font-body);outline:none;transition:border .18s;background:white}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--rose)}
+.form-group textarea{resize:vertical;min-height:100px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 28px;border-radius:var(--radius-pill);font-size:.95rem;font-weight:700;cursor:pointer;border:none;transition:all .22s;font-family:var(--font-body);width:100%;letter-spacing:.3px}
+.btn-rose{background:linear-gradient(135deg,var(--rose),#C42E58);color:white;box-shadow:0 4px 16px rgba(232,67,106,.4)}
+.btn-rose:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,67,106,.5)}
+.faq-item{border-bottom:1px solid var(--gray-100);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;font-size:.93rem;color:var(--dark);margin-bottom:6px}
+.faq-a{font-size:.88rem;color:var(--gray-700);line-height:1.65}
+.testimonial{background:var(--rose-pale);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.testimonial p{font-size:.88rem;color:var(--gray-700);line-height:1.65;font-style:italic;margin-bottom:8px}
+.testimonial strong{font-size:.8rem;color:var(--rose);font-style:normal}
+.success-msg{display:none;text-align:center;padding:40px;background:linear-gradient(135deg,#edfaf0,#e6f7f6);border-radius:var(--radius);border:2px solid #2aaa60}
+.success-msg h3{font-family:var(--font-head);font-size:1.5rem;color:#1a7a40;margin-bottom:8px}
+.footer-mini{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:24px;font-size:.8rem}
+.footer-mini a{color:#F7839A}
+@media(max-width:800px){.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="nav-logo">Glow With Heather<span>Peptides · Longevity · Beauty · Energy</span></a>
+    <a href="/" class="nav-back">← Back to Glow Lab</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="eyebrow">💬 Personalized Guidance</div>
+  <h1>Book a Peptide &<br>Wellness Consultation</h1>
+  <div class="divider-rose"></div>
+  <p style="margin-top:14px;color:var(--gray-700);max-width:540px;margin-left:auto;margin-right:auto">Get personalized guidance on peptides, wellness goals, longevity, energy, and metabolism — tailored to you.</p>
+</div>
+
+<div class="main-wrap">
+  <div class="two-col">
+    <!-- LEFT: Info -->
+    <div>
+      <div class="card">
+        <div class="price-hero">
+          <div class="price-amount">$97</div>
+          <div class="price-label">per session · Initial Consultation</div>
+        </div>
+        <ul class="includes-list">
+          <li><div class="check">✓</div><div><strong>Personalized peptide guidance</strong><br>We'll review which peptides align with your research goals, body, and lifestyle.</div></li>
+          <li><div class="check">✓</div><div><strong>Wellness goal planning</strong><br>Whether it's weight, energy, longevity, or skin — we build a focused plan.</div></li>
+          <li><div class="check">✓</div><div><strong>Protocol and dosing education</strong><br>Learn what research protocols look like for the peptides you're considering.</div></li>
+          <li><div class="check">✓</div><div><strong>Vendor & sourcing guidance</strong><br>Know where to find quality products and how to evaluate trusted suppliers.</div></li>
+          <li><div class="check">✓</div><div><strong>Recorded session</strong><br>You'll receive a recording so you can refer back to everything discussed.</div></li>
+          <li><div class="check">✓</div><div><strong>Scheduled at your convenience</strong><br>Book a time that works for you — evenings and weekends available.</div></li>
+        </ul>
+        <div style="background:var(--gold-pale);border-left:4px solid var(--gold);border-radius:10px;padding:14px 18px;font-size:.83rem;color:var(--gray-700);line-height:1.65">
+          <strong style="color:var(--gold)">⚠️ Please note:</strong> Heather is a wellness educator, not a licensed medical professional. Consultations are educational in nature and do not constitute medical advice. Always consult a licensed healthcare provider for medical decisions.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>💬 What Women Are Saying</h2>
+        <div class="testimonial">
+          <p>"Heather completely changed how I think about wellness. She explained everything so clearly — I finally understood what I was researching and why."</p>
+          <strong>— Sarah M., Glow Lab Member</strong>
+        </div>
+        <div class="testimonial">
+          <p>"I was so overwhelmed before my consultation. Heather helped me cut through the noise and focus on what actually made sense for my goals."</p>
+          <strong>— Jennifer T., Community Member</strong>
+        </div>
+        <div class="testimonial">
+          <p>"Worth every penny. I left feeling confident and informed. Heather is so knowledgeable and easy to talk to."</p>
+          <strong>— Rosie A., Glow Lab Inner Circle</strong>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-q">How long is the consultation?</div>
+          <div class="faq-a">Sessions are 45–60 minutes via Zoom or phone call, depending on your preference.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What do I need to prepare?</div>
+          <div class="faq-a">Just your goals and any questions you have. If you've already been researching specific peptides, jot those down — it helps us make the most of our time.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How quickly can I book?</div>
+          <div class="faq-a">After you submit the form, Heather will reach out within 24–48 hours to schedule. Evening and weekend slots are available.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is there a follow-up option?</div>
+          <div class="faq-a">Yes! Follow-up sessions are available at a discounted rate for returning clients. Ask about the package options during your initial session.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div>
+      <div class="card" id="formCard">
+        <h2>📋 Request Your Consultation</h2>
+        <form id="consultForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" id="firstName" placeholder="Your first name" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" id="lastName" placeholder="Your last name" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" id="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone (optional)</label>
+            <input type="tel" id="phone" placeholder="(555) 000-0000">
+          </div>
+          <div class="form-group">
+            <label>Primary Wellness Goal *</label>
+            <select id="goal" required>
+              <option value="">Select your main goal...</option>
+              <option>Weight loss / fat reduction</option>
+              <option>Energy & vitality</option>
+              <option>Longevity & anti-aging</option>
+              <option>Skin & hair health</option>
+              <option>Gut health & recovery</option>
+              <option>Brain & cognitive function</option>
+              <option>Hormone & metabolic health</option>
+              <option>Multiple goals</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Experience Level</label>
+            <select id="experience">
+              <option value="beginner">Complete beginner — new to peptides</option>
+              <option value="some">Some research done — have questions</option>
+              <option value="experienced">Currently researching — want optimization</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Contact Time</label>
+            <select id="timing">
+              <option>Morning (9am–12pm EST)</option>
+              <option>Afternoon (12pm–5pm EST)</option>
+              <option>Evening (5pm–9pm EST)</option>
+              <option>Flexible — any time works</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell Heather a bit about your goals</label>
+            <textarea id="message" placeholder="Share anything that would help Heather prepare for your consultation — your health history, specific peptides you're curious about, or challenges you're facing..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-rose">Request My Consultation → $97</button>
+          <p style="font-size:.75rem;color:var(--gray-400);margin-top:10px;text-align:center">Heather will contact you within 24–48 hours to confirm your appointment and send payment details.</p>
+        </form>
+        <div class="success-msg" id="successMsg">
+          <div style="font-size:3rem;margin-bottom:12px">🎉</div>
+          <h3>Request Received!</h3>
+          <p style="color:var(--gray-700);font-size:.95rem">Thank you! Heather will reach out to you within 24–48 hours to schedule your session and send payment details.</p>
+          <p style="margin-top:14px;font-size:.85rem;color:var(--gray-400)">In the meantime, you're welcome to join the <a href="https://www.skool.com/glow-lab-inner-circle-2611" style="color:var(--rose);font-weight:600">Glow Lab Inner Circle</a> community.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-mini">
+  <p>© 2026 Glow With Heather · <a href="/">Home</a> · <a href="mailto:getglowing@glowwithheather.com">getglowing@glowwithheather.com</a></p>
+</footer>
+
+<script>
+function submitForm(e) {
+  e.preventDefault();
+  const name = document.getElementById('firstName').value;
+  const email = document.getElementById('email').value;
+  const goal = document.getElementById('goal').value;
+  const message = document.getElementById('message').value;
+
+  // In production: send to email service or CRM
+  // For now: mailto fallback
+  const subject = encodeURIComponent(`Consultation Request — ${name}`);
+  const body = encodeURIComponent(`Name: ${name} ${document.getElementById('lastName').value}\nEmail: ${email}\nPhone: ${document.getElementById('phone').value}\nGoal: ${goal}\nExperience: ${document.getElementById('experience').value}\nTiming: ${document.getElementById('timing').value}\n\nMessage:\n${message}`);
+  window.open(`mailto:getglowing@glowwithheather.com?subject=${subject}&body=${body}`);
+
+  document.getElementById('consultForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+</script>
+</body>
+</html>

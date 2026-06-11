@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peptide Dictionary — Glow With Heather</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#E8436A;--rose-pale:#FDE8ED;--gold:#D4993A;--gold-pale:#FEF6E4;--plum:#7B3FA8;--plum-pale:#F5EEFF;--teal:#2aaaa0;--teal-pale:#E6F7F6;--gray-100:#F8F5F2;--gray-200:#EDE8E3;--gray-400:#B0A89E;--gray-700:#5C5148;--dark:#2A1F18;--font-head:'Playfair Display',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;--shadow-sm:0 2px 8px rgba(0,0,0,.08);--shadow-md:0 6px 24px rgba(0,0,0,.10);--radius:16px;--radius-pill:50px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--gray-100);color:var(--dark);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.navbar-inner{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 28px;max-width:1200px;margin:0 auto}
+.nav-logo{font-family:var(--font-head);font-size:1.2rem;color:var(--rose);font-weight:700;display:flex;flex-direction:column;line-height:1.15}
+.nav-logo span{font-family:var(--font-body);font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);font-weight:500}
+.nav-back{font-size:.88rem;font-weight:500;color:var(--gray-700);padding:7px 16px;border-radius:var(--radius-pill);border:1.5px solid var(--gray-200);transition:all .18s}
+.nav-back:hover{border-color:var(--rose);color:var(--rose)}
+.page-header{padding:120px 24px 60px;text-align:center;background:linear-gradient(160deg,#FFF5F8 0%,#F5F0FF 100%)}
+.eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+.page-header h1{font-family:var(--font-head);font-size:clamp(2rem,4vw,3rem);color:var(--dark);margin-bottom:12px}
+.divider-rose{width:48px;height:4px;background:linear-gradient(to right,var(--rose),#f2c96e);border-radius:4px;margin:16px auto 0}
+.layout{display:grid;grid-template-columns:220px 1fr;gap:32px;max-width:1100px;margin:0 auto;padding:48px 24px 80px;align-items:start}
+.sidebar{position:sticky;top:90px}
+.sidebar-card{background:white;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-sm)}
+.sidebar-card h3{font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:14px}
+.search-input{width:100%;padding:10px 14px;border:2px solid var(--gray-200);border-radius:10px;font-size:.88rem;font-family:var(--font-body);outline:none;transition:border .18s;margin-bottom:16px}
+.search-input:focus{border-color:var(--rose)}
+.alpha-nav{display:flex;flex-wrap:wrap;gap:6px}
+.alpha-btn{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:6px;font-size:.78rem;font-weight:700;background:var(--gray-100);border:none;cursor:pointer;transition:all .18s;color:var(--gray-700);font-family:var(--font-body)}
+.alpha-btn:hover,.alpha-btn.active{background:var(--rose);color:white}
+.cat-filter{display:flex;flex-direction:column;gap:6px;margin-top:16px}
+.cat-btn{padding:7px 12px;border-radius:8px;font-size:.82rem;font-weight:500;border:none;cursor:pointer;text-align:left;background:none;color:var(--gray-700);transition:all .18s;font-family:var(--font-body)}
+.cat-btn:hover,.cat-btn.active{background:var(--rose-pale);color:var(--rose);font-weight:600}
+.dict-content{}
+.letter-section{margin-bottom:40px}
+.letter-header{font-family:var(--font-head);font-size:2.5rem;color:var(--rose);font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid var(--rose-pale)}
+.peptide-entry{background:white;border-radius:var(--radius);padding:22px 26px;margin-bottom:14px;box-shadow:var(--shadow-sm);border-left:4px solid transparent;transition:all .22s}
+.peptide-entry:hover{box-shadow:var(--shadow-md);transform:translateX(4px)}
+.entry-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.entry-name{font-family:var(--font-head);font-size:1.15rem;color:var(--dark)}
+.entry-aka{font-size:.8rem;color:var(--gray-400);font-style:italic;margin-top:2px}
+.entry-tags{display:flex;gap:6px;flex-wrap:wrap}
+.entry-tag{font-size:.65rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+.tag-metabolism{background:#fde8ed;color:#c42e58}
+.tag-antiaging{background:#f5eeff;color:#5a2090}
+.tag-skin{background:#e6f7f6;color:#1a8080}
+.tag-energy{background:#fef6e4;color:#a07010}
+.tag-gut{background:#edf5e8;color:#2a6020}
+.tag-brain{background:#e8f0ff;color:#2040a0}
+.tag-immune{background:#fff0e6;color:#a04010}
+.tag-weight{background:#fde8ed;color:#c42e58}
+.tag-recovery{background:#e6f9f6;color:#0d6e6e}
+.entry-desc{font-size:.9rem;color:var(--gray-700);line-height:1.7;margin-bottom:10px}
+.entry-uses{font-size:.82rem;color:var(--gray-400)}
+.entry-uses strong{color:var(--gray-700)}
+.no-results{text-align:center;padding:60px 20px;color:var(--gray-400)}
+.no-results h3{font-size:1.2rem;color:var(--gray-700);margin-bottom:8px}
+.footer-mini{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:24px;font-size:.8rem}
+.footer-mini a{color:#F7839A}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.sidebar{position:static}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="nav-logo">Glow With Heather<span>Peptides · Longevity · Beauty · Energy</span></a>
+    <a href="/" class="nav-back">← Back to Glow Lab</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="eyebrow">📖 Education</div>
+  <h1>Peptide Dictionary</h1>
+  <div class="divider-rose"></div>
+  <p style="margin-top:14px;color:var(--gray-700);max-width:560px;margin-left:auto;margin-right:auto">A comprehensive A–Z reference guide to research peptides — what they are, what they do, and who they're for.</p>
+</div>
+
+<div class="layout">
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <h3>Search</h3>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search peptides..." oninput="filterPeptides()">
+      <h3>Filter by Category</h3>
+      <div class="cat-filter">
+        <button class="cat-btn active" onclick="filterCat('all', this)">All Peptides</button>
+        <button class="cat-btn" onclick="filterCat('weight', this)">⚖️ Weight / Metabolism</button>
+        <button class="cat-btn" onclick="filterCat('antiaging', this)">⏳ Anti-Aging</button>
+        <button class="cat-btn" onclick="filterCat('skin', this)">✨ Skin & Hair</button>
+        <button class="cat-btn" onclick="filterCat('energy', this)">⚡ Energy</button>
+        <button class="cat-btn" onclick="filterCat('gut', this)">🫀 Gut / Recovery</button>
+        <button class="cat-btn" onclick="filterCat('brain', this)">🧠 Brain / Mood</button>
+        <button class="cat-btn" onclick="filterCat('immune', this)">🛡️ Immune</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dict-content" id="dictContent">
+    <!-- Entries rendered by JS -->
+  </div>
+</div>
+
+<footer class="footer-mini">
+  <p>© 2026 Glow With Heather · <a href="/">Home</a> · For educational & research use only. Not medical advice.</p>
+</footer>
+
+<script>
+const peptides = [
+  {name:'AOD-9604',aka:'Advanced Obesity Drug',cats:['weight'],color:'var(--rose)',desc:'A modified fragment of human growth hormone (hGH) specifically designed to mimic the fat-burning actions of hGH without stimulating growth or insulin resistance.',uses:'Fat loss, metabolic support, weight management research'},
+  {name:'ARA-290',aka:'Cibinetide',cats:['immune','recovery'],color:'var(--plum)',desc:'A peptide derived from erythropoietin that activates the innate repair receptor without stimulating red blood cell production. Shows promise for neuropathic pain and inflammation.',uses:'Neuropathy, inflammation, nerve repair research'},
+  {name:'BPC-157',aka:'Body Protection Compound 157',cats:['gut','recovery'],color:'#2aaa60',desc:'One of the most well-researched peptides. A pentadecapeptide derived from human gastric juice, shown to accelerate healing of tendons, ligaments, muscles, and the gut lining.',uses:'Gut healing, tendon repair, wound healing, anti-inflammatory research'},
+  {name:'CJC-1295',aka:'Modified GRF(1-29)',cats:['antiaging','energy'],color:'var(--gold)',desc:'A synthetic analogue of growth hormone releasing hormone (GHRH) that stimulates release of growth hormone from the pituitary. Often stacked with Ipamorelin for synergistic GH release.',uses:'GH stimulation, body composition, sleep quality, anti-aging research'},
+  {name:'Epithalon',aka:'Epitalon · Epithalamin',cats:['antiaging'],color:'var(--plum)',desc:'A tetrapeptide derived from the pineal gland. One of the only compounds shown to activate telomerase and lengthen telomeres — the biological clock of cells. Also supports melatonin and sleep regulation.',uses:'Telomere extension, longevity, sleep improvement, anti-aging research'},
+  {name:'GHK-Cu',aka:'Copper Peptide GHK-Cu',cats:['skin','antiaging'],color:'var(--teal)',desc:'A naturally occurring copper-binding tripeptide with powerful skin regeneration, wound healing, and anti-aging properties. Stimulates collagen and elastin production. One of the most studied cosmetic peptides.',uses:'Skin firming, collagen production, wound healing, hair follicle support'},
+  {name:'GLP-1',aka:'Glucagon-Like Peptide-1',cats:['weight'],color:'var(--rose)',desc:'An incretin hormone naturally released from the gut after eating. It stimulates insulin secretion, reduces glucagon, slows gastric emptying, and reduces appetite. The basis for drugs like semaglutide.',uses:'Blood sugar regulation, appetite reduction, weight management research'},
+  {name:'Glutathione',aka:'GSH — The Master Antioxidant',cats:['antiaging','immune','skin'],color:'var(--plum)',desc:'The body\'s most powerful endogenous antioxidant, produced in the liver. Levels decline with age and stress. Injectable glutathione is rapidly absorbed and provides systemic antioxidant and detoxification support.',uses:'Antioxidant protection, skin brightening, liver detox, immune support'},
+  {name:'Ipamorelin',aka:'Growth Hormone Secretagogue',cats:['antiaging','energy'],color:'var(--gold)',desc:'A selective growth hormone secretagogue that mimics ghrelin and stimulates GH release from the pituitary with minimal side effects. Considered one of the cleanest GH-releasing peptides.',uses:'GH stimulation, muscle recovery, fat loss, sleep quality research'},
+  {name:'KPV',aka:'Lysine-Proline-Valine',cats:['gut','immune'],color:'#2aaa60',desc:'A tripeptide derived from the C-terminus of alpha-MSH with potent anti-inflammatory properties. Works at the cellular level to calm inflammation, particularly in the gut and skin.',uses:'IBD research, gut inflammation, skin conditions, wound healing'},
+  {name:'Lipo-C',aka:'Liposomal Vitamin C with B12',cats:['immune','energy'],color:'var(--gold)',desc:'A liposomal formulation of Vitamin C combined with B12 for dramatically enhanced bioavailability. Injectable delivery bypasses digestive limitations and delivers high-dose vitamin C directly to cells.',uses:'Immune support, collagen synthesis, energy, antioxidant research'},
+  {name:'MOTS-C',aka:'Mitochondrial ORF of 12S rRNA-c',cats:['energy','weight','antiaging'],color:'var(--rose)',desc:'A mitochondrial-derived peptide that mimics the metabolic benefits of exercise at a cellular level. Regulates insulin sensitivity, enhances fat burning, and promotes longevity through mitochondrial pathways.',uses:'Metabolic regulation, fat burning, insulin sensitivity, longevity research'},
+  {name:'MT-2',aka:'Melanotan II',cats:['skin'],color:'var(--plum)',desc:'A synthetic analogue of alpha-MSH that activates melanocortin receptors. Studied for its effects on skin pigmentation, libido, and appetite suppression.',uses:'Skin tanning, libido, appetite research'},
+  {name:'NAD+',aka:'Nicotinamide Adenine Dinucleotide',cats:['energy','antiaging','brain'],color:'var(--gold)',desc:'A critical coenzyme present in every cell. NAD+ levels decline significantly with age. Supplementation activates sirtuins (longevity proteins), supports DNA repair, enhances mitochondrial function, and boosts cognitive clarity.',uses:'Cellular energy, DNA repair, anti-aging, cognitive support, sirtuin activation'},
+  {name:'PT-141',aka:'Bremelanotide',cats:['brain'],color:'var(--plum)',desc:'A melanocortin receptor agonist developed from Melanotan II. Acts centrally in the brain to enhance sexual desire in both men and women, unlike PDE5 inhibitors which work peripherally.',uses:'Libido and sexual function research'},
+  {name:'Retatrutide',aka:'GLP-1/GIP/Glucagon Triple Agonist',cats:['weight'],color:'var(--rose)',desc:'A next-generation triple receptor agonist that simultaneously activates GLP-1, GIP, and glucagon pathways. Clinical research has shown it to achieve among the most significant weight reductions of any compound studied.',uses:'Advanced weight management, metabolic health, fat loss research'},
+  {name:'Selank',aka:'Anxiolytic Peptide',cats:['brain','immune'],color:'#2040a0',desc:'A synthetic analogue of the human tetrapeptide tuftsin. Studied for anxiolytic (anti-anxiety) effects, cognitive enhancement, and immune modulation without sedation or addiction potential.',uses:'Anxiety reduction, cognitive enhancement, immune modulation research'},
+  {name:'Semax',aka:'ACTH(4-7)PGP',cats:['brain'],color:'#2040a0',desc:'A heptapeptide based on a fragment of ACTH. Studied extensively in Russia for cognitive enhancement, neuroprotection, and stroke recovery. Increases BDNF and supports neuroplasticity.',uses:'Cognitive enhancement, neuroprotection, BDNF stimulation, focus research'},
+  {name:'Semaglutide',aka:'GLP-1 Receptor Agonist',cats:['weight'],color:'var(--rose)',desc:'A long-acting GLP-1 receptor agonist that reduces appetite and slows gastric emptying. The active ingredient in FDA-approved Ozempic and Wegovy. Among the most studied weight management compounds.',uses:'Appetite reduction, weight management, blood sugar regulation research'},
+  {name:'SS-31',aka:'Elamipretide · Bendavia · MTP-131',cats:['antiaging','energy'],color:'var(--plum)',desc:'A mitochondria-targeted peptide that concentrates in the inner mitochondrial membrane and protects cardiolipin. Shown to restore mitochondrial function, reduce oxidative damage, and reverse age-related energy decline in multiple tissue types.',uses:'Mitochondrial protection, cellular energy, cardiac and kidney health, aging research'},
+  {name:'TB-500',aka:'Thymosin Beta-4 Fragment',cats:['recovery'],color:'#2aaa60',desc:'A synthetic version of a naturally occurring peptide found in virtually all animal cells. TB-500 promotes actin upregulation, tissue repair, inflammation reduction, and new blood vessel formation.',uses:'Wound healing, tendon/muscle repair, inflammation, recovery research'},
+  {name:'Tesamorelin',aka:'GHRH Analogue',cats:['antiaging','weight'],color:'var(--gold)',desc:'A synthetic analogue of growth hormone releasing hormone (GHRH). FDA-approved for HIV-associated lipodystrophy. Shows significant reduction in visceral fat and improvement in body composition.',uses:'Visceral fat reduction, growth hormone stimulation, body composition research'},
+  {name:'Thymosin Alpha-1',aka:'Tα1 · Zadaxin',cats:['immune'],color:'#a04010',desc:'A 28-amino acid peptide derived from the thymus gland. Thymosin Alpha-1 has been used clinically for immune-compromised patients. Stimulates T-cell production and regulates immune response.',uses:'Immune modulation, T-cell activation, viral infection support, autoimmune research'},
+  {name:'Tirzepatide',aka:'GLP-1 / GIP Dual Agonist',cats:['weight'],color:'var(--rose)',desc:'A dual GLP-1 and GIP receptor agonist. The active ingredient in FDA-approved Mounjaro and Zepbound. Clinical trials show superior weight loss results compared to single GLP-1 agonists.',uses:'Weight management, blood sugar regulation, metabolic health research'},
+  {name:'VIP',aka:'Vasoactive Intestinal Peptide',cats:['immune','brain'],color:'#2040a0',desc:'A 28-amino acid neuropeptide found throughout the central and peripheral nervous system. Has anti-inflammatory, neuroprotective, and bronchodilatory effects. Studied for Long COVID and autoimmune conditions.',uses:'Neuroprotection, inflammation, Long COVID, autoimmune research'},
+];
+
+let currentCat = 'all';
+
+function renderPeptides(list) {
+  const content = document.getElementById('dictContent');
+  if (list.length === 0) {
+    content.innerHTML = '<div class="no-results"><h3>No peptides found</h3><p>Try a different search term or category.</p></div>';
+    return;
+  }
+  const byLetter = {};
+  list.forEach(p => {
+    const l = p.name[0].toUpperCase();
+    if (!byLetter[l]) byLetter[l] = [];
+    byLetter[l].push(p);
+  });
+  let html = '';
+  Object.keys(byLetter).sort().forEach(letter => {
+    html += `<div class="letter-section" id="letter-${letter}"><div class="letter-header">${letter}</div>`;
+    byLetter[letter].forEach(p => {
+      const tags = p.cats.map(c => `<span class="entry-tag tag-${c}">${catLabel(c)}</span>`).join('');
+      html += `
+        <div class="peptide-entry" style="border-left-color:${p.color}">
+          <div class="entry-header">
+            <div><div class="entry-name">${p.name}</div><div class="entry-aka">${p.aka}</div></div>
+            <div class="entry-tags">${tags}</div>
+          </div>
+          <div class="entry-desc">${p.desc}</div>
+          <div class="entry-uses"><strong>Research uses:</strong> ${p.uses}</div>
+        </div>`;
+    });
+    html += '</div>';
+  });
+  content.innerHTML = html;
+}
+
+function catLabel(c) {
+  const labels = {weight:'Weight',antiaging:'Anti-Aging',skin:'Skin',energy:'Energy',gut:'Gut/Recovery',brain:'Brain',immune:'Immune',recovery:'Recovery'};
+  return labels[c] || c;
+}
+
+function filterPeptides() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  let list = peptides;
+  if (currentCat !== 'all') list = list.filter(p => p.cats.includes(currentCat));
+  if (q) list = list.filter(p => p.name.toLowerCase().includes(q) || p.aka.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
+  renderPeptides(list);
+}
+
+function filterCat(cat, btn) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterPeptides();
+}
+
+renderPeptides(peptides);
+</script>
+</body>
+</html>

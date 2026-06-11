@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow Creator Circle — Glow With Heather</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#E8436A;--rose-pale:#FDE8ED;--gold:#D4993A;--gold-pale:#FEF6E4;--plum:#7B3FA8;--plum-pale:#F5EEFF;--gray-100:#F8F5F2;--gray-200:#EDE8E3;--gray-400:#B0A89E;--gray-700:#5C5148;--dark:#2A1F18;--font-head:'Playfair Display',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;--shadow-md:0 6px 24px rgba(0,0,0,.10);--radius:16px;--radius-pill:50px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--gray-100);color:var(--dark);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200)}
+.navbar-inner{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 28px;max-width:1140px;margin:0 auto}
+.nav-logo{font-family:var(--font-head);font-size:1.2rem;color:var(--rose);font-weight:700;display:flex;flex-direction:column;line-height:1.15}
+.nav-logo span{font-family:var(--font-body);font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400)}
+.nav-back{font-size:.88rem;font-weight:500;color:var(--gray-700);padding:7px 16px;border-radius:var(--radius-pill);border:1.5px solid var(--gray-200);transition:all .18s}
+.nav-back:hover{border-color:var(--rose);color:var(--rose)}
+.hero{min-height:60vh;background:linear-gradient(135deg,var(--plum),#3a1060);display:flex;align-items:center;padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(232,67,106,.2) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:700px;margin:0 auto;position:relative;z-index:1}
+.hero .eyebrow{color:rgba(255,255,255,.6);background:rgba(255,255,255,.1);border-radius:var(--radius-pill);padding:5px 14px;margin-bottom:20px}
+.hero h1{font-family:var(--font-head);font-size:clamp(2.2rem,5vw,3.5rem);color:white;margin-bottom:16px;line-height:1.15}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,#f2c96e,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.75;margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;border-radius:var(--radius-pill);font-size:.95rem;font-weight:700;cursor:pointer;border:none;transition:all .22s;font-family:var(--font-body)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#b8800a);color:white;box-shadow:0 4px 16px rgba(212,153,58,.45)}
+.btn-gold:hover{transform:translateY(-2px)}
+.main-wrap{max-width:900px;margin:0 auto;padding:56px 24px 80px}
+.card{background:white;border-radius:var(--radius);padding:36px 40px;box-shadow:var(--shadow-md);margin-bottom:28px}
+.card h2{font-family:var(--font-head);font-size:1.4rem;color:var(--dark);margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--gray-100)}
+.perks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px;margin-bottom:24px}
+.perk-card{background:linear-gradient(135deg,var(--rose-pale),var(--plum-pale));border-radius:12px;padding:20px;text-align:center}
+.perk-icon{font-size:2rem;margin-bottom:8px}
+.perk-title{font-weight:700;font-size:.92rem;color:var(--dark);margin-bottom:4px}
+.perk-desc{font-size:.82rem;color:var(--gray-700)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:4px}
+.form-group label{font-size:.82rem;font-weight:600;color:var(--gray-700)}
+.form-group input,.form-group select,.form-group textarea{padding:12px 16px;border:2px solid var(--gray-200);border-radius:10px;font-size:.93rem;font-family:var(--font-body);outline:none;transition:border .18s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--rose)}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-full{grid-column:1/-1}
+.btn-rose{background:linear-gradient(135deg,var(--rose),#C42E58);color:white;box-shadow:0 4px 16px rgba(232,67,106,.38);width:100%;margin-top:16px}
+.btn-rose:hover{transform:translateY(-2px)}
+.success-msg{display:none;text-align:center;padding:40px;background:linear-gradient(135deg,#edfaf0,#e6f7f6);border-radius:var(--radius);border:2px solid #2aaa60}
+.footer-mini{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:24px;font-size:.8rem}
+.footer-mini a{color:#F7839A}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.card{padding:24px 20px}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="nav-logo">Glow With Heather<span>Peptides · Longevity · Beauty · Energy</span></a>
+    <a href="/" class="nav-back">← Back to Glow Lab</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Glow Protocols</div>
+    <h1>Become Part of the<br><em>Glow Creator Circle</em></h1>
+    <p>We're looking for real women over 40 who love skincare, confidence, wellness, beauty, and sharing their journey online. No large following required — authenticity matters more than numbers.</p>
+    <a href="#apply" class="btn btn-gold">Apply Now — It's Free →</a>
+  </div>
+</div>
+
+<div class="main-wrap">
+
+  <div class="card">
+    <h2>🎁 What Selected Creators May Receive</h2>
+    <div class="perks-grid">
+      <div class="perk-card">
+        <div class="perk-icon">🧴</div>
+        <div class="perk-title">Free Products</div>
+        <div class="perk-desc">Complimentary Glow Protocols skincare serums to try and share</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">🚀</div>
+        <div class="perk-title">Early Access</div>
+        <div class="perk-desc">Be the first to try new Glow Protocols launches before anyone else</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">📱</div>
+        <div class="perk-title">Repost Opportunities</div>
+        <div class="perk-desc">Your content shared to Heather's growing audience across platforms</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">⭐</div>
+        <div class="perk-title">Founding Status</div>
+        <div class="perk-desc">Be recognized as a founding creator with exclusive community status</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">💰</div>
+        <div class="perk-title">Future Affiliate</div>
+        <div class="perk-desc">Possible future affiliate earning opportunities as the program grows</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">🤝</div>
+        <div class="perk-title">Creator Community</div>
+        <div class="perk-desc">Connect with other like-minded women in the Glow Creator network</div>
+      </div>
+    </div>
+    <div style="background:var(--gold-pale);border-left:4px solid var(--gold);border-radius:10px;padding:14px 18px;font-size:.85rem;color:var(--gray-700)">
+      <strong style="color:var(--gold)">✨ Who we're looking for:</strong> Real women 40+ who are passionate about wellness, skincare, and sharing their authentic journey. TikTok, Instagram, YouTube, Facebook — all platforms welcome. Micro-creators encouraged to apply.
+    </div>
+  </div>
+
+  <div class="card" id="apply">
+    <h2>📋 Apply to the Glow Creator Circle</h2>
+    <form id="creatorForm" onsubmit="submitCreator(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" id="firstName" placeholder="Your first name" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" id="lastName" placeholder="Your last name" required>
+        </div>
+        <div class="form-group form-full">
+          <label>Email Address *</label>
+          <input type="email" id="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Age Range</label>
+          <select id="ageRange">
+            <option>40–45</option><option>46–50</option><option>51–55</option><option>56–60</option><option>61+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Primary Platform</label>
+          <select id="platform">
+            <option>TikTok</option><option>Instagram</option><option>YouTube</option><option>Facebook</option><option>Multiple Platforms</option>
+          </select>
+        </div>
+        <div class="form-group form-full">
+          <label>Your Social Handle(s)</label>
+          <input type="text" id="handle" placeholder="@yourhandle — list all that apply">
+        </div>
+        <div class="form-group form-full">
+          <label>Approximate Following Size</label>
+          <select id="followers">
+            <option>Under 1,000</option><option>1,000–5,000</option><option>5,000–10,000</option><option>10,000–50,000</option><option>50,000+</option>
+          </select>
+        </div>
+        <div class="form-group form-full">
+          <label>Why do you want to be a Glow Creator? *</label>
+          <textarea id="why" placeholder="Tell us about your wellness journey, why Glow Protocols resonates with you, and what kind of content you create..." required></textarea>
+        </div>
+        <div class="form-group form-full">
+          <label>Have you tried any Glow Protocols products?</label>
+          <select id="tried">
+            <option>No, not yet</option><option>Yes — Protocol 01 Face Serum</option><option>Yes — Protocol 02 Face Serum</option><option>Yes — CU-HAIR 01</option><option>Yes — Multiple products</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-rose">Submit My Application ✨</button>
+      <p style="font-size:.75rem;color:var(--gray-400);margin-top:10px;text-align:center">Applications are reviewed weekly. You'll hear back within 5–7 business days.</p>
+    </form>
+    <div class="success-msg" id="successMsg">
+      <div style="font-size:3rem;margin-bottom:12px">🌟</div>
+      <h3 style="font-family:var(--font-head);color:#1a7a40;margin-bottom:8px">Application Received!</h3>
+      <p style="color:var(--gray-700)">Thank you for applying! Heather reviews applications weekly and will be in touch within 5–7 days.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer-mini">
+  <p>© 2026 Glow With Heather · <a href="/">Home</a> · <a href="mailto:getglowing@glowwithheather.com">getglowing@glowwithheather.com</a></p>
+</footer>
+
+<script>
+function submitCreator(e) {
+  e.preventDefault();
+  const name = document.getElementById('firstName').value;
+  const email = document.getElementById('email').value;
+  const handle = document.getElementById('handle').value;
+  const why = document.getElementById('why').value;
+  const subj = encodeURIComponent(`Glow Creator Circle Application — ${name}`);
+  const body = encodeURIComponent(`Name: ${name} ${document.getElementById('lastName').value}\nEmail: ${email}\nAge: ${document.getElementById('ageRange').value}\nPlatform: ${document.getElementById('platform').value}\nHandle: ${handle}\nFollowers: ${document.getElementById('followers').value}\nTried products: ${document.getElementById('tried').value}\n\nWhy they want to join:\n${why}`);
+  window.open(`mailto:getglowing@glowwithheather.com?subject=${subj}&body=${body}`);
+  document.getElementById('creatorForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+</script>
+</body>
+</html>

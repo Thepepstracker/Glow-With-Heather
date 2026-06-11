@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reconstitution Calculator — Glow With Heather</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#E8436A;--rose-light:#F7839A;--rose-pale:#FDE8ED;--gold:#D4993A;--gold-pale:#FEF6E4;--plum:#7B3FA8;--plum-pale:#F5EEFF;--teal:#2aaaa0;--white:#FFFFFF;--cream:#FDFAF7;--gray-100:#F8F5F2;--gray-200:#EDE8E3;--gray-400:#B0A89E;--gray-700:#5C5148;--dark:#2A1F18;--font-head:'Playfair Display',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;--shadow-sm:0 2px 8px rgba(232,67,106,.10);--shadow-md:0 6px 24px rgba(0,0,0,.10);--radius:16px;--radius-pill:50px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--gray-100);color:var(--dark);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.navbar-inner{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 28px;max-width:1140px;margin:0 auto}
+.nav-logo{font-family:var(--font-head);font-size:1.2rem;color:var(--rose);font-weight:700;display:flex;flex-direction:column;line-height:1.15}
+.nav-logo span{font-family:var(--font-body);font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);font-weight:500}
+.nav-back{display:flex;align-items:center;gap:6px;font-size:.88rem;font-weight:500;color:var(--gray-700);padding:7px 16px;border-radius:var(--radius-pill);border:1.5px solid var(--gray-200);transition:all .18s}
+.nav-back:hover{border-color:var(--rose);color:var(--rose)}
+.page-header{padding:120px 24px 60px;text-align:center;background:linear-gradient(160deg,#FFF5F8 0%,#F5F0FF 100%)}
+.page-header .eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+.page-header h1{font-family:var(--font-head);font-size:clamp(2rem,4vw,3rem);color:var(--dark);margin-bottom:12px}
+.page-header p{color:var(--gray-700);font-size:1rem;max-width:560px;margin:0 auto}
+.divider-rose{width:48px;height:4px;background:linear-gradient(to right,var(--rose),#f2c96e);border-radius:4px;margin:16px auto 0}
+.main-wrap{max-width:860px;margin:0 auto;padding:48px 24px 80px}
+.card{background:white;border-radius:var(--radius);padding:32px 36px;box-shadow:var(--shadow-md);margin-bottom:28px}
+.card h2{font-family:var(--font-head);font-size:1.3rem;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--gray-100)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:.82rem;font-weight:600;color:var(--gray-700);letter-spacing:.3px}
+.form-group input,.form-group select{padding:12px 16px;border:2px solid var(--gray-200);border-radius:10px;font-size:.95rem;font-family:var(--font-body);outline:none;transition:border .18s;background:white}
+.form-group input:focus,.form-group select:focus{border-color:var(--rose)}
+.form-hint{font-size:.74rem;color:var(--gray-400)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;border-radius:var(--radius-pill);font-size:.92rem;font-weight:600;cursor:pointer;border:none;transition:all .22s;letter-spacing:.3px;font-family:var(--font-body)}
+.btn-rose{background:linear-gradient(135deg,var(--rose),#C42E58);color:white;box-shadow:0 4px 16px rgba(232,67,106,.38)}
+.btn-rose:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,67,106,.45)}
+.btn-full{width:100%;margin-top:20px}
+.results-card{background:linear-gradient(135deg,var(--rose-pale),var(--plum-pale));border:2px solid var(--rose-light);border-radius:var(--radius);padding:28px 32px;display:none}
+.results-card.show{display:block}
+.results-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:20px}
+.result-box{background:white;border-radius:12px;padding:18px;text-align:center;box-shadow:var(--shadow-sm)}
+.result-label{font-size:.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gray-400);margin-bottom:6px}
+.result-value{font-size:1.6rem;font-weight:700;color:var(--rose);font-family:var(--font-head)}
+.result-unit{font-size:.78rem;color:var(--gray-700)}
+.info-box{background:var(--gold-pale);border-left:4px solid var(--gold);border-radius:10px;padding:16px 20px;margin-top:20px;font-size:.85rem;color:var(--gray-700);line-height:1.7}
+.info-box strong{color:var(--gold)}
+.steps-list{list-style:none;counter-reset:steps}
+.steps-list li{counter-increment:steps;display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--gray-100)}
+.steps-list li:last-child{border-bottom:none}
+.step-num{width:28px;height:28px;background:var(--rose);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:2px}
+.step-text{font-size:.9rem;color:var(--gray-700);line-height:1.6}
+.footer-mini{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:24px;font-size:.8rem}
+.footer-mini a{color:var(--rose-light)}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.card{padding:22px 18px}}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="nav-logo">Glow With Heather<span>Peptides · Longevity · Beauty · Energy</span></a>
+    <a href="/" class="nav-back">← Back to Glow Lab</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="eyebrow">🧪 Wellness Tools</div>
+  <h1>Reconstitution Calculator</h1>
+  <div class="divider-rose"></div>
+  <p style="margin-top:14px">Calculate exact peptide dosing, BAC water volume, syringe units, and injection amounts — quickly and accurately.</p>
+</div>
+
+<div class="main-wrap">
+
+  <!-- CALCULATOR CARD -->
+  <div class="card">
+    <h2>🔬 Enter Your Peptide Details</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Peptide Amount in Vial (mg)</label>
+        <input type="number" id="peptideMg" placeholder="e.g. 5" min="0.1" step="0.1">
+        <span class="form-hint">The total mg printed on your vial label</span>
+      </div>
+      <div class="form-group">
+        <label>BAC Water to Add (mL)</label>
+        <input type="number" id="bacWater" placeholder="e.g. 2" min="0.1" step="0.1" value="2">
+        <span class="form-hint">Bacteriostatic water in milliliters (1–3 mL typical)</span>
+      </div>
+      <div class="form-group">
+        <label>Your Desired Dose (mcg)</label>
+        <input type="number" id="desiredDose" placeholder="e.g. 250" min="1" step="1">
+        <span class="form-hint">How many micrograms per injection</span>
+      </div>
+      <div class="form-group">
+        <label>Syringe Size</label>
+        <select id="syringeSize">
+          <option value="100">100 Unit (1 mL) insulin syringe</option>
+          <option value="50">50 Unit (0.5 mL) insulin syringe</option>
+          <option value="30">30 Unit (0.3 mL) insulin syringe</option>
+        </select>
+        <span class="form-hint">Most peptide users use 100-unit insulin syringes</span>
+      </div>
+    </div>
+    <button class="btn btn-rose btn-full" onclick="calculate()">Calculate My Dose →</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results-card" id="results">
+    <h2 style="font-family:var(--font-head);font-size:1.3rem;color:var(--dark);margin-bottom:4px">✅ Your Results</h2>
+    <p style="font-size:.85rem;color:var(--gray-700)">Based on your inputs — always verify with a healthcare professional.</p>
+    <div class="results-grid">
+      <div class="result-box">
+        <div class="result-label">Concentration</div>
+        <div class="result-value" id="r-conc">—</div>
+        <div class="result-unit">mcg per mL</div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">Draw to (mL)</div>
+        <div class="result-value" id="r-ml">—</div>
+        <div class="result-unit">milliliters</div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">Syringe Units</div>
+        <div class="result-value" id="r-units">—</div>
+        <div class="result-unit">units on syringe</div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">Doses Per Vial</div>
+        <div class="result-value" id="r-doses">—</div>
+        <div class="result-unit">total injections</div>
+      </div>
+    </div>
+    <div class="info-box" id="r-summary"></div>
+  </div>
+
+  <!-- HOW TO RECONSTITUTE -->
+  <div class="card">
+    <h2>📋 How to Reconstitute a Peptide Vial</h2>
+    <ol class="steps-list">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Gather supplies:</strong> Your peptide vial, bacteriostatic water (BAC water), insulin syringes, alcohol swabs, and a clean surface.</div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Swab both stoppers</strong> with an alcohol swab — the top of the peptide vial and the top of your BAC water vial. Let dry for 30 seconds.</div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Draw BAC water</strong> into your syringe (the amount you entered above — typically 1–2 mL). Inject it slowly into the peptide vial by aiming the needle at the glass side wall, not directly onto the powder.</div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Do NOT shake the vial.</strong> Gently swirl or roll it between your fingers until the powder is fully dissolved. This may take 30–60 seconds.</div>
+      </li>
+      <li>
+        <div class="step-num">5</div>
+        <div class="step-text"><strong>Store correctly:</strong> Reconstituted peptides should be stored in the refrigerator (35–46°F / 2–8°C). Most last 4–6 weeks refrigerated. Keep away from light.</div>
+      </li>
+      <li>
+        <div class="step-num">6</div>
+        <div class="step-text"><strong>To inject:</strong> Swab the vial stopper, draw the exact units calculated above, swab your injection site (abdomen or thigh are common), pinch skin, inject subcutaneously at a 45° angle, and dispose of needle safely.</div>
+      </li>
+    </ol>
+    <div class="info-box">
+      <strong>⚠️ Important:</strong> This calculator is for educational and research purposes only. Always consult a licensed healthcare professional before beginning any peptide protocol. Dosing varies significantly by peptide type, individual factors, and research goals.
+    </div>
+  </div>
+
+  <!-- COMMON DOSES REFERENCE -->
+  <div class="card">
+    <h2>📊 Common Reconstitution Reference</h2>
+    <p style="font-size:.88rem;color:var(--gray-700);margin-bottom:18px">Common starting points — these are research protocols, not medical recommendations.</p>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:.85rem">
+        <thead>
+          <tr style="background:var(--gray-100)">
+            <th style="padding:10px 14px;text-align:left;font-weight:600;color:var(--gray-700);border-radius:8px 0 0 0">Peptide</th>
+            <th style="padding:10px 14px;text-align:left;font-weight:600;color:var(--gray-700)">Typical Vial</th>
+            <th style="padding:10px 14px;text-align:left;font-weight:600;color:var(--gray-700)">BAC Water</th>
+            <th style="padding:10px 14px;text-align:left;font-weight:600;color:var(--gray-700);border-radius:0 8px 0 0">Common Dose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--gray-100)"><td style="padding:10px 14px;font-weight:600">MOTS-C</td><td style="padding:10px 14px;color:var(--gray-700)">10 mg</td><td style="padding:10px 14px;color:var(--gray-700)">2 mL</td><td style="padding:10px 14px;color:var(--gray-700)">5–10 mg 3–5x/wk</td></tr>
+          <tr style="border-bottom:1px solid var(--gray-100)"><td style="padding:10px 14px;font-weight:600">BPC-157</td><td style="padding:10px 14px;color:var(--gray-700)">5 mg</td><td style="padding:10px 14px;color:var(--gray-700)">2 mL</td><td style="padding:10px 14px;color:var(--gray-700)">250–500 mcg/day</td></tr>
+          <tr style="border-bottom:1px solid var(--gray-100)"><td style="padding:10px 14px;font-weight:600">TB-500</td><td style="padding:10px 14px;color:var(--gray-700)">5 mg</td><td style="padding:10px 14px;color:var(--gray-700)">2 mL</td><td style="padding:10px 14px;color:var(--gray-700)">2.5–5 mg/wk</td></tr>
+          <tr style="border-bottom:1px solid var(--gray-100)"><td style="padding:10px 14px;font-weight:600">Retatrutide</td><td style="padding:10px 14px;color:var(--gray-700)">10 mg</td><td style="padding:10px 14px;color:var(--gray-700)">2 mL</td><td style="padding:10px 14px;color:var(--gray-700)">0.5–4 mg/wk</td></tr>
+          <tr style="border-bottom:1px solid var(--gray-100)"><td style="padding:10px 14px;font-weight:600">Tirzepatide</td><td style="padding:10px 14px;color:var(--gray-700)">10 mg</td><td style="padding:10px 14px;color:var(--gray-700)">2 mL</td><td style="padding:10px 14px;color:var(--gray-700)">2.5–5 mg/wk</td></tr>
+          <tr style="border-bottom:1px solid var(--gray-100)"><td style="padding:10px 14px;font-weight:600">Epithalon</td><td style="padding:10px 14px;color:var(--gray-700)">50 mg</td><td style="padding:10px 14px;color:var(--gray-700)">5 mL</td><td style="padding:10px 14px;color:var(--gray-700)">5–10 mg/day × 10d</td></tr>
+          <tr><td style="padding:10px 14px;font-weight:600">GHK-Cu</td><td style="padding:10px 14px;color:var(--gray-700)">100 mg</td><td style="padding:10px 14px;color:var(--gray-700)">2 mL</td><td style="padding:10px 14px;color:var(--gray-700)">1–3 mg/day</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="info-box" style="margin-top:16px">For more detailed protocols, join the <a href="https://www.skool.com/glow-lab-inner-circle-2611" style="color:var(--rose);font-weight:600">Glow Lab Inner Circle</a> or <a href="/consultation" style="color:var(--rose);font-weight:600">book a consultation</a> with Heather.
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer-mini">
+  <p>© 2026 Glow With Heather · <a href="/">Home</a> · <a href="/consultation">Book Consultation</a> · For educational & research use only.</p>
+</footer>
+
+<script>
+function calculate() {
+  const peptideMg = parseFloat(document.getElementById('peptideMg').value);
+  const bacWater = parseFloat(document.getElementById('bacWater').value);
+  const desiredDose = parseFloat(document.getElementById('desiredDose').value);
+  const syringeSize = parseInt(document.getElementById('syringeSize').value);
+
+  if (!peptideMg || !bacWater || !desiredDose) {
+    alert('Please fill in all fields before calculating.');
+    return;
+  }
+
+  const peptideMcg = peptideMg * 1000;
+  const concPerMl = peptideMcg / bacWater;
+  const drawMl = desiredDose / concPerMl;
+  const syringeUnits = drawMl * syringeSize;
+  const dosesPerVial = Math.floor(peptideMcg / desiredDose);
+
+  document.getElementById('r-conc').textContent = Math.round(concPerMl).toLocaleString();
+  document.getElementById('r-ml').textContent = drawMl.toFixed(3);
+  document.getElementById('r-units').textContent = syringeUnits.toFixed(1);
+  document.getElementById('r-doses').textContent = dosesPerVial;
+  document.getElementById('r-summary').innerHTML = `
+    <strong>📋 Summary:</strong> Your ${peptideMg}mg vial mixed with ${bacWater}mL BAC water gives a concentration of <strong>${Math.round(concPerMl).toLocaleString()} mcg/mL</strong>.
+    For a ${desiredDose}mcg dose, draw to <strong>${drawMl.toFixed(3)} mL</strong> — that's <strong>${syringeUnits.toFixed(1)} units</strong> on a ${syringeSize}-unit syringe.
+    Your vial contains approximately <strong>${dosesPerVial} doses</strong>.
+  `;
+
+  const results = document.getElementById('results');
+  results.classList.add('show');
+  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>
