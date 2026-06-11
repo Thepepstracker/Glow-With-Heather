@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peptide Dictionary \u2014 Plain-English Education | Glow With Heather</title>
+<meta name="description" content="The Glow Lab Peptide Dictionary explains popular peptides and compounds in plain English: what each is, its status, and what the research explores. Educational only \u2014 not medical advice.">
+<link rel="canonical" href="https://glowwithheather.com/peptides/">
+<meta property="og:title" content="Peptide Dictionary \u2014 Plain-English Education">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://glowwithheather.com/peptides/">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header class="site-header"><div class="container">
+  <a class="brand" href="/">Glow With Heather</a>
+  <nav class="main-nav" aria-label="Primary"><a href="/codes/">Codes</a><a href="/quiz/">Quiz</a><a href="/serums/">Serums</a><a href="/calculators/">Tools</a><a href="/peptides/">Dictionary</a><a href="/community/">Community</a></nav>
+  <a class="live-chip" data-live-chip href="https://www.tiktok.com/@glow_with.heather"><span class="live-dot"></span><span data-live-label>\uD83D\uDD34 Live tonight 8PM ET</span></a>
+</div></header>
+
+<main class="container section">
+  <h1>Peptide Dictionary</h1>
+  <p class="answer-block">The Peptide Dictionary explains popular peptides and related compounds in plain English \u2014 what each one is, its honest status (cosmetic ingredient, research compound, or prescription medication), and what the research explores. It is educational only and never a substitute for your healthcare provider.</p>
+
+  <label class="visually-hidden" for="pep-search">Search peptides</label>
+  <input id="pep-search" class="calc-field" type="search" placeholder="Search the dictionary\u2026" style="width:100%;min-height:48px;padding:12px 16px;border-radius:10px;border:1px solid var(--line);margin-bottom:16px" oninput="(function(v){document.querySelectorAll('[data-pep]').forEach(function(c){c.style.display=c.getAttribute('data-pep').indexOf(v.toLowerCase())>-1?'':'none'})})(this.value)">
+
+  <div class="filter-chips" data-pepfilter>
+    <button class="filter-chip active" type="button" onclick="filterCat(this,'all')">All</button>
+    <button class="filter-chip" type="button" onclick="filterCat(this,'beauty')">Beauty & Skin</button>
+    <button class="filter-chip" type="button" onclick="filterCat(this,'energy')">Energy & Longevity</button>
+    <button class="filter-chip" type="button" onclick="filterCat(this,'metabolic')">Metabolic</button>
+    <button class="filter-chip" type="button" onclick="filterCat(this,'recovery')">Recovery</button>
+  </div>
+
+  <div class="grid grid-3">
+    <a class="card" data-pep="ghk-cu copper beauty" data-cat="beauty" href="/peptides/ghk-cu/"><h3>GHK-Cu</h3><p class="muted">Beauty & Skin \u00B7 cosmetic ingredient</p></a>
+    <a class="card" data-pep="ahk-cu copper hair beauty" data-cat="beauty" href="/peptides/ahk-cu/"><h3>AHK-Cu</h3><p class="muted">Beauty & Skin \u00B7 cosmetic ingredient</p></a>
+    <a class="card" data-pep="snap-8 beauty wrinkle" data-cat="beauty" href="/peptides/snap-8/"><h3>SNAP-8</h3><p class="muted">Beauty & Skin \u00B7 cosmetic ingredient</p></a>
+    <a class="card" data-pep="matrixyl beauty collagen" data-cat="beauty" href="/peptides/matrixyl/"><h3>Matrixyl</h3><p class="muted">Beauty & Skin \u00B7 cosmetic ingredient</p></a>
+    <a class="card" data-pep="bpc-157 recovery" data-cat="recovery" href="/peptides/bpc-157/"><h3>BPC-157</h3><p class="muted">Recovery \u00B7 research compound</p></a>
+    <a class="card" data-pep="tb-500 recovery" data-cat="recovery" href="/peptides/tb-500/"><h3>TB-500</h3><p class="muted">Recovery \u00B7 research compound</p></a>
+    <a class="card" data-pep="nad nad+ energy longevity" data-cat="energy" href="/peptides/nad/"><h3>NAD+</h3><p class="muted">Energy & Longevity \u00B7 supplement/research</p></a>
+    <a class="card" data-pep="mots-c energy metabolic" data-cat="energy" href="/peptides/mots-c/"><h3>MOTS-c</h3><p class="muted">Energy & Longevity \u00B7 research compound</p></a>
+    <a class="card" data-pep="epitalon longevity" data-cat="energy" href="/peptides/epitalon/"><h3>Epitalon</h3><p class="muted">Energy & Longevity \u00B7 research compound</p></a>
+    <a class="card" data-pep="cjc-1295 ipamorelin growth" data-cat="energy" href="/peptides/cjc-1295-ipamorelin/"><h3>CJC-1295 / Ipamorelin</h3><p class="muted">Energy & Longevity \u00B7 research compound</p></a>
+    <a class="card" data-pep="glp-1 agonists metabolic ozempic" data-cat="metabolic" href="/peptides/glp-1-agonists/"><h3>GLP-1 agonists</h3><p class="muted">Metabolic \u00B7 prescription medication</p></a>
+    <a class="card" data-pep="collagen peptides beauty" data-cat="metabolic" href="/peptides/collagen-peptides/"><h3>Collagen peptides</h3><p class="muted">Beauty & Metabolic \u00B7 dietary supplement</p></a>
+  </div>
+</main>
+
+<nav class="mobile-bar" aria-label="Quick actions"><a href="/codes/"><span class="ico">\uD83C\uDFF7\uFE0F</span>Codes</a><a href="/quiz/"><span class="ico">\u2728</span>Quiz</a><a href="/community/"><span class="ico">\uD83D\uDC6F</span>Community</a><a href="https://www.tiktok.com/@glow_with.heather"><span class="ico">\uD83D\uDD34</span>Live</a></nav>
+<footer class="site-footer"><div class="container">
+  <p class="brand-line">Glow With Heather</p>
+  <div class="footer-social"><a href="https://www.tiktok.com/@glow_with.heather">TikTok</a><a href="https://www.instagram.com/GlowWithHeather">Instagram</a><a href="https://www.youtube.com/@GlowWithHeather">YouTube</a><a href="https://www.facebook.com/profile.php?id=61583331223495">Facebook</a></div>
+  <nav class="footer-nav" aria-label="Footer"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclosure/">Disclosure</a></nav>
+  <p class="footer-disclaimer">This website is for educational and informational purposes only. Content is not intended as medical advice. Always consult a qualified healthcare professional before starting any wellness protocol. Affiliate links may be present on this page.</p>
+</div></footer>
+<script>
+function filterCat(btn,cat){document.querySelectorAll('[data-pepfilter] .filter-chip').forEach(function(c){c.classList.remove('active')});btn.classList.add('active');document.querySelectorAll('[data-cat]').forEach(function(c){c.style.display=(cat==='all'||c.getAttribute('data-cat')===cat)?'':'none'})}
+</script>
+<script src="/js/main.js" defer></script>
+</body>
+</html>
