@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TDEE Calculator (Mifflin-St Jeor) | Glow With Heather</title>
+<meta name="description" content="Free TDEE calculator using the Mifflin-St Jeor equation. Get your BMR, daily maintenance calories, a gentle cut, and a lean-gain target. Metric or imperial. Educational tool, not medical advice.">
+<link rel="canonical" href="https://glowwithheather.com/calculators/tdee/">
+<meta property="og:title" content="TDEE Calculator (Mifflin-St Jeor)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://glowwithheather.com/calculators/tdee/">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is TDEE?","acceptedAnswer":{"@type":"Answer","text":"TDEE is Total Daily Energy Expenditure: roughly how many calories you burn in a day, including activity. It equals your BMR multiplied by an activity factor."}},
+{"@type":"Question","name":"Which formula is used?","acceptedAnswer":{"@type":"Answer","text":"The Mifflin-St Jeor equation, widely regarded as one of the most accurate for estimating BMR."}}]}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+  <a class="brand" href="/">Glow With Heather</a>
+  <nav class="main-nav" aria-label="Primary"><a href="/codes/">Codes</a><a href="/quiz/">Quiz</a><a href="/serums/">Serums</a><a href="/calculators/">Tools</a><a href="/peptides/">Dictionary</a><a href="/community/">Community</a></nav>
+  <a class="live-chip" data-live-chip href="https://www.tiktok.com/@glow_with.heather"><span class="live-dot"></span><span data-live-label>\uD83D\uDD34 Live tonight 8PM ET</span></a>
+</div></header>
+
+<main class="container section">
+  <h1>TDEE Calculator</h1>
+  <p class="answer-block">A TDEE calculator estimates your Total Daily Energy Expenditure \u2014 the calories you burn per day \u2014 using the Mifflin-St Jeor equation and an activity factor. Enter your details to see your BMR, maintenance calories, a gentle 500-calorie cut, and a lean 300-calorie gain.</p>
+
+  <form id="calc-tdee" class="card calc-grid">
+    <div class="calc-field"><label for="tdee-unit">Units</label><select id="tdee-unit"><option value="metric">Metric (kg, cm)</option><option value="imperial">Imperial (lb, in)</option></select></div>
+    <div class="calc-field"><label for="tdee-sex">Sex</label><select id="tdee-sex"><option value="female">Female</option><option value="male">Male</option></select></div>
+    <div class="calc-field"><label id="tdee-weight-label" for="tdee-weight">Weight (kg)</label><input id="tdee-weight" type="number" step="any" inputmode="decimal" required></div>
+    <div class="calc-field"><label id="tdee-height-label" for="tdee-height">Height (cm)</label><input id="tdee-height" type="number" step="any" inputmode="decimal" required></div>
+    <div class="calc-field"><label for="tdee-age">Age</label><input id="tdee-age" type="number" step="1" inputmode="numeric" required></div>
+    <div class="calc-field"><label for="tdee-activity">Activity level</label>
+      <select id="tdee-activity">
+        <option value="1.2">Sedentary (little/no exercise)</option>
+        <option value="1.375">Light (1\u20133 days/wk)</option>
+        <option value="1.55">Moderate (3\u20135 days/wk)</option>
+        <option value="1.725">Very active (6\u20137 days/wk)</option>
+        <option value="1.9">Athlete (twice daily)</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Calculate</button>
+    <div id="tdee-out" class="calc-result" hidden></div>
+  </form>
+  <p class="disclaimer-mini">Educational tool \u2014 not medical advice.</p>
+
+  <div class="email-capture fade-up">
+    <h3>\uD83D\uDCE7 Email me my results + the free guide</h3>
+    <form class="email-form" data-email-form action="ESP_FORM_ACTION" method="post">
+      <input type="hidden" name="tag" value="glow-metabolic">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
+      <button class="btn btn-gold" type="submit">Get Glowing \u2728</button>
+      <p class="microcopy">No spam, ever.</p>
+    </form>
+  </div>
+</main>
+
+<nav class="mobile-bar" aria-label="Quick actions"><a href="/codes/"><span class="ico">\uD83C\uDFF7\uFE0F</span>Codes</a><a href="/quiz/"><span class="ico">\u2728</span>Quiz</a><a href="/community/"><span class="ico">\uD83D\uDC6F</span>Community</a><a href="https://www.tiktok.com/@glow_with.heather"><span class="ico">\uD83D\uDD34</span>Live</a></nav>
+<footer class="site-footer"><div class="container">
+  <p class="brand-line">Glow With Heather</p>
+  <div class="footer-social"><a href="https://www.tiktok.com/@glow_with.heather">TikTok</a><a href="https://www.instagram.com/GlowWithHeather">Instagram</a><a href="https://www.youtube.com/@GlowWithHeather">YouTube</a><a href="https://www.facebook.com/profile.php?id=61583331223495">Facebook</a></div>
+  <nav class="footer-nav" aria-label="Footer"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclosure/">Disclosure</a></nav>
+  <p class="footer-disclaimer">This website is for educational and informational purposes only. Content is not intended as medical advice. Always consult a qualified healthcare professional before starting any wellness protocol. Affiliate links may be present on this page.</p>
+</div></footer>
+<script src="/js/main.js" defer></script>
+<script src="/js/calculators.js" defer></script>
+</body>
+</html>
