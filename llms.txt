@@ -1,0 +1,20 @@
+# Glow With Heather
+
+> Glow With Heather is a peptide and wellness education hub for women 40+, created by Heather — a wellness/beauty creator who goes live on TikTok nightly at 8:00 PM Eastern. The site explains peptides in plain English, shares vetted vendor discount codes, offers free wellness calculators, showcases the Glow Protocols topical serum line, and welcomes women into the Glow Lab Inner Circle community. All content is educational and not medical advice.
+
+## Key pages
+
+- [Vendor Codes](https://glowwithheather.com/codes/): Every current Glow Lab discount code, updated daily, with one-tap copy.
+- [The Glow Quiz](https://glowwithheather.com/quiz/): A 60-second quiz that builds a personalized glow plan.
+- [Reconstitution Calculator](https://glowwithheather.com/calculators/reconstitution/): Calculates concentration, draw volume, insulin-syringe units and doses per vial.
+- [TDEE Calculator](https://glowwithheather.com/calculators/tdee/): Estimates daily energy needs using the Mifflin-St Jeor equation.
+- [BMI Calculator](https://glowwithheather.com/calculators/bmi/): Calculates BMI, category and healthy-weight range.
+- [Peptide Dictionary](https://glowwithheather.com/peptides/): Plain-English encyclopedia of popular peptides and compounds with honest status labels.
+- [Glow Protocols Serums](https://glowwithheather.com/serums/): Heather's line of topical peptide face and scalp serums (sold at glowprotocols.com).
+- [Community](https://glowwithheather.com/community/): The Glow Lab Inner Circle on Skool.
+- [Favorites](https://glowwithheather.com/favorites/): Heather's Amazon picks for a glow routine.
+
+## Notes
+
+- Educational only; not medical advice. Research compounds carry no usage or dosing instructions.
+- Affiliate links and vendor codes are used and disclosed.
