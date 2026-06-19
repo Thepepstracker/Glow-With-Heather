@@ -1139,6 +1139,22 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
   .bundle-btns { flex-direction: column; }
 }
 </style>
+<style>
+/* Free Beginner Peptide Guide button + modal */
+.btn-guide{display:inline-block;margin-top:14px;background:linear-gradient(135deg,#a855f7,#ec4899,#f59e0b);color:#fff;border:none;padding:13px 24px;border-radius:40px;font-weight:700;font-size:0.95rem;text-decoration:none;box-shadow:0 6px 18px rgba(236,72,153,0.35);transition:transform .15s ease,box-shadow .15s ease;}
+.btn-guide:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(236,72,153,0.45);}
+.guide-modal-overlay{position:fixed;inset:0;background:rgba(20,10,30,0.6);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;}
+.guide-modal-overlay.open{display:flex;}
+.guide-modal{background:#fff;max-width:420px;width:100%;border-radius:22px;padding:36px 30px;text-align:center;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.3);}
+.guide-modal h3{font-size:1.5rem;margin:6px 0 10px;color:#1f1330;}
+.guide-modal p{color:#555;font-size:0.95rem;margin-bottom:20px;}
+.guide-modal-icon{font-size:2.4rem;}
+.guide-modal input{width:100%;box-sizing:border-box;padding:13px 16px;margin-bottom:12px;border:1.5px solid #e7d9f0;border-radius:12px;font-size:0.95rem;}
+.guide-modal input:focus{outline:none;border-color:#ec4899;}
+.guide-modal .btn{width:100%;cursor:pointer;}
+.guide-modal-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.6rem;line-height:1;color:#bbb;cursor:pointer;}
+.guide-modal-close:hover{color:#777;}
+</style>
 </head>
 <body>
 
@@ -1216,6 +1232,7 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
         <a href="#protocols" class="btn btn-rose">Shop Glow Protocols</a>
         <a href="#join" class="btn btn-outline">Join Glow Lab Inner Circle</a>
       </div>
+      <a href="#" class="btn btn-guide" onclick="openGuideModal();return false;">&#128214; Click here for Free Beginner Peptide Guide</a>
       <div class="hero-social">
         <span class="hero-social-label">Follow along:</span>
         <a href="https://www.tiktok.com/@glow_with.heather" class="social-icon" title="TikTok">&#128241;</a>
@@ -1243,6 +1260,58 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
           <div>Peptide Education</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= DAILY DEALS ======= -->
+<section class="deals-section section" id="deals">
+  <div class="container">
+    <div class="text-center">
+      <span class="eyebrow">Daily Savings</span>
+      <h2 class="section-title">Current Promotions &amp; Featured Deals</h2>
+      <div class="divider-rose"></div>
+      <p class="section-sub">Curated daily picks to help you find the best peptide, beauty, and wellness savings without digging through every vendor site.</p>
+    </div>
+
+    <div style="margin-top:40px">
+      <div class="featured-deal">
+        <div>
+          <div class="featured-tag">&#127775; Featured Tonight</div>
+          <h3>&#10024; GLOW AMINOS &mdash; 45% OFF Tonight!</h3>
+          <div class="deal-stack">
+            <span class="deal-badge">&#128293; 45% OFF &mdash; Tonight Only!</span>
+            <span class="deal-badge">Code: GLOWLAB &#10024;</span>
+          </div>
+          <p>Fuel your glow from the inside out! Glow Aminos is Heather's go-to for recovery, radiance, and real results. Use code <strong>GLOWLAB</strong> at checkout for <strong>45% off</strong> tonight only &mdash; don't miss it! &#11088;</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+            <a href="https://glowaminos.com/?ref=glowwithheather" target="_blank" rel="noopener" class="btn btn-white">&#128293; Shop Glow Aminos &mdash; 45% OFF</a>
+            <div class="code-display" onclick="copyCode('GLOWLAB', this)" style="cursor:pointer" title="Click to copy">
+              &#128203; GLOWLAB
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:1.2rem;margin-bottom:20px;color:var(--dark)">Top Deals Right Now</h3>
+      <div class="deals-grid">
+        <div class="deal-card">
+          <div class="deal-card-name">NURA Peptides</div>
+          <div class="deal-card-detail">25% OFF &middot; Code: GLOWLAB25</div>
+          <a href="https://nurapeptide.com" class="btn btn-rose">Shop Now</a>
+        </div>
+        <div class="deal-card">
+          <div class="deal-card-name">Atomik Labz</div>
+          <div class="deal-card-detail">Buy 1 Get 1 FREE &middot; Code: GLOWLAB25</div>
+          <a href="https://atomiklabz.com/aff/317/" class="btn btn-rose">Shop Now</a>
+        </div>
+        <div class="deal-card">
+          <div class="deal-card-name">EZ Peptides</div>
+          <div class="deal-card-detail">10% OFF &middot; Code: GLOWLAB</div>
+          <a href="https://ezpeptides.com" class="btn btn-rose">Shop Now</a>
+        </div>
+      </div>
+      <p style="font-size:0.78rem;color:var(--gray-400);margin-top:16px;text-align:center">Deals change often. Always review vendor pricing, policies, and product details before ordering.</p>
     </div>
   </div>
 </section>
@@ -1394,19 +1463,9 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
         </div>
         <div class="widget-search">Search peptide or vendor...</div>
         <div class="vendor-row">
-          <span class="vendor-name">ION Peptides</span>
-          <span class="vendor-badge badge-lowest">LOWEST</span>
-          <span class="vendor-price">$48</span>
-        </div>
-        <div class="vendor-row">
           <span class="vendor-name">NURA Peptides</span>
           <span class="vendor-badge badge-code">-25% CODE</span>
           <span class="vendor-price">$52</span>
-        </div>
-        <div class="vendor-row">
-          <span class="vendor-name">Mile High Compounds</span>
-          <span class="vendor-badge badge-code">-20% CODE</span>
-          <span class="vendor-price">$54</span>
         </div>
         <div class="vendor-row">
           <span class="vendor-name">Atomik Labz</span>
@@ -1415,76 +1474,6 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
         </div>
         <div style="text-align:center;margin-top:14px;font-size:0.72rem;color:rgba(255,255,255,0.3)">11+ vendors tracked &middot; Live pricing</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======= DAILY DEALS ======= -->
-<section class="deals-section section" id="deals">
-  <div class="container">
-    <div class="text-center">
-      <span class="eyebrow">Daily Savings</span>
-      <h2 class="section-title">Current Promotions &amp; Featured Deals</h2>
-      <div class="divider-rose"></div>
-      <p class="section-sub">Curated daily picks to help you find the best peptide, beauty, and wellness savings without digging through every vendor site.</p>
-    </div>
-
-    <div style="margin-top:40px">
-      <div class="featured-deal">
-        <div>
-          <div class="featured-tag">&#127775; Featured Tonight</div>
-          <h3>Fusion Peptide &mdash; Buy 1 Get 1 FREE</h3>
-          <div class="deal-stack">
-            <span class="deal-badge">Buy 1 Get 1 FREE</span>
-            <span class="deal-badge">Code: PEPSTRACKER</span>
-          </div>
-          <p>Fusion Peptide is offering a Buy One Get One Free deal tonight. Use code PEPSTRACKER at checkout. Don't miss this one &mdash; BOGO deals from Fusion don't come around often.</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-            <a href="https://fusionpeptide.com/?ref=pepstracker" target="_blank" rel="noopener" class="btn btn-white">Shop Fusion Peptide &mdash; BOGO FREE</a>
-            <div class="code-display" onclick="copyCode('PEPSTRACKER', this)" style="cursor:pointer" title="Click to copy">
-              &#128203; PEPSTRACKER
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h3 style="font-size:1.2rem;margin-bottom:20px;color:var(--dark)">Top Deals Right Now</h3>
-      <div class="deals-grid">
-        <div class="deal-card">
-          <div class="deal-card-name">ION Peptides</div>
-          <div class="deal-card-detail">15% OFF &middot; Code: GLOWLAB</div>
-          <a href="https://ionpeptide.com?ref=Glowlab" class="btn btn-rose">Shop Now</a>
-        </div>
-        <div class="deal-card">
-          <div class="deal-card-name">NURA Peptides</div>
-          <div class="deal-card-detail">25% OFF &middot; Code: GLOWLAB25</div>
-          <a href="https://nurapeptide.com" class="btn btn-rose">Shop Now</a>
-        </div>
-        <div class="deal-card">
-          <div class="deal-card-name">Mile High Compounds</div>
-          <div class="deal-card-detail">20% OFF &middot; Code: GLOWLAB</div>
-          <a href="https://milehighcompounds.com" class="btn btn-rose">Shop Now</a>
-        </div>
-        <div class="deal-card">
-          <div class="deal-card-name">Atomik Labz</div>
-          <div class="deal-card-detail">Buy 1 Get 1 FREE &middot; Code: GLOWLAB25</div>
-          <a href="https://atomiklabz.com/aff/317/" class="btn btn-rose">Shop Now</a>
-        </div>
-        <div class="deal-card">
-          <div class="deal-card-name">EZ Peptides</div>
-          <div class="deal-card-detail">10% OFF &middot; Code: GLOWLAB</div>
-          <a href="https://ezpeptides.com" class="btn btn-rose">Shop Now</a>
-        </div>
-        <div class="deal-card">
-          <div class="deal-card-name">Fusion Peptide</div>
-          <div class="deal-card-detail">Buy 1 Get 1 FREE &middot; Tonight Only</div>
-          <a href="https://fusionpeptide.com/?ref=pepstracker" target="_blank" rel="noopener" class="btn btn-rose">Shop Now</a>
-          <div class="code-display-card" onclick="copyCode('PEPSTRACKER', this)" title="Click to copy">
-            &#128203; PEPSTRACKER
-          </div>
-        </div>
-      </div>
-      <p style="font-size:0.78rem;color:var(--gray-400);margin-top:16px;text-align:center">Deals change often. Always review vendor pricing, policies, and product details before ordering.</p>
     </div>
   </div>
 </section>
@@ -2307,6 +2296,35 @@ function calcBmi() {
   document.getElementById('bmi-range').textContent    = rangeStr;
   document.getElementById('bmi-result').classList.add('show');
 }
+</script>
+<!-- ======= FREE PEPTIDE GUIDE MODAL ======= -->
+<div class="guide-modal-overlay" id="guideModal">
+  <div class="guide-modal">
+    <button class="guide-modal-close" onclick="closeGuideModal()" aria-label="Close">&times;</button>
+    <div id="guideFormWrap">
+      <div class="guide-modal-icon">&#127807;</div>
+      <h3>Free Beginner Peptide Guide</h3>
+      <p>Enter your name and email below and Heather will send your free guide straight to your inbox!</p>
+      <form name="peptide-guide" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="guideForm" onsubmit="return submitGuideForm(event)">
+        <input type="hidden" name="form-name" value="peptide-guide">
+        <p style="display:none"><label>Don&rsquo;t fill this out: <input name="bot-field"></label></p>
+        <input type="text" name="name" placeholder="Your first name" required>
+        <input type="email" name="email" placeholder="Your email address" required>
+        <button type="submit" class="btn btn-rose">&#10024; Send Me the Free Guide!</button>
+      </form>
+    </div>
+    <div id="guideSuccess" style="display:none">
+      <div class="guide-modal-icon">&#127881;</div>
+      <h3>You&rsquo;re on the list!</h3>
+      <p>Check your inbox &mdash; Heather will be in touch soon with your guide. &#128149;</p>
+    </div>
+  </div>
+</div>
+<script>
+function openGuideModal(){document.getElementById('guideModal').classList.add('open');}
+function closeGuideModal(){document.getElementById('guideModal').classList.remove('open');}
+document.addEventListener('click',function(e){var o=document.getElementById('guideModal');if(e.target===o)closeGuideModal();});
+function submitGuideForm(e){e.preventDefault();var form=document.getElementById('guideForm');var body=new URLSearchParams(new FormData(form)).toString();fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(function(){}).catch(function(){}).finally(function(){document.getElementById('guideFormWrap').style.display='none';document.getElementById('guideSuccess').style.display='block';});return false;}
 </script>
 </body>
 </html>
