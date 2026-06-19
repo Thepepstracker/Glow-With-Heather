@@ -453,7 +453,7 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
 }
 .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; }
 .hero-image-placeholder {
-  font-size: 5rem;
+  font-size: 5rem; opacity: 0.3;
 }
 .hero-float-card {
   position: absolute; background: white; border-radius: var(--radius);
@@ -1172,7 +1172,6 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
     </a>
     <ul class="nav-links">
       <li><a href="#mens-collection">Father's Day Gifts</a></li>
-      <li><a href="#vendors">Trusted Vendors</a></li>
       <li><a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener">Glow Protocols</a></li>
       <li><a href="#calculators">Calculators</a></li>
       <li><a href="#education">Education</a></li>
@@ -1189,7 +1188,6 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
 <div class="mobile-menu" id="mobileMenu">
   <ul>
     <li><a href="#mens-collection" onclick="toggleMenu()">Father's Day Gifts</a></li>
-    <li><a href="#vendors" onclick="toggleMenu()">Trusted Vendors</a></li>
     <li><a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener" onclick="toggleMenu()">Glow Protocols</a></li>
     <li><a href="#calculators" onclick="toggleMenu()">Calculators</a></li>
     <li><a href="#education" onclick="toggleMenu()">Education</a></li>
@@ -1212,9 +1210,9 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
       </div>
       <h1>Glow With<br><em>Heather</em></h1>
       <p class="hero-tagline">Peptide Education for Women 40+</p>
-      <p class="hero-desc">Welcome to Glow Lab &mdash; a wellness and peptide education hub for women 40+. Explore trusted vendors, science-backed protocols, and tools designed to help you thrive.</p>
+      <p class="hero-desc">Welcome to Glow Lab &mdash; a wellness and peptide education hub for women 40+. Explore Heather's own peptide protocols, science-backed education, and tools designed to help you thrive.</p>
       <div class="hero-btns">
-        <a href="#vendors" class="btn btn-rose">Shop Trusted Vendors</a>
+        <a href="#protocols" class="btn btn-rose">Shop Glow Protocols</a>
         <a href="#join" class="btn btn-outline">Join Glow Lab Inner Circle</a>
       </div>
       <div class="hero-social">
@@ -1230,7 +1228,21 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
       <div class="hero-image-frame">
         <div class="hero-image-placeholder"><img src="heather.jpg" alt="Heather" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></div>
       </div>
-
+      <div class="hero-float-card card-1">
+        <span class="float-icon">&#128138;</span>
+        <div>
+          <div style="font-size:0.7rem;color:var(--gray-400)">Community</div>
+          <div>Glow Lab Inner Circle</div>
+        </div>
+      </div>
+      <div class="hero-float-card card-2">
+        <span class="float-icon">&#128300;</span>
+        <div>
+          <div style="font-size:0.7rem;color:var(--gray-400)">Research-Backed</div>
+          <div>Peptide Education</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1417,17 +1429,20 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
     </div>
 
     <div style="margin-top:40px">
-      <div class="featured-deal" style="background: linear-gradient(135deg, #5a3e6b 0%, #3b2a5c 100%);">
+      <div class="featured-deal">
         <div>
-          <div class="featured-tag">📣 Vendor Spotlight — Now Available</div>
-          <h3>This Featured Space Is Open</h3>
+          <div class="featured-tag">&#127775; Featured Tonight</div>
+          <h3>Fusion Peptide &mdash; Buy 1 Get 1 FREE</h3>
           <div class="deal-stack">
-            <span class="deal-badge">Prime Placement</span>
-            <span class="deal-badge">Glow Lab Audience</span>
+            <span class="deal-badge">Buy 1 Get 1 FREE</span>
+            <span class="deal-badge">Code: PEPSTRACKER</span>
           </div>
-          <p>Want your brand featured here? This spot is seen daily by thousands of women 40+ actively shopping for peptides and wellness products. Vendor spotlight packages are available now.</p>
-          <div>
-            <a href="mailto:getglowing@glowwithheather.com?subject=Vendor%20Spotlight%20Rate%20Sheet%20Inquiry" class="btn btn-white">Inquire for Rate Sheet →</a>
+          <p>Fusion Peptide is offering a Buy One Get One Free deal tonight. Use code PEPSTRACKER at checkout. Don't miss this one &mdash; BOGO deals from Fusion don't come around often.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+            <a href="https://fusionpeptide.com/?ref=pepstracker" target="_blank" rel="noopener" class="btn btn-white">Shop Fusion Peptide &mdash; BOGO FREE</a>
+            <div class="code-display" onclick="copyCode('PEPSTRACKER', this)" style="cursor:pointer" title="Click to copy">
+              &#128203; PEPSTRACKER
+            </div>
           </div>
         </div>
       </div>
@@ -1557,121 +1572,6 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
 
     <div class="text-center" style="margin-top:40px">
       <a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener" class="btn btn-rose">Shop All Glow Protocols &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- ======= TRUSTED VENDORS ======= -->
-<section class="vendors-section section" id="vendors">
-  <div class="container">
-    <div class="text-center">
-      <span class="eyebrow">Trusted Partners</span>
-      <h2 class="section-title">Shop Trusted Vendors</h2>
-      <div class="divider-rose"></div>
-      <p class="section-sub">Heather's personally vetted peptide suppliers and wellness brands.</p>
-    </div>
-
-    <div style="margin-top:36px">
-      <div class="spotlight-card">
-        <div>
-          <div class="spotlight-label">&#127358; New Vendor Spotlight</div>
-          <h3>Ascend Science &mdash; Now in the Glow Lab</h3>
-          <p>Heather is excited to welcome Ascend Science to the Glow Lab trusted vendor family. Premium research-grade peptides and compounds.</p>
-          <div class="code-chip" onclick="copyCode('GLOW', this)">&#128203; Code: GLOW &mdash; click to copy</div>
-        </div>
-        <a href="https://ascend.science/?ref=4f8ca771-035e-4125-aa46-fd9c4ee4b9b5" class="btn btn-white">Shop Ascend Science &rarr;</a>
-      </div>
-
-      <div class="vendors-grid">
-        <div class="vendor-card">
-          <div class="vendor-card-top">
-            <h3>ION Peptides</h3>
-            <span class="vendor-discount">15% OFF</span>
-          </div>
-          <p class="vendor-desc">Premium research-grade peptides with rigorous purity standards trusted by the Glow Lab community.</p>
-          <div class="vendor-footer">
-            <div class="code-chip" onclick="copyCode('GLOWLAB', this)">&#128203; GLOWLAB</div>
-            <a href="https://ionpeptide.com?ref=Glowlab" class="btn btn-rose">Shop Now</a>
-          </div>
-        </div>
-        <div class="vendor-card">
-          <div class="vendor-card-top">
-            <h3>NURA Peptides</h3>
-            <span class="vendor-discount">25% OFF</span>
-          </div>
-          <p class="vendor-desc">High-purity research peptides with third-party testing and trusted quality standards.</p>
-          <div class="vendor-footer">
-            <div class="code-chip" onclick="copyCode('GLOWLAB25', this)">&#128203; GLOWLAB25</div>
-            <a href="https://nurapeptide.com" class="btn btn-rose">Shop Now</a>
-          </div>
-        </div>
-        <div class="vendor-card">
-          <div class="vendor-card-top">
-            <h3>Mile High Compounds</h3>
-            <span class="vendor-discount">20% OFF</span>
-          </div>
-          <p class="vendor-desc">Premium research-grade compounds with reliable quality and trusted sourcing for the wellness community.</p>
-          <div class="vendor-footer">
-            <div class="code-chip" onclick="copyCode('GLOWLAB', this)">&#128203; GLOWLAB</div>
-            <a href="https://milehighcompounds.com" class="btn btn-rose">Shop Now</a>
-          </div>
-        </div>
-        <div class="vendor-card">
-          <div class="vendor-card-top">
-            <h3>Atomik Labz</h3>
-            <span class="vendor-discount vendor-bogo">BUY 1 GET 1 FREE</span>
-          </div>
-          <p class="vendor-desc">Premium research peptides and compounds. Shop current BOGO offers while available.</p>
-          <div class="vendor-footer">
-            <div class="code-chip" onclick="copyCode('GLOWLAB25', this)">&#128203; GLOWLAB25</div>
-            <a href="https://atomiklabz.com/aff/317/" class="btn btn-rose">Shop Now</a>
-          </div>
-        </div>
-        <div class="vendor-card">
-          <div class="vendor-card-top">
-            <h3>EZ Peptides</h3>
-            <span class="vendor-discount">10% OFF</span>
-          </div>
-          <p class="vendor-desc">High-quality peptides and research compounds trusted by the Glow Lab community.</p>
-          <div class="vendor-footer">
-            <div class="code-chip" onclick="copyCode('GLOWLAB', this)">&#128203; GLOWLAB</div>
-            <a href="https://ezpeptides.com" class="btn btn-rose">Shop Now</a>
-          </div>
-        </div>
-        <div class="vendor-card">
-          <div class="vendor-card-top">
-            <h3>Labsourced</h3>
-            <span class="vendor-discount">15% OFF</span>
-          </div>
-          <p class="vendor-desc">Reliable, research-grade peptides sourced with transparency and quality you can trust.</p>
-          <div class="vendor-footer">
-            <div class="code-chip" onclick="copyCode('GLOWLAB', this)">&#128203; GLOWLAB</div>
-            <a href="https://labsourced.com" class="btn btn-rose">Shop Now</a>
-          </div>
-        </div>
-        <div class="vendor-card">
-          <div class="vendor-card-top">
-            <h3>Glow Aminos</h3>
-            <span class="vendor-discount">45% OFF</span>
-          </div>
-          <p class="vendor-desc">Premium amino acid blends &mdash; stack the sitewide sale with code GLOWLAB for maximum savings.</p>
-          <div class="vendor-footer">
-            <div class="code-chip" onclick="copyCode('GLOWLAB', this)">&#128203; GLOWLAB</div>
-            <a href="https://glowaminos.com" class="btn btn-rose">Shop Now</a>
-          </div>
-        </div>
-        <div class="vendor-card">
-          <div class="vendor-card-top">
-            <h3>Southern Aminos</h3>
-            <span class="vendor-discount">Discount Code</span>
-          </div>
-          <p class="vendor-desc">Quality research-grade amino acids and compounds, trusted by the Glow Lab community.</p>
-          <div class="vendor-footer">
-            <div class="code-chip" onclick="copyCode('GLOWLAB', this)">&#128203; GLOWLAB</div>
-            <a href="https://southernaminos.com" class="btn btn-rose">Shop Now</a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1886,7 +1786,6 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="#vendors">Trusted Vendors</a></li>
           <li><a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener">Glow Protocols</a></li>
           <li><a href="#calculators">Calculators</a></li>
           <li><a href="#education">Education</a></li>
