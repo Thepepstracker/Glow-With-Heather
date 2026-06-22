@@ -563,6 +563,23 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
   font-size: 0.65rem; font-weight: 700; letter-spacing: 1px;
   padding: 4px 10px; border-radius: 20px;
 }
+.featured-deal--flawless {
+  background: linear-gradient(135deg, #1a1407, #000000);
+  color: #f5d77a;
+  border: 1px solid rgba(196,136,58,0.4);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+}
+.featured-deal--flawless::before { content: ''; display: none; }
+.featured-deal--flawless h3,
+.featured-deal--flawless .deal-percent { color: #f5d77a; }
+.featured-deal--flawless .deal-percent { font-size: 6rem; font-weight: 900; text-align: center; letter-spacing: -2px; text-shadow: 0 2px 18px rgba(196,136,58,0.35); }
+.featured-deal--flawless .deal-countdown { font-size: 1.6rem; font-weight: 800; text-align: center; color: #e8c869; }
+.featured-deal--flawless .featured-tag,
+.featured-deal--flawless .deal-badge,
+.featured-deal--flawless .code-display { background: rgba(196,136,58,0.18); color: #f5d77a; border: 1px solid rgba(196,136,58,0.4); }
+.featured-deal--flawless .btn-white { background: linear-gradient(135deg, #f5d77a, #C4883A); color: #1a1407; }
+.featured-deal--flawless strong { color: #f5d77a; }
+
 .featured-tag {
   display: inline-block; background: rgba(255,255,255,0.2);
   font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
@@ -1318,7 +1335,24 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
       })();
       </script>
 
-      <h3 style="font-size:1.2rem;margin-bottom:20px;color:var(--dark)">Top Deals Right Now</h3>
+      <div class="featured-deal featured-deal--flawless">
+        <div>
+          <div class="featured-tag">🖤 Featured Tonight</div>
+          <h3>✨ FLAWLESS COMPOUNDS — 55% OFF Tonight!</h3>
+          <div class="deal-percent">55% OFF</div>
+          <div class="deal-countdown">⏳ Ends in <span>Tonight 11:59</span></div>
+          <div class="deal-stack">
+            <span class="deal-badge">🔥 55% OFF — Until 11:59 Tonight!</span>
+            <span class="deal-badge">Code: Glowlab ✨</span>
+          </div>
+          <p>Flawless Compounds is our sister brand — same trusted quality you love from Glow Lab. Use code <strong>Glowlab</strong> at checkout for <strong>55% off</strong> — only until 11:59 tonight, don't miss it! ⭐</p>
+          <div>
+            <a class="btn btn-white" href="https://flawlesscompounds.com/shop/?coupon=Glowlab" target="_blank" rel="noopener">🔥 Shop Flawless Compounds — 55% OFF</a>
+            <div class="code-display">📋 Glowlab</div>
+          </div>
+        </div>
+      </div>
+            <h3 style="font-size:1.2rem;margin-bottom:20px;color:var(--dark)">Top Deals Right Now</h3>
       <div class="deals-grid">
         <div class="deal-card">
           <div class="deal-card-name">NURA Peptides</div>
