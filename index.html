@@ -1295,75 +1295,20 @@ section.hero{padding-top:calc(68px + var(--fd-h)) !important;}
       <div class="featured-deal" id="glowAminosDeal">
         <div>
           <div class="featured-tag">🌟 Featured Tonight</div>
-          <h3>✨ GLOW AMINOS — 55% OFF Tonight!</h3>
-          <div style="font-size:clamp(3.5rem,12vw,7rem);font-weight:900;line-height:1;letter-spacing:-2px;margin:0.25em 0;text-align:center;">55% OFF</div>
-      <div id="glowAminosCountdown" style="font-size:clamp(1.1rem,4vw,1.6rem);font-weight:800;text-align:center;margin:0 0 0.4em;letter-spacing:0.5px;">⏳ Ends in <span id="glowAminosTimer">--:--:--</span></div>
+          <h3>✨ GLOW AMINOS — 45% OFF Tonight!</h3>
+          <div style="font-size:clamp(3.5rem,12vw,7rem);font-weight:900;line-height:1;letter-spacing:-2px;margin:0.25em 0;text-align:center;">45% OFF</div>
+      
           <div class="deal-stack">
-            <span class="deal-badge">🔥 55% OFF — Until 11:59 Tonight!</span>
+            <span class="deal-badge">🔥 45% OFF — Until 11:59 Tonight!</span>
             <span class="deal-badge">Code: GLOWLAB ✨</span>
           </div>
-          <p>Fuel your glow from the inside out! Glow Aminos is Heather’s go-to for recovery, radiance, and real results. Use code <strong>GLOWLAB</strong> at checkout for <strong>55% off</strong> — only until 11:59 tonight, don’t miss it! ⭐</p>
+          <p>Fuel your glow from the inside out! Glow Aminos is Heather’s go-to for recovery, radiance, and real results. Use code <strong>GLOWLAB</strong> at checkout for <strong>45% off</strong> — only until 11:59 tonight, don’t miss it! ⭐</p>
           <div>
-            <a class="btn btn-white" href="https://glowaminos.com/?ref=glowwithheather" target="_blank" rel="noopener">🔥 Shop Glow Aminos — 55% OFF</a>
+            <a class="btn btn-white" href="https://glowaminos.com/?ref=glowwithheather" target="_blank" rel="noopener">🔥 Shop Glow Aminos — 45% OFF</a>
             <div class="code-display">📋 GLOWLAB</div>
           </div>
         </div>
       </div>
-      <script>
-      (function(){
-        function nyTarget(h,m){
-          var now=new Date();
-          var p=new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(now);
-          var o={};p.forEach(function(x){o[x.type]=x.value;});
-          var guess=Date.UTC(+o.year,+o.month-1,+o.day,h,m,0);
-          function off(ts){var d=new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",hour12:false,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit"});var q={};d.formatToParts(new Date(ts)).forEach(function(x){q[x.type]=x.value;});var u=Date.UTC(+q.year,+q.month-1,+q.day,+q.hour%24,+q.minute,+q.second);return (u-ts)/60000;}
-          return guess-off(guess)*60000;
-        }
-        var target=nyTarget(23,59);
-        var deal=document.getElementById("glowAminosDeal");
-        var timer=document.getElementById("glowAminosTimer");
-        function tick(){
-          var diff=target-Date.now();
-          if(diff<=0){ if(deal){deal.style.display="none";} clearInterval(iv); return; }
-          var s=Math.floor(diff/1000);
-          var hh=Math.floor(s/3600), mm=Math.floor((s%3600)/60), ss=s%60;
-          function z(n){return (n<10?"0":"")+n;}
-          if(timer){ timer.textContent=z(hh)+":"+z(mm)+":"+z(ss); }
-        }
-        tick();
-        var iv=setInterval(tick,1000);
-      })();
-      </script>
-
-      <div class="featured-deal featured-deal--flawless">
-        <div>
-          <div class="featured-tag">🖤 Featured Tonight</div>
-          <h3>✨ FLAWLESS COMPOUNDS — 55% OFF Tonight!</h3>
-          <div class="deal-percent">55% OFF</div>
-          <div class="deal-countdown">⏳ Ends in <span id="flawlessTimer">--:--:--</span></div>
-          <div class="deal-stack">
-            <span class="deal-badge">🔥 55% OFF — Until 11:59 Tonight!</span>
-            <span class="deal-badge">Code: Glowlab ✨</span>
-          </div>
-          <p>Flawless Compounds is our sister brand — same trusted quality you love from Glow Lab. Use code <strong>Glowlab</strong> at checkout for <strong>55% off</strong> — only until 11:59 tonight, don't miss it! ⭐</p>
-          <div>
-            <a class="btn btn-white" href="https://flawlesscompounds.com/shop/?coupon=Glowlab" target="_blank" rel="noopener">🔥 Shop Flawless Compounds — 55% OFF</a>
-            <div class="code-display">📋 Glowlab</div>
-          </div>
-        </div>
-      </div>
-            <script>
-              (function(){
-                var src = document.getElementById('glowAminosTimer');
-                var dst = document.getElementById('flawlessTimer');
-                if(!src || !dst) return;
-                function sync(){ dst.textContent = src.textContent; }
-                sync();
-                var mo = new MutationObserver(sync);
-                mo.observe(src, { childList: true, characterData: true, subtree: true });
-                setInterval(sync, 1000);
-              })();
-            </script>
             <h3 style="font-size:1.2rem;margin-bottom:20px;color:var(--dark)">Top Deals Right Now</h3>
       <div class="deals-grid">
         <div class="deal-card">
