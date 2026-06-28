@@ -1155,6 +1155,75 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
   .book-inner { flex-direction: column; align-items: center; text-align: center; }
   .bundle-btns { flex-direction: column; }
 }
+
+/* ---- BOOK A SESSION ---- */
+.book-session-section { background: var(--lavender-pale); padding: 80px 0; }
+.book-session-card {
+  background: white;
+  border: 1px solid var(--lavender);
+  border-radius: 24px;
+  padding: 48px 40px;
+  max-width: 560px;
+  margin: 0 auto;
+  box-shadow: 0 4px 24px rgba(123,63,168,.10);
+  text-align: center;
+}
+.book-session-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+.book-session-amount {
+  font-family: var(--font-head);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--plum);
+  line-height: 1;
+}
+.book-session-duration {
+  font-size: 1.1rem;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+.book-session-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  text-align: left;
+  display: inline-block;
+}
+.book-session-features li {
+  padding: 6px 0;
+  color: var(--gray-700);
+  font-size: .97rem;
+}
+.book-session-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 16px 0;
+  background: var(--plum);
+  color: white;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s;
+  margin-bottom: 20px;
+}
+.book-session-btn:hover { background: var(--plum-light); color: white; }
+.book-session-disclaimer {
+  font-size: .78rem;
+  color: var(--gray-400);
+  font-style: italic;
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .book-session-card { padding: 36px 20px; }
+}
 </style>
 <style>
 /* Free Beginner Peptide Guide button + modal */
@@ -1256,6 +1325,33 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
           <div>Peptide Education</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======= BOOK A SESSION ======= -->
+<section class="book-session-section section" id="book-session">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-sub" style="color:var(--gold);letter-spacing:.12em;font-size:.8rem;text-transform:uppercase;font-weight:600;margin-bottom:8px;">Work With Me &middot; 30-Minute Session</p>
+      <h2 class="section-title" style="margin-bottom:16px;">Have a One-on-One<br><em style="color:var(--plum);">With Me</em></h2>
+      <p style="max-width:560px;margin:0 auto 32px;color:var(--gray-700);font-size:1.05rem;line-height:1.7;">Some days you don&rsquo;t need another deep dive &mdash; you need 30 minutes with someone who can look at what you&rsquo;re actually doing and help it make sense. Bring your questions, your current routine, the compound you keep hearing about. We&rsquo;ll sort through it together, in plain English.</p>
+    </div>
+
+    <div class="book-session-card">
+      <div class="book-session-price">
+        <span class="book-session-amount">$75</span>
+        <span class="book-session-duration">/ 30 min</span>
+      </div>
+      <ul class="book-session-features">
+        <li>&#10003;&nbsp; Peptide &amp; protocol questions answered</li>
+        <li>&#10003;&nbsp; Review your current routine</li>
+        <li>&#10003;&nbsp; Get clarity &amp; a clear next step</li>
+        <li>&#10003;&nbsp; Secure booking &amp; payment through Calendly</li>
+      </ul>
+      <a href="https://calendly.com/getglowing-glowwithheather/new-meeting" target="_blank" rel="noopener" class="btn btn-primary book-session-btn">Book Your Session &rarr;</a>
+      <p class="book-session-disclaimer">Educational wellness sessions only. Not medical advice, diagnosis, or treatment.</p>
     </div>
   </div>
 </section>
