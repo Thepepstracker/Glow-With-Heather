@@ -1224,6 +1224,60 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
 @media (max-width: 600px) {
   .book-session-card { padding: 36px 20px; }
 }
+
+/* ---- BOOK SESSION GRID & BUNDLE ---- */
+.book-session-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.book-session-card {
+  max-width: none;
+}
+.book-session-label {
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+.book-session-card--bundle {
+  border-color: var(--gold-light);
+  background: linear-gradient(145deg, #fff 70%, var(--gold-pale));
+  position: relative;
+}
+.book-session-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: white;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+.book-session-savings {
+  font-size: .88rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin: -8px 0 16px;
+  font-style: italic;
+}
+.book-session-btn--gold {
+  background: var(--gold) !important;
+  color: white !important;
+}
+.book-session-btn--gold:hover {
+  background: var(--gold-light) !important;
+}
+@media (max-width: 680px) {
+  .book-session-grid { grid-template-columns: 1fr; }
+}
 </style>
 <style>
 /* Free Beginner Peptide Guide button + modal */
@@ -1339,19 +1393,44 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
       <p style="max-width:560px;margin:0 auto 32px;color:var(--gray-700);font-size:1.05rem;line-height:1.7;">Some days you don&rsquo;t need another deep dive &mdash; you need 30 minutes with someone who can look at what you&rsquo;re actually doing and help it make sense. Bring your questions, your current routine, the compound you keep hearing about. We&rsquo;ll sort through it together, in plain English.</p>
     </div>
 
-    <div class="book-session-card">
-      <div class="book-session-price">
-        <span class="book-session-amount">$75</span>
-        <span class="book-session-duration">/ 30 min</span>
+    <div class="book-session-grid">
+
+      <!-- Single session card -->
+      <div class="book-session-card">
+        <p class="book-session-label">One Session</p>
+        <div class="book-session-price">
+          <span class="book-session-amount">$75</span>
+          <span class="book-session-duration">/ 30 min</span>
+        </div>
+        <ul class="book-session-features">
+          <li>&#10003;&nbsp; Peptide &amp; protocol questions answered</li>
+          <li>&#10003;&nbsp; Review your current routine</li>
+          <li>&#10003;&nbsp; Get clarity &amp; a clear next step</li>
+          <li>&#10003;&nbsp; Secure booking &amp; payment through Calendly</li>
+        </ul>
+        <a href="https://calendly.com/getglowing-glowwithheather/new-meeting" target="_blank" rel="noopener" class="btn btn-primary book-session-btn">Book Your Session &rarr;</a>
+        <p class="book-session-disclaimer">Educational wellness sessions only. Not medical advice, diagnosis, or treatment.</p>
       </div>
-      <ul class="book-session-features">
-        <li>&#10003;&nbsp; Peptide &amp; protocol questions answered</li>
-        <li>&#10003;&nbsp; Review your current routine</li>
-        <li>&#10003;&nbsp; Get clarity &amp; a clear next step</li>
-        <li>&#10003;&nbsp; Secure booking &amp; payment through Calendly</li>
-      </ul>
-      <a href="https://calendly.com/getglowing-glowwithheather/new-meeting" target="_blank" rel="noopener" class="btn btn-primary book-session-btn">Book Your Session &rarr;</a>
-      <p class="book-session-disclaimer">Educational wellness sessions only. Not medical advice, diagnosis, or treatment.</p>
+
+      <!-- 4-session bundle card -->
+      <div class="book-session-card book-session-card--bundle">
+        <div class="book-session-badge">Best Value</div>
+        <p class="book-session-label">4-Session Bundle</p>
+        <div class="book-session-price">
+          <span class="book-session-amount">$299</span>
+          <span class="book-session-duration">/ 4 sessions</span>
+        </div>
+        <p class="book-session-savings">That&rsquo;s just $74.75 per session &mdash; locked in even as the price goes up.</p>
+        <ul class="book-session-features">
+          <li>&#10003;&nbsp; Four 30-minute 1:1 sessions with me</li>
+          <li>&#10003;&nbsp; Use them over time, at your pace</li>
+          <li>&#10003;&nbsp; Best for building a real protocol together</li>
+          <li>&#10003;&nbsp; Secure booking &amp; payment through Calendly</li>
+        </ul>
+        <a href="https://calendly.com/getglowing-glowwithheather/packages/04437e86-2835-43d1-8c29-7fe067c27c13" target="_blank" rel="noopener" class="btn book-session-btn book-session-btn--gold">Reserve Your Bundle &rarr;</a>
+        <p class="book-session-disclaimer">Educational wellness sessions only. Not medical advice, diagnosis, or treatment.</p>
+      </div>
+
     </div>
   </div>
 </section>
