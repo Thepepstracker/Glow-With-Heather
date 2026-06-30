@@ -1397,6 +1397,188 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
 
 
 <!-- ======= BOOK A SESSION ======= -->
+  <!-- ============================================================
+       BEGINNER'S GUIDE LEAD CAPTURE
+  ============================================================ -->
+  <section class="peptide-guide-section">
+    <style>
+      .peptide-guide-section {
+        background: linear-gradient(135deg, #f9e8f0 0%, #fff 60%, #f3eaff 100%);
+        padding: 64px 0;
+        border-bottom: 1px solid rgba(200, 0, 106, 0.1);
+      }
+      .peptide-guide-inner {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 24px;
+        text-align: center;
+      }
+      .peptide-guide-eyebrow {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--rose);
+        background: rgba(200, 0, 106, 0.08);
+        border: 1px solid rgba(200, 0, 106, 0.18);
+        border-radius: 50px;
+        padding: 5px 16px;
+        margin-bottom: 18px;
+      }
+      .peptide-guide-heading {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+      .peptide-guide-heading em {
+        color: var(--rose);
+        font-style: italic;
+      }
+      .peptide-guide-sub {
+        font-size: 1.05rem;
+        color: var(--gray-700);
+        line-height: 1.65;
+        margin-bottom: 32px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .peptide-guide-form {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+      .peptide-guide-form input {
+        width: 100%;
+        padding: 14px 18px;
+        border: 1.5px solid #e0c8d8;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-family: inherit;
+        color: var(--dark);
+        background: #fff;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        box-sizing: border-box;
+      }
+      .peptide-guide-form input:focus {
+        border-color: var(--rose);
+        box-shadow: 0 0 0 3px rgba(200, 0, 106, 0.1);
+      }
+      .peptide-guide-form input::placeholder {
+        color: #b0a0aa;
+      }
+      .peptide-guide-btn {
+        background: linear-gradient(135deg, var(--rose), #a0004a);
+        color: #fff;
+        font-weight: 800;
+        font-size: 1rem;
+        padding: 15px 28px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        letter-spacing: 0.3px;
+        box-shadow: 0 4px 18px rgba(200, 0, 106, 0.3);
+        transition: transform 0.15s, box-shadow 0.15s;
+        width: 100%;
+      }
+      .peptide-guide-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(200, 0, 106, 0.4);
+      }
+      .peptide-guide-disclaimer {
+        font-size: 0.78rem;
+        color: var(--gray-400);
+        margin-top: 12px;
+      }
+      .peptide-guide-success {
+        display: none;
+        background: #f0fdf4;
+        border: 1.5px solid #86efac;
+        border-radius: 12px;
+        padding: 20px 24px;
+        color: #166534;
+        font-weight: 600;
+        font-size: 1rem;
+        margin-top: 8px;
+      }
+    </style>
+
+    <div class="peptide-guide-inner">
+      <div class="peptide-guide-eyebrow">&#128214; Free Resource</div>
+      <h2 class="peptide-guide-heading">
+        Get Heather's <em>Beginner's Guide</em><br>to Peptides
+      </h2>
+      <p class="peptide-guide-sub">
+        Everything you need to know to get started — explained simply, without the overwhelm. Drop your name and email and I'll send it straight to you.
+      </p>
+
+      <form
+        class="peptide-guide-form"
+        action="https://formspree.io/f/getglowing"
+        method="POST"
+        id="peptide-guide-form"
+        onsubmit="handleGuideSubmit(event)"
+      >
+        <input
+          type="text"
+          name="full_name"
+          placeholder="Your Full Name"
+          required
+          autocomplete="name"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email Address"
+          required
+          autocomplete="email"
+        />
+        <!-- Hidden fields for context -->
+        <input type="hidden" name="_subject" value="New Peptide Guide Request — Glow With Heather" />
+        <input type="hidden" name="_replyto" value="" />
+        <input type="hidden" name="source" value="Beginner Guide Form — glowwithheather.com" />
+        <button type="submit" class="peptide-guide-btn">
+          &#10024; Send Me the Guide &#10024;
+        </button>
+      </form>
+
+      <div class="peptide-guide-success" id="guide-success">
+        &#127775; You're in! Check your inbox — Heather's Beginner's Guide is on its way.
+      </div>
+      <p class="peptide-guide-disclaimer">No spam, ever. Unsubscribe any time.</p>
+    </div>
+
+    <script>
+      async function handleGuideSubmit(e) {
+        e.preventDefault();
+        const form = document.getElementById('peptide-guide-form');
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            form.style.display = 'none';
+            document.getElementById('guide-success').style.display = 'block';
+          } else {
+            alert('Something went wrong. Please try again or email getglowing@glowwithheather.com directly.');
+          }
+        } catch(err) {
+          alert('Something went wrong. Please try again or email getglowing@glowwithheather.com directly.');
+        }
+      }
+    </script>
+  </section>
+
 <section class="book-session-section section" id="book-session">
   <div class="container">
     <div class="text-center">
