@@ -1581,10 +1581,71 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
 
 <section class="book-session-section section" id="book-session">
   <div class="container">
-    <div class="text-center">
-      <p class="section-sub" style="color:var(--gold);letter-spacing:.12em;font-size:.8rem;text-transform:uppercase;font-weight:600;margin-bottom:8px;">Work With Me &middot; 30-Minute Session</p>
-      <h2 class="section-title" style="margin-bottom:16px;">Have a One-on-One<br><em style="color:var(--plum);">With Me</em></h2>
-      <p style="max-width:560px;margin:0 auto 32px;color:var(--gray-700);font-size:1.05rem;line-height:1.7;">Some days you don&rsquo;t need another deep dive &mdash; you need 30 minutes with someone who can look at what you&rsquo;re actually doing and help it make sense. Bring your questions, your current routine, the compound you keep hearing about. We&rsquo;ll sort through it together, in plain English.</p>
+    
+    <!-- ION Peptides 4th of July Sale Banner -->
+    <div class="ion-july-banner" style="position:relative;background:linear-gradient(135deg,#0a1a5c 0%,#1a3a9c 40%,#0d2580 70%,#0a1a5c 100%);border-radius:18px;padding:28px 32px;margin:0 0 18px;overflow:hidden;font-family:inherit;box-shadow:0 8px 40px rgba(0,80,255,0.35),0 2px 12px rgba(0,0,0,0.3);border:1.5px solid rgba(100,180,255,0.25);">
+    <style>
+      @keyframes ion-twinkle{0%,100%{opacity:1;transform:scale(1) rotate(0deg)}33%{opacity:.15;transform:scale(.4) rotate(15deg)}66%{opacity:.85;transform:scale(1.3) rotate(-10deg)}}
+      @keyframes ion-lightbar{0%,100%{box-shadow:0 0 8px 2px #7ec8ff,0 0 24px 8px #3399ff;opacity:.7}50%{box-shadow:0 0 16px 4px #fff,0 0 40px 12px #7ec8ff;opacity:1}}
+      @keyframes ion-float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-5px)}}
+      @keyframes ion-firework{0%{text-shadow:0 0 5px #fff}25%{text-shadow:0 0 10px #ff4444,0 0 20px #ff0000}50%{text-shadow:0 0 10px #fff,0 0 20px #4488ff}75%{text-shadow:0 0 10px #ff4444,0 0 20px #ff0000}100%{text-shadow:0 0 5px #fff}}
+      @keyframes ion-bgpulse{0%,100%{opacity:.12}50%{opacity:.22}}
+      .ion-spark{position:absolute;font-size:1.4rem;animation:ion-twinkle 1.2s ease-in-out infinite;pointer-events:none;z-index:1}
+      .ion-fireworks{animation:ion-firework 2s ease-in-out infinite}
+      .ion-lightbar{width:100%;height:3px;border-radius:2px;background:linear-gradient(90deg,transparent,#7ec8ff,#fff,#4ab0ff,transparent);animation:ion-lightbar 2s ease-in-out infinite;margin:8px 0}
+      .ion-btn{display:inline-block;background:linear-gradient(135deg,#1a6fff,#0044cc);color:#fff;font-weight:800;font-size:1rem;border-radius:30px;padding:12px 28px;text-decoration:none;letter-spacing:.5px;box-shadow:0 4px 20px rgba(0,100,255,0.5);border:1.5px solid rgba(100,180,255,0.4);animation:ion-float 3s ease-in-out infinite}
+      .ion-flag{font-size:1.3rem;animation:ion-firework 1.5s ease-in-out infinite}
+    </style>
+    <span class="ion-spark" style="top:-18px;left:2%;animation-delay:0s">&#10024;</span>
+    <span class="ion-spark" style="top:-18px;left:20%;animation-delay:.2s">&#11088;</span>
+    <span class="ion-spark" style="top:-18px;left:40%;animation-delay:.4s">&#128171;</span>
+    <span class="ion-spark" style="top:-18px;left:60%;animation-delay:.6s">&#10024;</span>
+    <span class="ion-spark" style="top:-18px;left:80%;animation-delay:.8s">&#127775;</span>
+    <span class="ion-spark" style="top:-18px;left:95%;animation-delay:1.0s">&#11088;</span>
+    <span class="ion-spark" style="bottom:-14px;left:10%;animation-delay:.3s">&#128171;</span>
+    <span class="ion-spark" style="bottom:-14px;left:30%;animation-delay:.5s">&#10024;</span>
+    <span class="ion-spark" style="bottom:-14px;left:60%;animation-delay:.7s">&#127775;</span>
+    <span class="ion-spark" style="bottom:-14px;left:85%;animation-delay:.9s">&#11088;</span>
+    <div style="position:absolute;top:-30px;left:-30px;width:180px;height:180px;background:radial-gradient(circle,rgba(0,100,255,0.18),transparent 70%);pointer-events:none;animation:ion-bgpulse 3s ease-in-out infinite;z-index:0;"></div>
+    <div style="position:absolute;bottom:-30px;right:-30px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,180,255,0.15),transparent 70%);pointer-events:none;animation:ion-bgpulse 3s ease-in-out infinite 1.5s;z-index:0;"></div>
+    <div style="position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;">
+      <div style="min-width:120px;text-align:center;flex:0 0 auto;">
+        <div style="font-size:2.8rem;line-height:1;" class="ion-fireworks">&#127878;</div>
+        <div style="font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;opacity:.8;color:#7ec8ff;margin-top:4px;font-weight:700;">&#11088; July Sale &#11088;</div>
+        <div style="font-size:clamp(1rem,2.5vw,1.4rem);font-weight:900;color:#fff;line-height:1.1;margin-top:4px;">ION Peptides</div>
+        <div class="ion-lightbar"></div>
+        <div style="font-size:.72rem;font-weight:800;letter-spacing:3px;color:rgba(126,200,255,.9);text-transform:uppercase;margin-top:2px;">&#127482;&#127480; July 3&ndash;5th &#127482;&#127480;</div>
+      </div>
+      <div style="flex:1;min-width:240px;">
+        <div style="font-size:clamp(1.2rem,3vw,1.6rem);font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:10px;text-shadow:0 2px 12px rgba(0,0,0,.3);">
+          <span class="ion-flag">&#127879;</span> ION PEPTIDES <span class="ion-flag">&#127879;</span>
+        </div>
+        <div style="margin-bottom:14px;">
+          <div style="font-size:.72rem;font-weight:800;letter-spacing:2px;color:rgba(126,200,255,.9);text-transform:uppercase;margin-bottom:6px;">&#127482;&#127480; 4th of July Sale</div>
+          <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;">
+            <span style="font-size:.65rem;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:1px;">up to</span>
+            <span style="font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1;color:#fff;text-shadow:0 0 20px #7ec8ff,0 0 40px #3399ff,0 0 80px #0055ff;letter-spacing:-1px;">50%</span>
+            <span style="font-size:clamp(.95rem,2.2vw,1.2rem);font-weight:800;color:#fff;letter-spacing:-.5px;">Site Wide</span>
+          </div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <div style="background:rgba(255,255,255,.08);border:1px solid rgba(100,180,255,.3);border-radius:10px;padding:8px 12px;margin-bottom:7px;">
+            <span style="font-size:.8rem;font-weight:800;color:#7ec8ff;">&#10024; Additional 15% Off</span>
+            <span style="font-size:.78rem;color:rgba(255,255,255,.85);"> with </span>
+            <span style="font-size:.82rem;font-weight:900;color:#fff;background:rgba(0,100,255,.3);border-radius:6px;padding:1px 7px;letter-spacing:.5px;">Glowlab Code</span>
+          </div>
+          <div style="background:rgba(255,255,255,.08);border:1px solid rgba(100,180,255,.3);border-radius:10px;padding:8px 12px;">
+            <span style="font-size:.8rem;font-weight:800;color:#7ec8ff;">&#128179; Extra 5% Off</span>
+            <span style="font-size:.78rem;color:rgba(255,255,255,.85);"> when you pay with </span>
+            <span style="font-size:.82rem;font-weight:900;color:#fff;">ACH</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <a href="https://ionpeptide.com/?ref=Glowlab" target="_blank" class="ion-btn">&#127482;&#127480; Shop ION Peptides Now &#127482;&#127480;</a>
+          <span style="font-size:.72rem;color:rgba(126,200,255,.75);font-weight:700;letter-spacing:1px;">&#9203; Ends July 5th</span>
+        </div>
+      </div>
+    </div>
     </div>
 
     <div class="book-session-grid">
@@ -1694,6 +1755,12 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
                    </div>
       </div>
       </div>
+
+    <div class="text-center">
+      <p class="section-sub" style="color:var(--gold);letter-spacing:.12em;font-size:.8rem;text-transform:uppercase;font-weight:600;margin-bottom:8px;">Work With Me &middot; 30-Minute Session</p>
+      <h2 class="section-title" style="margin-bottom:16px;">Have a One-on-One<br><em style="color:var(--plum);">With Me</em></h2>
+      <p style="max-width:560px;margin:0 auto 32px;color:var(--gray-700);font-size:1.05rem;line-height:1.7;">Some days you don&rsquo;t need another deep dive &mdash; you need 30 minutes with someone who can look at what you&rsquo;re actually doing and help it make sense. Bring your questions, your current routine, the compound you keep hearing about. We&rsquo;ll sort through it together, in plain English.</p>
+    </div>
       <p style="font-size:0.78rem;color:var(--gray-400);margin-top:16px;text-align:center;">Deals change often. Always review vendor pricing, policies, and product details before ordering.</p>
     </div>
   </section>
