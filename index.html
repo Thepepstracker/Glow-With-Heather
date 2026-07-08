@@ -1322,40 +1322,13 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
         min-width: 0;
       }
       #banners-side-by-side .ion-july-banner {
-        padding: 14px 16px !important;
         margin: 0 !important;
-        border-radius: 14px !important;
+        height: 100%;
       }
-      #banners-side-by-side .ion-spark { font-size: 0.7rem !important; }
-      #banners-side-by-side .ion-fireworks { font-size: 1.6rem !important; }
-      #banners-side-by-side .ion-july-banner [style*="clamp(1rem,2.5vw,1.4rem)"] { font-size: 1rem !important; }
-      #banners-side-by-side .ion-july-banner [style*="clamp(1.2rem,3vw,1.6rem)"] { font-size: 1rem !important; margin-bottom: 6px !important; }
-      #banners-side-by-side .ion-july-banner [style*="margin-bottom:14px"] { margin-bottom: 8px !important; }
-      #banners-side-by-side .ion-july-banner [style*="border-radius:10px"],
-      #banners-side-by-side .ion-july-banner [style*="border-radius:8px"] { padding: 5px 10px !important; font-size: 0.7rem !important; margin-bottom: 6px !important; }
-      #banners-side-by-side .ion-btn { padding: 8px 14px !important; font-size: 0.72rem !important; margin-right: 8px !important; }
       #banners-side-by-side .glow-flash-banner {
-        padding: 14px 16px !important;
         margin: 0 !important;
-        border-radius: 14px !important;
-        font-size: 0.85em;
+        height: 100% !important;
       }
-      #banners-side-by-side .giveaway-spark { font-size: 0.7rem !important; }
-      #banners-side-by-side .glow-flash-banner [style*="clamp(2.8rem"] { font-size: 2.5rem !important; }
-      #banners-side-by-side .glow-flash-banner [style*="0.9rem;letter-spacing"] { font-size: 0.7rem !important; }
-      #banners-side-by-side .b1g1-pill, #banners-side-by-side .b1g1-pill-gold { font-size: 0.6rem !important; padding: 3px 8px !important; }
-      #banners-side-by-side .flash-landscape { flex-direction: row !important; gap: 14px !important; align-items: stretch !important; }
-      #banners-side-by-side .flash-left { min-width: 90px !important; width: auto !important; flex: 0 0 auto !important; display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; }
-      #banners-side-by-side .flash-right { flex: 1 !important; min-width: 0 !important; width: auto !important; }
-      #banners-side-by-side .flash-right > div { margin-bottom: 6px !important; }
-      #banners-side-by-side .flash-right > div[style*="1.3rem,3vw,1.7rem"] { font-size: 1rem !important; margin-bottom: 6px !important; }
-      #banners-side-by-side .flash-right > div[style*="1rem,2.5vw,1.3rem"] { font-size: 0.85rem !important; margin-bottom: 6px !important; }
-      #banners-side-by-side .flash-right > div[style*="border-radius:50px"] { padding: 5px 12px !important; font-size: 0.8rem !important; }
-      #banners-side-by-side .flash-right > div[style*="0.85rem"] { font-size: 0.7rem !important; margin-bottom: 8px !important; }
-      #banners-side-by-side .flash-right .b1g1-pill, #banners-side-by-side .flash-right .b1g1-pill-gold { font-size: 0.55rem !important; padding: 2px 7px !important; }
-      #banners-side-by-side .ion-july-banner [style*="flex-wrap:wrap;gap:20px"] { gap: 10px !important; }
-      #banners-side-by-side .ion-july-banner [style*="min-width:120px;text-align:center"] { min-width: 80px !important; }
-      #banners-side-by-side .ion-july-banner [style*="flex:1;min-width:240px"] { min-width: 140px !important; }
       @media (max-width: 680px) { #banners-side-by-side { flex-direction: column; } }
     </style>
 
@@ -1638,217 +1611,107 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
     <!-- Monthly Featured Vendor Block -->
     <div class="mfv-wrapper" id="monthly-featured-vendor">
       <style>
-        .mfv-wrapper { position:relative; width:100%; margin-bottom:2rem; overflow:hidden; border-radius:18px; }
-        .mfv-fireworks-canvas { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:10; }
-        .mfv-float-emoji { position:absolute; font-size:1.8rem; animation:mfv-float var(--fdur,4s) ease-in-out infinite var(--fdelay,0s); z-index:4; }
-        @keyframes mfv-float { 0%,100%{transform:translateY(0px) rotate(0deg);opacity:.8} 33%{transform:translateY(-15px) rotate(120deg);opacity:1} 66%{transform:translateY(10px) rotate(240deg);opacity:.6} }
-        .mfv-container { position:relative; background:linear-gradient(135deg,#0a0a2e 0%,#1a0a3e 20%,#2d0a4e 40%,#0d1a5c 60%,#1a0d4a 80%,#0a1430 100%); border:3px solid transparent; border-radius:18px; background-clip:padding-box; padding:0; z-index:1; box-shadow:0 0 40px rgba(255,50,50,.5),0 0 80px rgba(50,50,255,.3),0 0 120px rgba(255,255,255,.1); overflow:hidden; }
-        .mfv-container::before { content:''; position:absolute; inset:-3px; border-radius:20px; background:linear-gradient(45deg,#ff0000,#ffffff,#0000ff,#ff0000,#ffffff,#0000ff,#ff0000); background-size:400% 400%; animation:mfv-border-rotate 3s linear infinite; z-index:-1; }
-        @keyframes mfv-border-rotate { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-        .mfv-top-banner { background:linear-gradient(90deg,#cc0000,#ff2222,#ffffff,#ff2222,#cc0000); background-size:200% 100%; animation:mfv-banner-shimmer 2s linear infinite; text-align:center; padding:8px 16px; font-size:.85rem; font-weight:900; color:#000; letter-spacing:3px; text-transform:uppercase; }
-        @keyframes mfv-banner-shimmer { 0%{background-position:200% 50%} 100%{background-position:-200% 50%} }
-        .mfv-stripes { height:12px; background:repeating-linear-gradient(90deg,#cc0000 0px,#cc0000 40px,#ffffff 40px,#ffffff 80px,#0000aa 80px,#0000aa 120px); animation:mfv-stripes-move 8s linear infinite; background-size:240px 100%; }
-        @keyframes mfv-stripes-move { from{background-position:0 0} to{background-position:240px 0} }
-        .mfv-body { padding:2rem 2rem 1.5rem; position:relative; z-index:5; text-align:center; }
-        .mfv-label { display:inline-block; background:linear-gradient(90deg,#cc0000,#ff4444,#cc0000); background-size:200% 100%; animation:mfv-banner-shimmer 2s linear infinite; color:#fff; font-size:.7rem; font-weight:900; letter-spacing:4px; text-transform:uppercase; padding:4px 20px; border-radius:30px; margin-bottom:1rem; border:2px solid rgba(255,255,255,.4); box-shadow:0 0 15px rgba(255,50,50,.8); }
-        .mfv-emoji-row { font-size:1.5rem; margin-bottom:.5rem; animation:mfv-pulse 1.5s ease-in-out infinite; }
-        @keyframes mfv-pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
-        .mfv-vendor-name { font-size:clamp(2rem,5vw,4rem); font-weight:900; letter-spacing:2px; text-transform:uppercase; background:linear-gradient(135deg,#ffffff 0%,#ffe0e0 20%,#ff6666 40%,#ffffff 60%,#a0b4ff 80%,#ffffff 100%); background-size:300% 300%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:mfv-text-shimmer 3s linear infinite; margin:.2rem 0; line-height:1.1; }
-        @keyframes mfv-text-shimmer { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-        .mfv-subtitle { color:#aaccff; font-size:.9rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:1.5rem; opacity:.9; }
-        .mfv-divider { display:flex; align-items:center; gap:12px; margin:1rem auto; max-width:500px; }
-        .mfv-divider-line { flex:1; height:2px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent); animation:mfv-pulse 2s ease-in-out infinite; }
-        .mfv-divider-icon { font-size:1.5rem; animation:mfv-spin 4s linear infinite; }
-        @keyframes mfv-spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-        .mfv-discount-block { display:inline-flex; flex-direction:column; align-items:center; background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.05) 100%); border:2px solid rgba(255,255,255,.25); border-radius:20px; padding:1.2rem 2.5rem; margin:.5rem 0 1.2rem; backdrop-filter:blur(10px); box-shadow:0 0 30px rgba(255,100,100,.3),inset 0 0 30px rgba(255,255,255,.05); position:relative; animation:mfv-glow-pulse 2s ease-in-out infinite; }
-        @keyframes mfv-glow-pulse { 0%,100%{box-shadow:0 0 30px rgba(255,100,100,.3),inset 0 0 30px rgba(255,255,255,.05)} 50%{box-shadow:0 0 60px rgba(255,100,100,.7),0 0 30px rgba(100,100,255,.5),inset 0 0 30px rgba(255,255,255,.1)} }
-        .mfv-discount-text { font-size:clamp(2.5rem,6vw,5rem); font-weight:900; background:linear-gradient(135deg,#ffdd00 0%,#ff8800 50%,#ff2200 100%); background-size:200% 200%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:mfv-text-shimmer 2s linear infinite; line-height:1; filter:drop-shadow(0 0 20px rgba(255,180,0,.8)); }
-        .mfv-discount-label { color:rgba(255,255,255,.9); font-size:1rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-top:.3rem; }
-        .mfv-code-block { display:inline-flex; align-items:center; gap:10px; background:rgba(0,0,0,.4); border:2px solid #ffdd00; border-radius:12px; padding:.6rem 1.5rem; margin:.8rem 0; animation:mfv-border-flash 1.5s ease-in-out infinite; }
-        @keyframes mfv-border-flash { 0%,100%{border-color:#ffdd00;box-shadow:0 0 10px rgba(255,220,0,.5)} 50%{border-color:#ffffff;box-shadow:0 0 25px rgba(255,255,255,.8)} }
-        .mfv-code-label { color:rgba(255,255,255,.7); font-size:.8rem; letter-spacing:2px; text-transform:uppercase; }
-        .mfv-code-value { color:#ffdd00; font-size:1.4rem; font-weight:900; letter-spacing:4px; text-transform:uppercase; font-family:monospace; }
-        .mfv-flags { font-size:2rem; margin:.5rem 0; animation:mfv-wave 2s ease-in-out infinite; letter-spacing:8px; }
-        @keyframes mfv-wave { 0%,100%{transform:translateY(0)} 25%{transform:translateY(-5px)} 75%{transform:translateY(5px)} }
-        .mfv-bottom-stripe { height:12px; background:repeating-linear-gradient(90deg,#0000aa 0px,#0000aa 40px,#ffffff 40px,#ffffff 80px,#cc0000 80px,#cc0000 120px); animation:mfv-stripes-move-rev 8s linear infinite; background-size:240px 100%; }
-        @keyframes mfv-stripes-move-rev { from{background-position:240px 0} to{background-position:0 0} }
-        .mfv-footer { font-size:.65rem; color:rgba(255,255,255,.4); text-align:center; padding:.5rem 1rem; }
-        @media(max-width:600px){.mfv-body{padding:1.5rem 1rem 1rem}.mfv-discount-block{padding:1rem 1.5rem}.mfv-code-value{font-size:1.1rem}}
+        .mfv-wrapper { position:relative; width:100%; margin-bottom:2rem; }
+        .mfv-frame { position:relative; border-radius:22px; padding:5px; background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 22%,#FFF3D6 50%,var(--gold-light) 78%,var(--gold) 100%); box-shadow:0 14px 44px rgba(123,63,168,0.28),0 4px 14px rgba(196,136,58,0.25); }
+        .mfv-container { position:relative; background:linear-gradient(160deg,#2A1050 0%,#3A1868 55%,#2A1050 100%); border-radius:17px; overflow:hidden; text-align:center; }
+        .mfv-container::before { content:''; position:absolute; top:-60px; right:-60px; width:280px; height:280px; background:radial-gradient(circle,rgba(232,184,109,0.16) 0%,transparent 65%); pointer-events:none; }
+        .mfv-container::after { content:''; position:absolute; bottom:-60px; left:-60px; width:280px; height:280px; background:radial-gradient(circle,rgba(200,85,107,0.14) 0%,transparent 65%); pointer-events:none; }
+        .mfv-top-banner { background:linear-gradient(90deg,rgba(232,184,109,0.18),rgba(232,184,109,0.32),rgba(232,184,109,0.18)); border-bottom:1px solid rgba(232,184,109,0.35); text-align:center; padding:9px 16px; font-size:.78rem; font-weight:800; color:var(--gold-light); letter-spacing:4px; text-transform:uppercase; }
+        .mfv-body { padding:2.4rem 2rem 1.8rem; position:relative; z-index:2; }
+        .mfv-label { display:inline-block; background:rgba(232,184,109,0.14); border:1px solid rgba(232,184,109,0.4); color:var(--gold-light); font-size:.68rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:5px 18px; border-radius:30px; margin-bottom:1.1rem; }
+        .mfv-vendor-name { font-family:var(--font-head); font-size:clamp(2rem,4.5vw,3.2rem); font-weight:700; letter-spacing:1px; background:linear-gradient(135deg,#FFF6E8 0%,var(--gold-light) 50%,#FFF6E8 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin:.2rem 0; line-height:1.15; }
+        .mfv-subtitle { color:rgba(255,246,232,0.75); font-size:.85rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:1.2rem; }
+        .mfv-divider { display:flex; align-items:center; gap:12px; margin:1rem auto 1.2rem; max-width:420px; }
+        .mfv-divider-line { flex:1; height:1px; background:linear-gradient(90deg,transparent,rgba(232,184,109,0.55),transparent); }
+        .mfv-divider-icon { font-size:1.1rem; color:var(--gold-light); }
+        .mfv-discount-block { display:inline-flex; flex-direction:column; align-items:center; background:rgba(255,255,255,0.06); border:1px solid rgba(232,184,109,0.35); border-radius:18px; padding:1.2rem 2.6rem; margin:.3rem 0 1rem; }
+        .mfv-discount-text { font-size:clamp(2.2rem,5vw,3.4rem); font-weight:900; color:#FFF6E8; line-height:1; }
+        .mfv-discount-text span { background:linear-gradient(135deg,var(--gold-light),#FFD98A); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .mfv-discount-label { color:rgba(255,246,232,0.85); font-size:.85rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; margin-top:.4rem; }
+        .mfv-code-block { display:inline-flex; align-items:center; gap:10px; background:rgba(0,0,0,.3); border:1.5px solid var(--gold-light); border-radius:12px; padding:.55rem 1.5rem; margin:.4rem 0 1rem; }
+        .mfv-code-label { color:rgba(255,246,232,0.7); font-size:.78rem; letter-spacing:2px; text-transform:uppercase; }
+        .mfv-code-value { color:var(--gold-light); font-size:1.3rem; font-weight:900; letter-spacing:4px; text-transform:uppercase; font-family:monospace; }
+        .mfv-cta-btn { display:inline-block; margin-top:.4rem; padding:15px 44px; background:linear-gradient(135deg,var(--gold),#A8702A); color:#241040; font-size:.95rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; text-decoration:none; border-radius:50px; border:1.5px solid rgba(255,246,232,.35); box-shadow:0 6px 22px rgba(196,136,58,.45); transition:transform .25s ease, box-shadow .25s ease; }
+        .mfv-cta-btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(196,136,58,.6); }
+        .mfv-affiliate { margin-top:1.2rem; }
+        .mfv-affiliate a { display:inline-block; color:var(--gold-light); font-size:.88rem; font-weight:600; letter-spacing:.5px; text-decoration:none; border:1px solid rgba(232,184,109,0.45); border-radius:50px; padding:9px 22px; background:rgba(232,184,109,0.08); transition:background .2s ease, transform .2s ease; }
+        .mfv-affiliate a:hover { background:rgba(232,184,109,0.2); transform:translateY(-1px); }
+        .mfv-footer { font-size:.65rem; color:rgba(255,246,232,.45); text-align:center; padding:.6rem 1rem .9rem; position:relative; z-index:2; }
+        @media(max-width:600px){ .mfv-body{padding:1.6rem 1rem 1.2rem} .mfv-discount-block{padding:1rem 1.6rem} .mfv-code-value{font-size:1.1rem} }
       </style>
 
-      <span class="mfv-float-emoji" style="left:3%;top:15%;--fdur:3.5s;--fdelay:0s;">🎆</span>
-      <span class="mfv-float-emoji" style="right:3%;top:10%;--fdur:4s;--fdelay:0.5s;">🎇</span>
-      <span class="mfv-float-emoji" style="left:8%;top:50%;--fdur:5s;--fdelay:1s;">⭐</span>
-      <span class="mfv-float-emoji" style="right:8%;top:55%;--fdur:3.8s;--fdelay:0.7s;">🌟</span>
-      <span class="mfv-float-emoji" style="left:15%;top:70%;--fdur:4.5s;--fdelay:1.5s;">✨</span>
-      <span class="mfv-float-emoji" style="right:15%;top:75%;--fdur:3.2s;--fdelay:0.3s;">💥</span>
-      <span class="mfv-float-emoji" style="left:50%;top:5%;--fdur:4.2s;--fdelay:0.9s;transform:translateX(-50%);">🎆</span>
-
-      <canvas class="mfv-fireworks-canvas" id="mfv-canvas"></canvas>
-
+      <div class="mfv-frame">
       <div class="mfv-container">
-        <div class="mfv-stripes"></div>
-        <div class="mfv-top-banner">🇺🇸 ⭐ Monthly Featured Vendor ⭐ 🇺🇸</div>
+        <div class="mfv-top-banner">&#11088; Featured July Vendor &#11088;</div>
         <div class="mfv-body">
-          <div class="mfv-emoji-row">🎆 🇺🇸 🎇 🇺🇸 🎆</div>
-          <div class="mfv-label">🌟 July Exclusive Pick 🌟</div>
+          <div class="mfv-label">&#127775; Spotlight for July &#127775;</div>
           <div class="mfv-vendor-name">Solas Science</div>
-          <div class="mfv-subtitle">✦ Science-Backed Peptides ✦</div>
+          <div class="mfv-subtitle">&#10022; Science-Backed Peptides &middot; 7&times; Lab Tested &#10022;</div>
           <div class="mfv-divider">
             <div class="mfv-divider-line"></div>
-            <span class="mfv-divider-icon">⭐</span>
+            <span class="mfv-divider-icon">&#10022;</span>
             <div class="mfv-divider-line"></div>
           </div>
           <div class="mfv-discount-block">
-            <div class="mfv-discount-text">Up to 35% OFF</div>
-            <div class="mfv-discount-label">🔥 Exclusive Glow Lab Discount 🔥</div>
+            <div class="mfv-discount-text"><span>10% OFF</span></div>
+            <div class="mfv-discount-label">Exclusive Glow Lab Discount</div>
           </div>
           <div class="mfv-code-block">
             <span class="mfv-code-label">Use Code:</span>
             <span class="mfv-code-value">GLOWLAB</span>
           </div>
-          <div class="mfv-price-list" style="margin:1rem auto 1.2rem;padding:1.4rem 2rem;background:rgba(0,0,0,.45);border:2px solid #ffdd00;border-radius:18px;max-width:420px;box-shadow:0 0 25px rgba(255,221,0,.35);"><div style="color:#ffdd00;font-weight:900;font-size:1rem;letter-spacing:3px;text-transform:uppercase;text-align:center;margin-bottom:.8rem;">Sale Prices</div><ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem;"><li style="font-size:1.5rem;font-weight:800;color:#fff;display:flex;justify-content:space-between;gap:1rem;"><span>NAD+ 500mg</span><span style="color:#ffdd00;">$28.80</span></li><li style="font-size:1.5rem;font-weight:800;color:#fff;display:flex;justify-content:space-between;gap:1rem;"><span>Hospira</span><span style="color:#ffdd00;">$16</span></li><li style="font-size:1.5rem;font-weight:800;color:#fff;display:flex;justify-content:space-between;gap:1rem;"><span>Blutathione 750mg</span><span style="color:#ffdd00;">$25.20</span></li><li style="font-size:1.5rem;font-weight:800;color:#fff;display:flex;justify-content:space-between;gap:1rem;"><span>CHK-dcu 100mg</span><span style="color:#ffdd00;">$22.75</span></li><li style="font-size:1.5rem;font-weight:800;color:#fff;display:flex;justify-content:space-between;gap:1rem;"><span>KLOW 80mg</span><span style="color:#ffdd00;">$61.20</span></li><li style="font-size:1.5rem;font-weight:800;color:#fff;display:flex;justify-content:space-between;gap:1rem;"><span>Selank 10mg</span><span style="color:#ffdd00;">$27</span></li></ul></div><div class="mfv-flags">🇺🇸 🎆 🎇 🎆 🇺🇸</div>
-          <a href="https://solasscience.shop/" target="_blank" rel="noopener" class="mfv-cta-btn" style="display:inline-block;margin-top:1rem;padding:1rem 3rem;background:linear-gradient(135deg,#cc0000,#ff2222,#ee0000);color:#fff;font-size:1.1rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:50px;border:3px solid rgba(255,255,255,.5);box-shadow:0 0 30px rgba(255,0,0,.6);animation:mfv-btn-pulse 1.5s ease-in-out infinite;">🛒 Shop Solas Science Now 🛒</a>
+          <div>
+            <a href="https://solasscience.shop/" target="_blank" rel="noopener" class="mfv-cta-btn">Shop Solas Science Now</a>
+          </div>
+          <div class="mfv-affiliate">
+            <a href="https://solasscience.shop/affiliate-program-two/" target="_blank" rel="noopener">&#129309; Become an affiliate with Solas Science &mdash; click here</a>
+          </div>
         </div>
-        <div class="mfv-bottom-stripe"></div>
         <div class="mfv-footer">Deals change often. Always review vendor pricing and policies before ordering.</div>
+      </div>
       </div>
     </div>
     <!-- End Monthly Featured Vendor Block -->
 
 
-    <div class="ga-banner" style="position:relative;background:linear-gradient(135deg,#8B0057 0%,#C8006A 50%,#8B0057 100%);border-radius:18px;padding:28px 32px;margin:0 0 18px;overflow:hidden;box-shadow:0 8px 32px rgba(200,0,106,0.35);border:2px solid rgba(255,255,255,0.15);text-align:center;"><style>@keyframes ga-twinkle{0%,100%{opacity:1;transform:scale(1) rotate(0deg)}33%{opacity:.2;transform:scale(.5) rotate(15deg)}66%{opacity:.85;transform:scale(1.2) rotate(-10deg)}}@keyframes ga-pulseglow{0%,100%{text-shadow:0 0 20px #fff,0 0 40px #ffe066,0 0 80px #ffb700}50%{text-shadow:0 0 10px #fff,0 0 20px #ffe066,0 0 40px #ffb700}}@keyframes ga-shimmer{0%{background-position:-200% center}100%{background-position:200% center}}@keyframes ga-float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-6px)}}.ga-spark{position:absolute;font-size:1.5rem;animation:ga-twinkle 1.3s ease-in-out infinite;pointer-events:none}.ga-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:#fff;letter-spacing:1px;margin-bottom:6px;animation:ga-pulseglow 2s ease-in-out infinite}.ga-discount{font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;background:linear-gradient(90deg,#fff 0%,#ffe066 25%,#fff 50%,#ffb700 75%,#fff 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:ga-shimmer 2.5s linear infinite;line-height:1;margin:8px 0}.ga-code{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.3);border:2px solid #ffe066;border-radius:12px;padding:.5rem 1.4rem;margin:.8rem 0}.ga-btn{display:inline-block;margin-top:14px;padding:14px 36px;background:linear-gradient(135deg,#ffe066,#ffb700);color:#8B0057;font-weight:900;font-size:1.1rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:50px;box-shadow:0 4px 20px rgba(255,183,0,.5);animation:ga-float 3s ease-in-out infinite}</style><span class="ga-spark" style="top:6%;left:4%;animation-delay:0s;">✨</span><span class="ga-spark" style="top:10%;left:92%;animation-delay:.3s;">🎉</span><span class="ga-spark" style="top:75%;left:8%;animation-delay:.6s;">⭐</span><span class="ga-spark" style="top:80%;left:88%;animation-delay:.9s;">✨</span><span class="ga-spark" style="top:40%;left:2%;animation-delay:1.2s;">🌟</span><span class="ga-spark" style="top:45%;left:96%;animation-delay:1.5s;">🎊</span><div class="ga-title">✨ Glow Aminos ✨</div><div class="ga-discount">55% OFF</div><div class="ga-code"><span style="color:rgba(255,255,255,.7);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;">Use Code:</span> <span style="color:#ffe066;font-size:1.3rem;font-weight:900;letter-spacing:3px;font-family:monospace;">GLOWLAB</span></div><a href="https://glowaminos.com/shop/?coupon=Glowlab" target="_blank" rel="noopener" class="ga-btn">🛒 Shop Glow Aminos Now 🛒</a></div><div id="banners-side-by-side">
-<!-- ION Peptides 4th of July Sale Banner -->
-    <div class="ion-july-banner" style="position:relative;background:linear-gradient(135deg,#0a1a5c 0%,#1a3a9c 40%,#0d2580 70%,#0a1a5c 100%);border-radius:18px;padding:28px 32px;margin:0 0 18px;overflow:hidden;font-family:inherit;box-shadow:0 8px 40px rgba(0,80,255,0.35),0 2px 12px rgba(0,0,0,0.3);border:1.5px solid rgba(100,180,255,0.25);">
-    <style>
-      @keyframes ion-twinkle{0%,100%{opacity:1;transform:scale(1) rotate(0deg)}33%{opacity:.15;transform:scale(.4) rotate(15deg)}66%{opacity:.85;transform:scale(1.3) rotate(-10deg)}}
-      @keyframes ion-lightbar{0%,100%{box-shadow:0 0 8px 2px #7ec8ff,0 0 24px 8px #3399ff;opacity:.7}50%{box-shadow:0 0 16px 4px #fff,0 0 40px 12px #7ec8ff;opacity:1}}
-      @keyframes ion-float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-5px)}}
-      @keyframes ion-firework{0%{text-shadow:0 0 5px #fff}25%{text-shadow:0 0 10px #ff4444,0 0 20px #ff0000}50%{text-shadow:0 0 10px #fff,0 0 20px #4488ff}75%{text-shadow:0 0 10px #ff4444,0 0 20px #ff0000}100%{text-shadow:0 0 5px #fff}}
-      @keyframes ion-bgpulse{0%,100%{opacity:.12}50%{opacity:.22}}
-      .ion-spark{position:absolute;font-size:1.4rem;animation:ion-twinkle 1.2s ease-in-out infinite;pointer-events:none;z-index:1}
-      .ion-fireworks{animation:ion-firework 2s ease-in-out infinite}
-      .ion-lightbar{width:100%;height:3px;border-radius:2px;background:linear-gradient(90deg,transparent,#7ec8ff,#fff,#4ab0ff,transparent);animation:ion-lightbar 2s ease-in-out infinite;margin:8px 0}
-      .ion-btn{display:inline-block;background:linear-gradient(135deg,#1a6fff,#0044cc);color:#fff;font-weight:800;font-size:1rem;border-radius:30px;padding:12px 28px;text-decoration:none;letter-spacing:.5px;box-shadow:0 4px 20px rgba(0,100,255,0.5);border:1.5px solid rgba(100,180,255,0.4);animation:ion-float 3s ease-in-out infinite}
-      .ion-flag{font-size:1.3rem;animation:ion-firework 1.5s ease-in-out infinite}
-    </style>
-    <span class="ion-spark" style="top:-18px;left:2%;animation-delay:0s">&#10024;</span>
-    <span class="ion-spark" style="top:-18px;left:20%;animation-delay:.2s">&#11088;</span>
-    <span class="ion-spark" style="top:-18px;left:40%;animation-delay:.4s">&#128171;</span>
-    <span class="ion-spark" style="top:-18px;left:60%;animation-delay:.6s">&#10024;</span>
-    <span class="ion-spark" style="top:-18px;left:80%;animation-delay:.8s">&#127775;</span>
-    <span class="ion-spark" style="top:-18px;left:95%;animation-delay:1.0s">&#11088;</span>
-    <span class="ion-spark" style="bottom:-14px;left:10%;animation-delay:.3s">&#128171;</span>
-    <span class="ion-spark" style="bottom:-14px;left:30%;animation-delay:.5s">&#10024;</span>
-    <span class="ion-spark" style="bottom:-14px;left:60%;animation-delay:.7s">&#127775;</span>
-    <span class="ion-spark" style="bottom:-14px;left:85%;animation-delay:.9s">&#11088;</span>
-    <div style="position:absolute;top:-30px;left:-30px;width:180px;height:180px;background:radial-gradient(circle,rgba(0,100,255,0.18),transparent 70%);pointer-events:none;animation:ion-bgpulse 3s ease-in-out infinite;z-index:0;"></div>
-    <div style="position:absolute;bottom:-30px;right:-30px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,180,255,0.15),transparent 70%);pointer-events:none;animation:ion-bgpulse 3s ease-in-out infinite 1.5s;z-index:0;"></div>
-    <div style="position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;">
-      <div style="min-width:120px;text-align:center;flex:0 0 auto;">
-        <div style="font-size:2.8rem;line-height:1;" class="ion-fireworks">&#127878;</div>
-        <div style="font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;opacity:.8;color:#7ec8ff;margin-top:4px;font-weight:700;">&#11088; July Sale &#11088;</div>
-        <div style="font-size:clamp(1rem,2.5vw,1.4rem);font-weight:900;color:#fff;line-height:1.1;margin-top:4px;">ION Peptides</div>
-        <div class="ion-lightbar"></div>
-        <div style="font-size:.72rem;font-weight:800;letter-spacing:3px;color:rgba(126,200,255,.9);text-transform:uppercase;margin-top:2px;">&#127482;&#127480; July 3&ndash;5th &#127482;&#127480;</div>
+    <div class="ga-banner" style="position:relative;background:linear-gradient(135deg,#8B0057 0%,#C8006A 50%,#8B0057 100%);border-radius:18px;padding:28px 32px;margin:0 0 18px;overflow:hidden;box-shadow:0 8px 32px rgba(200,0,106,0.25);border:2px solid rgba(255,255,255,0.15);text-align:center;"><div style="position:absolute;top:-40px;right:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(255,224,102,0.14),transparent 70%);pointer-events:none;"></div><div class="ga-title" style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:#fff;letter-spacing:1px;margin-bottom:6px;">&#10024; Glow Aminos &#10024;</div><div class="ga-discount" style="font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;color:#ffe066;line-height:1;margin:8px 0;">45% OFF</div><div class="ga-code" style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.3);border:2px solid #ffe066;border-radius:12px;padding:.5rem 1.4rem;margin:.8rem 0;"><span style="color:rgba(255,255,255,.7);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;">Use Code:</span> <span style="color:#ffe066;font-size:1.3rem;font-weight:900;letter-spacing:3px;font-family:monospace;">GLOWLAB</span></div><div><a href="https://glowaminos.com/shop/?coupon=Glowlab" target="_blank" rel="noopener" class="ga-btn" style="display:inline-block;margin-top:14px;padding:14px 36px;background:linear-gradient(135deg,#ffe066,#ffb700);color:#8B0057;font-weight:900;font-size:1.1rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:50px;box-shadow:0 4px 20px rgba(255,183,0,.4);">&#128717;&#65039; Shop Glow Aminos Now</a></div></div><div id="banners-side-by-side">
+<!-- ION Peptides Banner -->
+    <div class="ion-july-banner" style="position:relative;background:linear-gradient(135deg,#0a1a5c 0%,#1a3a9c 40%,#0d2580 70%,#0a1a5c 100%);border-radius:18px;padding:28px 32px;margin:0 0 18px;overflow:hidden;font-family:inherit;box-shadow:0 8px 32px rgba(0,80,255,0.25);border:1.5px solid rgba(100,180,255,0.25);">
+    <div style="position:absolute;top:-30px;left:-30px;width:180px;height:180px;background:radial-gradient(circle,rgba(0,100,255,0.15),transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-30px;right:-30px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,180,255,0.12),transparent 70%);pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;text-align:center;">
+      <div style="font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;opacity:.85;color:#7ec8ff;font-weight:700;margin-bottom:6px;">Glow Lab Trusted Vendor</div>
+      <div style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:12px;">ION Peptides</div>
+      <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:14px;">
+        <span style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;line-height:1;color:#fff;letter-spacing:-1px;">15%</span>
+        <span style="font-size:clamp(.95rem,2.2vw,1.2rem);font-weight:800;color:#7ec8ff;">OFF</span>
       </div>
-      <div style="flex:1;min-width:240px;">
-        <div style="font-size:clamp(1.2rem,3vw,1.6rem);font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:10px;text-shadow:0 2px 12px rgba(0,0,0,.3);">
-          <span class="ion-flag">&#127879;</span> ION PEPTIDES <span class="ion-flag">&#127879;</span>
-        </div>
-        <div style="margin-bottom:14px;">
-          <div style="font-size:.72rem;font-weight:800;letter-spacing:2px;color:rgba(126,200,255,.9);text-transform:uppercase;margin-bottom:6px;">&#127482;&#127480; 4th of July Sale</div>
-          <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;">
-            <span style="font-size:.65rem;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:1px;">up to</span>
-            <span style="font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1;color:#fff;text-shadow:0 0 20px #7ec8ff,0 0 40px #3399ff,0 0 80px #0055ff;letter-spacing:-1px;">50%</span>
-            <span style="font-size:clamp(.95rem,2.2vw,1.2rem);font-weight:800;color:#fff;letter-spacing:-.5px;">Site Wide</span>
-          </div>
-        </div>
-        <div style="margin-bottom:14px;">
-          <div style="background:rgba(255,255,255,.08);border:1px solid rgba(100,180,255,.3);border-radius:10px;padding:8px 12px;margin-bottom:7px;">
-            <span style="font-size:.8rem;font-weight:800;color:#7ec8ff;">&#10024; Additional 15% Off</span>
-            <span style="font-size:.78rem;color:rgba(255,255,255,.85);"> with </span>
-            <span style="font-size:.82rem;font-weight:900;color:#fff;background:rgba(0,100,255,.3);border-radius:6px;padding:1px 7px;letter-spacing:.5px;">Glowlab Code</span>
-          </div>
-          <div style="background:rgba(255,255,255,.08);border:1px solid rgba(100,180,255,.3);border-radius:10px;padding:8px 12px;">
-            <span style="font-size:.8rem;font-weight:800;color:#7ec8ff;">&#128179; Extra 5% Off</span>
-            <span style="font-size:.78rem;color:rgba(255,255,255,.85);"> when you pay with </span>
-            <span style="font-size:.82rem;font-weight:900;color:#fff;">ACH</span>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-          <a href="https://ionpeptide.com/?ref=Glowlab" target="_blank" class="ion-btn">&#127482;&#127480; Shop ION Peptides Now &#127482;&#127480;</a>
-          <span style="font-size:.72rem;color:rgba(126,200,255,.75);font-weight:700;letter-spacing:1px;">&#9203; Ends July 5th</span>
-        </div>
+      <div style="background:rgba(255,255,255,.08);border:1px solid rgba(100,180,255,.3);border-radius:10px;padding:8px 12px;margin:0 auto 7px;max-width:340px;">
+        <span style="font-size:.78rem;color:rgba(255,255,255,.85);">with code </span>
+        <span style="font-size:.82rem;font-weight:900;color:#fff;background:rgba(0,100,255,.3);border-radius:6px;padding:1px 7px;letter-spacing:.5px;">GLOWLAB</span>
       </div>
+      <div style="background:rgba(255,255,255,.08);border:1px solid rgba(100,180,255,.3);border-radius:10px;padding:8px 12px;margin:0 auto 16px;max-width:340px;">
+        <span style="font-size:.8rem;font-weight:800;color:#7ec8ff;">&#128179; Extra 5% Off</span>
+        <span style="font-size:.78rem;color:rgba(255,255,255,.85);"> when you pay with </span>
+        <span style="font-size:.82rem;font-weight:900;color:#fff;">ACH</span>
+      </div>
+      <a href="https://ionpeptide.com/?ref=Glowlab" target="_blank" class="ion-btn" style="display:inline-block;background:linear-gradient(135deg,#1a6fff,#0044cc);color:#fff;font-weight:800;font-size:.95rem;border-radius:30px;padding:12px 28px;text-decoration:none;letter-spacing:.5px;box-shadow:0 4px 16px rgba(0,100,255,0.4);border:1.5px solid rgba(100,180,255,0.4);">Shop ION Peptides Now</a>
     </div>
     </div>
       <div class="glow-flash-banner-wrapper" style="flex:1;min-width:0;">
-<div class="glow-flash-banner" style="grid-column:1/-1;background:linear-gradient(135deg,#8B0057 0%,#C8006A 50%,#8B0057 100%);border-radius:18px;padding:28px 32px;margin-bottom:24px;box-shadow:0 8px 32px rgba(200,0,106,0.35);border:2px solid rgba(255,255,255,0.15);position:relative;overflow:hidden;">
-        <style>
-          @keyframes shimmerText { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
-          @keyframes pulse-glow { 0%, 100% { text-shadow: 0 0 20px #fff, 0 0 40px #ffe066, 0 0 80px #ffb700, 0 0 120px #ff8800; } 50% { text-shadow: 0 0 10px #fff, 0 0 20px #ffe066, 0 0 40px #ffb700; } }
-          @keyframes twinkle { 0%, 100% { opacity: 1; transform: scale(1); } 33% { opacity: .2; transform: scale(.5); } 66% { opacity: .8; transform: scale(1.2); } }
-          @keyframes lightbar { 0%, 100% { box-shadow: 0 0 8px 2px #ffe066, 0 0 24px 8px #ffb700; opacity: .7; } 50% { box-shadow: 0 0 16px 4px #fff, 0 0 40px 12px #ffe066; opacity: 1; } }
-          .giveaway-spark { position: absolute; font-size: 1.4rem; animation: twinkle 1.2s ease-in-out infinite; pointer-events: none; }
-          #giveaway-amount-text { background: linear-gradient(90deg, #fff 0%, #ffe066 20%, #fff 40%, #ffb700 60%, #fff 80%, #ffe066 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmerText 2.5s linear infinite, pulse-glow 2s ease-in-out infinite; }
-          #giveaway-light-bar { height: 3px; border-radius: 4px; background: linear-gradient(90deg, transparent, #ffe066, #fff, #ffb700, transparent); animation: lightbar 2s ease-in-out infinite; margin: 6px 0 10px; }
-          .flash-landscape { display: flex; align-items: center; gap: 32px; text-align: left; }
-          .flash-left { flex: 0 0 auto; text-align: center; min-width: 200px; }
-          .flash-right { flex: 1; }
-          .b1g1-pill { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 6px 14px; margin: 4px 4px 4px 0; font-size: 0.92rem; font-weight: 700; color: #fff; white-space: nowrap; }
-          .b1g1-pill-gold { background: rgba(255,224,102,0.18); border-color: rgba(255,224,102,0.5); color: #ffe066; }
-          @media (max-width: 600px) { .flash-landscape { flex-direction: column; text-align: center; } .flash-right { text-align: center; } }
-        </style>
-        <!-- sparkle top row -->
-        <span class="giveaway-spark" style="top:-18px;left:2%;animation-delay:0s">&#10024;</span>
-        <span class="giveaway-spark" style="top:-18px;left:20%;animation-delay:0.2s">&#11088;</span>
-        <span class="giveaway-spark" style="top:-18px;left:40%;animation-delay:0.4s">&#128171;</span>
-        <span class="giveaway-spark" style="top:-18px;left:60%;animation-delay:0.6s">&#10024;</span>
-        <span class="giveaway-spark" style="top:-18px;left:80%;animation-delay:0.8s">&#127775;</span>
-        <span class="giveaway-spark" style="top:-18px;left:95%;animation-delay:1.0s">&#11088;</span>
-        <!-- sparkle bottom row -->
-        <span class="giveaway-spark" style="bottom:-14px;left:10%;animation-delay:0.3s">&#128171;</span>
-        <span class="giveaway-spark" style="bottom:-14px;left:30%;animation-delay:0.5s">&#10024;</span>
-        <span class="giveaway-spark" style="bottom:-14px;left:60%;animation-delay:0.7s">&#127775;</span>
-        <span class="giveaway-spark" style="bottom:-14px;left:85%;animation-delay:0.9s">&#10024;</span>
-
-        <div class="flash-landscape">
-          <!-- LEFT: Brand + B1G1 call-out -->
-          <div class="flash-left">
-            <div style="font-size:0.9rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.85;margin-bottom:4px;color:#fff">&#10024; FLASH SALE</div>
-            <div style="font-size:clamp(2.8rem,7vw,5rem);font-weight:900;line-height:1;letter-spacing:-0.02em">
-              <span id="giveaway-amount-text">B1G1</span>
-            </div>
-            <div style="font-size:clamp(1.1rem,2.8vw,1.6rem);font-weight:700;margin-top:4px;opacity:0.95;color:#fff">Atomik Labz</div>
-            <div id="giveaway-light-bar"></div>
-            <div style="font-size:0.75rem;font-weight:800;letter-spacing:3px;color:rgba(255,220,150,0.95);text-transform:uppercase;margin-top:4px">&#10027; Women 40+ &#10027;</div>
+      <div class="glow-flash-banner" style="background:linear-gradient(135deg,#8B0057 0%,#C8006A 50%,#8B0057 100%);border-radius:18px;padding:28px 32px;margin-bottom:24px;box-shadow:0 8px 32px rgba(200,0,106,0.25);border:2px solid rgba(255,255,255,0.15);position:relative;overflow:hidden;height:calc(100% - 24px);display:flex;align-items:center;justify-content:center;">
+        <div style="position:absolute;top:-40px;left:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,224,102,0.12),transparent 70%);pointer-events:none;"></div>
+        <div style="position:relative;z-index:2;text-align:center;">
+          <div style="font-size:.75rem;font-weight:800;letter-spacing:3px;color:rgba(255,220,150,0.95);text-transform:uppercase;margin-bottom:6px;">&#10027; Women 40+ &#10027;</div>
+          <div style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:12px;text-shadow:0 2px 12px rgba(0,0,0,0.3);">Atomik Labz</div>
+          <div style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:#ffe066;line-height:1;margin-bottom:14px;">30% OFF</div>
+          <div style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:14px;">Sitewide</div>
+          <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:50px;display:inline-flex;align-items:center;gap:8px;padding:8px 20px;margin-bottom:16px;">
+            <span style="font-size:1.1rem;">&#127991;&#65039;</span>
+            <span style="color:#fff;font-weight:800;font-size:0.95rem;letter-spacing:1px;">Discount Code: GLOWLAB30</span>
           </div>
-
-          <!-- RIGHT: Products + details -->
-          <div class="flash-right">
-            <div style="font-size:clamp(1.3rem,3vw,1.7rem);font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:10px;text-shadow:0 2px 12px rgba(0,0,0,0.3)">&#10024; ATOMIK LABZ &#10024;</div>
-            <!-- B1G1 product pills -->
-            <div style="margin-bottom:14px;">
-              <div style="font-size:0.78rem;font-weight:800;letter-spacing:2px;color:rgba(255,220,150,0.9);text-transform:uppercase;margin-bottom:8px;">B1G1 Free on these products:</div>
-              <span class="b1g1-pill b1g1-pill-gold">NAD+</span>
-              <span class="b1g1-pill b1g1-pill-gold">SS-31</span>
-              <span class="b1g1-pill b1g1-pill-gold">BPC-157/TB-500</span>
-              <span class="b1g1-pill b1g1-pill-gold">5-Amino 1MQ</span>
-              <span class="b1g1-pill b1g1-pill-gold">Glutathione</span>
-            </div>
-            <!-- 30% off line -->
-            <div style="font-size:clamp(1rem,2.5vw,1.3rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:12px;text-shadow:0 4px 20px rgba(0,0,0,0.4);">30% off everything else</div>
-            <!-- Code pill -->
-            <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:50px;display:inline-flex;align-items:center;gap:8px;padding:8px 20px;margin-bottom:10px;">
-              <span style="font-size:1.1rem;">&#127991;&#65039;</span>
-              <span style="color:#fff;font-weight:800;font-size:0.95rem;letter-spacing:1px;">Discount Code: GLOWLAB30</span>
-              <span style="color:rgba(255,220,150,0.95);font-size:1rem;">&#10024;</span>
-            </div>
-            <div style="font-size:0.85rem;color:rgba(255,255,255,0.85);margin-bottom:14px;">&#8987; Ends July 4th</div>
-            <div>
-              <a href="https://atomiklabz.com/aff/317" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#FFD700,#FFA500);color:#5B0030;font-weight:900;font-size:1rem;padding:12px 28px;border-radius:50px;text-decoration:none;letter-spacing:0.5px;box-shadow:0 4px 18px rgba(255,165,0,0.5);transition:transform 0.2s;">&#9889; Shop Atomik Labz Now &#9889;</a>
-            </div>
+          <div>
+            <a href="https://atomiklabz.com/aff/317" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#FFD700,#FFA500);color:#5B0030;font-weight:900;font-size:1rem;padding:12px 28px;border-radius:50px;text-decoration:none;letter-spacing:0.5px;box-shadow:0 4px 18px rgba(255,165,0,0.4);">Shop Atomik Labz Now</a>
           </div>
         </div>
       </div>
@@ -2769,45 +2632,6 @@ document.addEventListener('click',function(e){var o=document.getElementById('gui
 function submitGuideForm(e){e.preventDefault();var form=document.getElementById('guideForm');var body=new URLSearchParams(new FormData(form)).toString();fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(function(){}).catch(function(){}).finally(function(){document.getElementById('guideFormWrap').style.display='none';document.getElementById('guideSuccess').style.display='block';});return false;}
 </script>
 
-
-    <script>
-    (function() {
-      function initFireworks() {
-        var canvas = document.getElementById('mfv-canvas');
-        if (!canvas) return;
-        var ctx = canvas.getContext('2d');
-        var wrapper = canvas.closest('.mfv-wrapper');
-        function resize() { canvas.width = wrapper.offsetWidth; canvas.height = wrapper.offsetHeight; }
-        resize();
-        window.addEventListener('resize', resize);
-        var particles = [], fireworks = [];
-        var COLORS = ['#ff0000','#ff2222','#ff4444','#0000ff','#2222ff','#4444ff','#ffffff','#eeeeee','#dddddd','#ffdd00','#ffaa00','#ff8800','#ff88ff','#ff44ff','#cc44cc'];
-        function Particle(x,y,color) {
-          this.x=x;this.y=y;this.color=color;
-          var angle=Math.random()*Math.PI*2,speed=Math.random()*5+1;
-          this.vx=Math.cos(angle)*speed;this.vy=Math.sin(angle)*speed;
-          this.alpha=1;this.decay=Math.random()*.015+.01;this.size=Math.random()*3+1;this.gravity=.08;
-        }
-        Particle.prototype.update=function(){this.vx*=.98;this.vy*=.98;this.vy+=this.gravity;this.x+=this.vx;this.y+=this.vy;this.alpha-=this.decay;};
-        Particle.prototype.draw=function(ctx){ctx.save();ctx.globalAlpha=Math.max(0,this.alpha);ctx.fillStyle=this.color;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();ctx.restore();};
-        function Firework() { this.reset(); }
-        Firework.prototype.reset=function(){this.x=Math.random()*canvas.width;this.y=canvas.height;this.targetY=Math.random()*(canvas.height*.5);this.speed=Math.random()*4+5;this.color=COLORS[Math.floor(Math.random()*COLORS.length)];this.trail=[];this.exploded=false;this.delay=Math.random()*100;};
-        Firework.prototype.update=function(){if(this.delay>0){this.delay--;return;}if(!this.exploded){this.trail.push({x:this.x,y:this.y});if(this.trail.length>8)this.trail.shift();this.y-=this.speed;if(this.y<=this.targetY)this.explode();}};
-        Firework.prototype.explode=function(){this.exploded=true;var count=Math.floor(Math.random()*60)+60;for(var i=0;i<count;i++){particles.push(new Particle(this.x,this.y,this.color));if(Math.random()>.7)particles.push(new Particle(this.x,this.y,'#ffffff'));}};
-        Firework.prototype.draw=function(ctx){if(this.exploded||this.delay>0)return;ctx.save();ctx.strokeStyle=this.color;ctx.lineWidth=2;ctx.beginPath();for(var i=0;i<this.trail.length;i++){ctx.globalAlpha=i/this.trail.length;if(i===0)ctx.moveTo(this.trail[i].x,this.trail[i].y);else ctx.lineTo(this.trail[i].x,this.trail[i].y);}ctx.stroke();ctx.restore();ctx.save();ctx.globalAlpha=1;ctx.fillStyle='#ffffff';ctx.beginPath();ctx.arc(this.x,this.y,2,0,Math.PI*2);ctx.fill();ctx.restore();};
-        var lastLaunch=0,LAUNCH_INTERVAL=600;
-        function loop(timestamp){
-          ctx.clearRect(0,0,canvas.width,canvas.height);
-          if(timestamp-lastLaunch>LAUNCH_INTERVAL){fireworks.push(new Firework());if(Math.random()>.6)fireworks.push(new Firework());lastLaunch=timestamp;}
-          for(var i=fireworks.length-1;i>=0;i--){fireworks[i].update();fireworks[i].draw(ctx);if(fireworks[i].exploded&&fireworks[i].trail.length===0)fireworks.splice(i,1);}
-          for(var j=particles.length-1;j>=0;j--){particles[j].update();particles[j].draw(ctx);if(particles[j].alpha<=0)particles.splice(j,1);}
-          requestAnimationFrame(loop);
-        }
-        requestAnimationFrame(loop);
-      }
-      if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initFireworks);}else{initFireworks();}
-    })();
-    </script>
 
 </body>
 </html>
