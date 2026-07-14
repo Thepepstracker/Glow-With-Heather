@@ -1332,6 +1332,517 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
       @media (max-width: 680px) { #banners-side-by-side { flex-direction: column; } }
     </style>
 
+<style>
+/* ===== Heather's 54th Birthday Bash hero (added 2026-07-13) ===== */
+/* ==========================================================
+   BIRTHDAY BASH HERO — all rules scoped under .bash-hero
+   ========================================================== */
+.bash-hero {
+  /* ---- Brand palette ---- */
+  --bash-pink:       #ff2d8d;   /* hot pink */
+  --bash-pink-soft:  #ff7ab8;
+  --bash-gold:       #f4c65c;
+  --bash-gold-deep:  #d4a437;
+  --bash-champagne:  #f7e7ce;
+  --bash-white:      #ffffff;
+  --bash-black:      #120a12;
+  --bash-black-2:    #1f0f1d;
+
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 5vw, 5rem);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--bash-white);
+  background:
+    radial-gradient(1200px 600px at 85% 20%, rgba(255,45,141,.28), transparent 60%),
+    radial-gradient(900px 500px at 10% 85%, rgba(244,198,92,.16), transparent 60%),
+    linear-gradient(135deg, #1a0b18 0%, #2b0f24 45%, #3d1230 75%, #1a0b18 100%);
+  isolation: isolate;
+}
+.bash-hero *, .bash-hero *::before, .bash-hero *::after { box-sizing: border-box; }
+
+/* Soft glowing top & bottom border lines */
+.bash-hero::before,
+.bash-hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--bash-gold), var(--bash-pink), var(--bash-gold), transparent);
+  animation: bashBorderGlow 4s ease-in-out infinite;
+  z-index: 6;
+}
+.bash-hero::before { top: 0; }
+.bash-hero::after  { bottom: 0; }
+
+@keyframes bashBorderGlow {
+  0%, 100% { opacity: .45; filter: blur(.5px); }
+  50%      { opacity: 1;   filter: blur(0) drop-shadow(0 0 8px rgba(244,198,92,.8)); }
+}
+
+/* ---------- Layered background decor ---------- */
+
+/* Particle canvas: fireworks, confetti, glitter */
+.bash-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Parallax glow orbs (drift subtly with mouse) */
+.bash-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .5;
+  z-index: 0;
+  pointer-events: none;
+  transition: transform 1.2s cubic-bezier(.2,.8,.2,1);
+}
+.bash-orb--pink { width: 42vw; height: 42vw; max-width:560px; max-height:560px; top: -12%; right: -8%;
+  background: radial-gradient(circle, rgba(255,45,141,.55), transparent 70%); }
+.bash-orb--gold { width: 34vw; height: 34vw; max-width:460px; max-height:460px; bottom: -14%; left: -6%;
+  background: radial-gradient(circle, rgba(244,198,92,.45), transparent 70%); }
+
+/* Twinkling stars */
+.bash-star {
+  position: absolute;
+  width: 6px; height: 6px;
+  z-index: 2;
+  pointer-events: none;
+  background: var(--bash-champagne);
+  clip-path: polygon(50% 0%, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0% 50%, 37% 37%);
+  animation: bashTwinkle 3.2s ease-in-out infinite;
+}
+@keyframes bashTwinkle {
+  0%, 100% { opacity: .15; transform: scale(.6) rotate(0deg); }
+  50%      { opacity: 1;   transform: scale(1.25) rotate(45deg); filter: drop-shadow(0 0 6px var(--bash-gold)); }
+}
+
+/* Floating balloons (pure CSS) */
+.bash-balloon {
+  position: absolute;
+  bottom: -140px;
+  width: 52px; height: 66px;
+  border-radius: 50% 50% 50% 50% / 44% 44% 56% 56%;
+  z-index: 2;
+  pointer-events: none;
+  animation: bashFloatUp linear infinite;
+}
+.bash-balloon::before { /* highlight sheen */
+  content: "";
+  position: absolute;
+  top: 9px; left: 11px;
+  width: 14px; height: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.45);
+  filter: blur(2px);
+}
+.bash-balloon::after { /* string */
+  content: "";
+  position: absolute;
+  bottom: -46px; left: 50%;
+  width: 1.5px; height: 46px;
+  background: rgba(247,231,206,.5);
+}
+.bash-balloon--pink { background: radial-gradient(circle at 32% 28%, #ff8ec4, var(--bash-pink) 65%, #c11267); box-shadow: 0 0 24px rgba(255,45,141,.35); }
+.bash-balloon--gold { background: radial-gradient(circle at 32% 28%, #ffe9b0, var(--bash-gold) 65%, #a87e1f); box-shadow: 0 0 24px rgba(244,198,92,.35); }
+.bash-balloon--champagne { background: radial-gradient(circle at 32% 28%, #fff8ec, var(--bash-champagne) 65%, #cbb389); box-shadow: 0 0 24px rgba(247,231,206,.3); }
+
+@keyframes bashFloatUp {
+  0%   { transform: translateY(0) translateX(0) rotate(-3deg); opacity: 0; }
+  6%   { opacity: .9; }
+  50%  { transform: translateY(-58vh) translateX(26px) rotate(4deg); }
+  94%  { opacity: .85; }
+  100% { transform: translateY(-118vh) translateX(-14px) rotate(-4deg); opacity: 0; }
+}
+
+/* ---------- Content grid ---------- */
+.bash-inner {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* ---------- LEFT: text content ---------- */
+
+/* Fade / slide-in entrance, staggered via --d */
+.bash-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: bashReveal .9s cubic-bezier(.22,.9,.3,1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes bashReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* "New!" announcement pill */
+.bash-announce {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .45rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244,198,92,.55);
+  background: linear-gradient(90deg, rgba(244,198,92,.14), rgba(255,45,141,.14));
+  color: var(--bash-champagne);
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 18px rgba(244,198,92,.18);
+}
+
+/* Headline */
+.bash-headline {
+  margin: 1.1rem 0 .4rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5.2vw, 4rem);
+  line-height: 1.12;
+  letter-spacing: -.01em;
+}
+.bash-headline .bash-gradient-text {
+  background: linear-gradient(92deg, var(--bash-gold) 0%, #fff3d6 25%, var(--bash-pink-soft) 55%, var(--bash-pink) 80%, var(--bash-gold) 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: bashShimmer 5.5s linear infinite, bashPulse 2.8s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes bashShimmer { to { background-position: 220% center; } }
+@keyframes bashPulse {
+  0%, 100% { transform: scale(1);     filter: drop-shadow(0 0 10px rgba(255,45,141,.25)); }
+  50%      { transform: scale(1.025); filter: drop-shadow(0 0 22px rgba(255,45,141,.5)); }
+}
+
+/* Subheadline */
+.bash-sub {
+  margin: 0 0 1.4rem;
+  max-width: 40rem;
+  font-size: clamp(.98rem, 1.6vw, 1.13rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: #f3e6ef;
+}
+.bash-sub strong { font-weight: 600; color: var(--bash-gold); }
+
+/* Promo card */
+.bash-promo {
+  margin: 0 0 1.5rem;
+  padding: 1.15rem 1.35rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255,45,141,.35);
+  background: linear-gradient(150deg, rgba(255,45,141,.12), rgba(18,10,18,.55) 60%);
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 34px rgba(0,0,0,.35);
+}
+.bash-promo__title {
+  margin: 0 0 .55rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  font-weight: 700;
+  color: var(--bash-gold);
+  text-shadow: 0 0 22px rgba(244,198,92,.4);
+}
+.bash-promo__list {
+  margin: 0; padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: .35rem .9rem;
+  font-size: .92rem;
+  font-weight: 400;
+  color: #f7ecf3;
+}
+.bash-promo__list li { line-height: 1.5; }
+.bash-promo__note {
+  margin: .65rem 0 0;
+  font-size: .88rem;
+  font-style: italic;
+  color: var(--bash-champagne);
+}
+
+/* Countdown */
+.bash-countdown {
+  display: flex;
+  align-items: stretch;
+  gap: .6rem;
+  margin: 0 0 1.7rem;
+}
+.bash-countdown__label {
+  align-self: center;
+  margin-right: .35rem;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--bash-pink-soft);
+}
+.bash-countdown__unit {
+  min-width: 66px;
+  padding: .55rem .5rem .45rem;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid rgba(244,198,92,.4);
+  background: rgba(18,10,18,.55);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 0 16px rgba(244,198,92,.1);
+  animation: bashUnitGlow 3s ease-in-out infinite;
+}
+.bash-countdown__unit:nth-child(3) { animation-delay: .4s; }
+.bash-countdown__unit:nth-child(4) { animation-delay: .8s; }
+.bash-countdown__unit:nth-child(5) { animation-delay: 1.2s; }
+@keyframes bashUnitGlow {
+  0%, 100% { box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 0 10px rgba(244,198,92,.08); }
+  50%      { box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 0 22px rgba(244,198,92,.28); }
+}
+.bash-countdown__num {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--bash-white);
+  text-shadow: 0 0 14px rgba(255,45,141,.45);
+}
+.bash-countdown__word {
+  display: block;
+  margin-top: .1rem;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--bash-champagne);
+}
+.bash-countdown--done .bash-countdown__label { color: var(--bash-gold); }
+
+/* CTA row */
+.bash-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.1rem;
+}
+.bash-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .95rem 2.2rem;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-decoration: none;
+  color: var(--bash-black);
+  background: linear-gradient(92deg, var(--bash-gold) 0%, #ffe19a 30%, var(--bash-pink-soft) 70%, var(--bash-pink) 100%);
+  background-size: 200% auto;
+  box-shadow: 0 6px 26px rgba(255,45,141,.45), 0 0 0 0 rgba(244,198,92,.5);
+  transition: transform .3s ease, box-shadow .3s ease, background-position .5s ease;
+  animation: bashCtaPulse 2.6s ease-in-out infinite;
+}
+@keyframes bashCtaPulse {
+  0%, 100% { box-shadow: 0 6px 26px rgba(255,45,141,.4),  0 0 0 0   rgba(244,198,92,.35); }
+  50%      { box-shadow: 0 6px 32px rgba(255,45,141,.65), 0 0 0 9px rgba(244,198,92,0); }
+}
+.bash-cta:hover,
+.bash-cta:focus-visible {
+  transform: translateY(-3px) scale(1.03);
+  background-position: 100% center;
+  box-shadow: 0 10px 42px rgba(255,45,141,.75), 0 0 30px rgba(244,198,92,.55);
+  outline: none;
+}
+.bash-cta:focus-visible { outline: 3px solid var(--bash-champagne); outline-offset: 3px; }
+
+.bash-secondary {
+  margin: 0;
+  max-width: 22rem;
+  font-size: .85rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--bash-champagne);
+}
+
+/* ---------- RIGHT: decorative visual ---------- */
+.bash-visual {
+  position: relative;
+  min-height: 380px;
+  z-index: 5;
+  transition: transform 1.2s cubic-bezier(.2,.8,.2,1); /* parallax */
+}
+
+/* Big "54" medallion */
+.bash-medallion {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -52%);
+  width: clamp(210px, 24vw, 300px);
+  height: clamp(210px, 24vw, 300px);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .1rem;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255,255,255,.14), transparent 46%),
+    linear-gradient(160deg, #2b0f24, #120a12);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 0 2px rgba(244,198,92,.55),
+    0 0 40px rgba(255,45,141,.35),
+    0 0 90px rgba(244,198,92,.2),
+    inset 0 0 40px rgba(255,45,141,.12);
+  animation: bashMedallion 6s ease-in-out infinite;
+}
+@keyframes bashMedallion {
+  0%, 100% { transform: translate(-50%, -52%) rotate(-1.2deg); }
+  50%      { transform: translate(-50%, -55%) rotate(1.2deg); }
+}
+.bash-medallion__num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(4.6rem, 9vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(180deg, #fff3d6, var(--bash-gold) 55%, var(--bash-gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 3px 14px rgba(244,198,92,.5));
+}
+.bash-medallion__word {
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--bash-pink-soft);
+}
+/* rotating sparkle ring around the medallion */
+.bash-medallion::after {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(244,198,92,.45);
+  animation: bashSpin 26s linear infinite;
+}
+@keyframes bashSpin { to { transform: rotate(360deg); } }
+
+/* Gift boxes */
+.bash-gift {
+  position: absolute;
+  width: 62px; height: 54px;
+  z-index: 6;
+  animation: bashGiftBounce 3.4s ease-in-out infinite;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,.45));
+}
+.bash-gift__box {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 74%;
+  border-radius: 6px;
+}
+.bash-gift__lid {
+  position: absolute;
+  top: 8px; left: -6%;
+  width: 112%; height: 22%;
+  border-radius: 4px;
+}
+.bash-gift__ribbon-v {
+  position: absolute;
+  top: 8px; left: 50%;
+  transform: translateX(-50%);
+  width: 12px; height: calc(100% - 8px);
+  border-radius: 2px;
+}
+.bash-gift__bow {
+  position: absolute;
+  top: -6px; left: 50%;
+  transform: translateX(-50%);
+  width: 26px; height: 14px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+.bash-gift--pink .bash-gift__box    { background: linear-gradient(160deg, #ff5ea8, #d1136f); }
+.bash-gift--pink .bash-gift__lid    { background: linear-gradient(160deg, #ff7ab8, #e2287f); }
+.bash-gift--pink .bash-gift__ribbon-v,
+.bash-gift--pink .bash-gift__bow    { background: linear-gradient(160deg, #ffe9b0, var(--bash-gold)); }
+.bash-gift--gold .bash-gift__box    { background: linear-gradient(160deg, #f7d98a, #c99b2e); }
+.bash-gift--gold .bash-gift__lid    { background: linear-gradient(160deg, #ffe9b0, #d9ab3c); }
+.bash-gift--gold .bash-gift__ribbon-v,
+.bash-gift--gold .bash-gift__bow    { background: linear-gradient(160deg, #ff8ec4, var(--bash-pink)); }
+@keyframes bashGiftBounce {
+  0%, 100% { transform: translateY(0) rotate(var(--tilt, -4deg)); }
+  50%      { transform: translateY(-14px) rotate(calc(var(--tilt, -4deg) * -1)); }
+}
+
+/* Champagne-glass sparkle dots floating inside visual */
+.bash-dot {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--bash-gold);
+  box-shadow: 0 0 10px var(--bash-gold);
+  animation: bashDotFloat 5s ease-in-out infinite;
+  z-index: 4;
+}
+@keyframes bashDotFloat {
+  0%, 100% { transform: translateY(0);     opacity: .5; }
+  50%      { transform: translateY(-22px); opacity: 1; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .bash-hero { min-height: 0; padding-top: 4rem; padding-bottom: 4.5rem; }
+  .bash-inner { grid-template-columns: 1fr; text-align: center; }
+  .bash-sub, .bash-secondary { margin-left: auto; margin-right: auto; }
+  .bash-cta-row, .bash-countdown { justify-content: center; }
+  .bash-visual { min-height: 300px; order: -1; margin-bottom: -0.5rem; }
+  .bash-promo__list { text-align: left; }
+}
+@media (max-width: 560px) {
+  .bash-promo__list { grid-template-columns: 1fr; }
+  .bash-countdown { flex-wrap: wrap; }
+  .bash-countdown__label { width: 100%; text-align: center; margin: 0 0 .2rem; }
+  .bash-countdown__unit { min-width: 58px; flex: 1 1 0; }
+  .bash-visual { min-height: 260px; }
+  .bash-balloon { display: none; }           /* declutter small screens */
+  .bash-gift { transform: scale(.85); }
+}
+
+/* ---------- Reduced motion: calm everything down ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .bash-hero *, .bash-hero *::before, .bash-hero *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .bash-reveal { opacity: 1; transform: none; }
+  .bash-canvas, .bash-balloon { display: none; }
+}
+
+/* Clear the fixed site navbar */
+.bash-hero { padding-top: calc(clamp(3rem, 6vw, 5rem) + 68px); }
+</style>
 </head>
 <body>
 
@@ -1345,7 +1856,7 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
     </a>
     <ul class="nav-links">
       <li></li>
-      <li><a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener">Glow Protocols</a></li>
+      <li><a href="https://glowlabprotocols.com/#shop" target="_blank" rel="noopener">Glow Protocols</a></li>
       <li><a href="#calculators">Calculators</a></li>
       <li><a href="#education">Education</a></li>
       <li class="nav-cta"><a href="#join">Join Glow Lab</a></li>
@@ -1361,13 +1872,126 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
 <div class="mobile-menu" id="mobileMenu">
   <ul>
     <li></li>
-    <li><a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener" onclick="toggleMenu()">Glow Protocols</a></li>
+    <li><a href="https://glowlabprotocols.com/#shop" target="_blank" rel="noopener" onclick="toggleMenu()">Glow Protocols</a></li>
     <li><a href="#calculators" onclick="toggleMenu()">Calculators</a></li>
     <li><a href="#education" onclick="toggleMenu()">Education</a></li>
     <li><a href="#join" onclick="toggleMenu()">Join Glow Lab Inner Circle</a></li>
     <li><a href="/consultation" onclick="toggleMenu()">Book Consultation</a></li>
   </ul>
 </div>
+
+<!-- ================= BANNER MARKUP STARTS HERE ================= -->
+<section class="bash-hero" id="bashHero" aria-label="Heather's 54th Birthday Bash celebration banner">
+
+  <!-- Layered background decor (decorative only) -->
+  <div class="bash-orb bash-orb--pink" data-parallax="18" aria-hidden="true"></div>
+  <div class="bash-orb bash-orb--gold" data-parallax="-12" aria-hidden="true"></div>
+  <canvas class="bash-canvas" id="bashCanvas" aria-hidden="true"></canvas>
+
+  <!-- Twinkling stars -->
+  <span class="bash-star" style="top:12%; left:8%;  animation-delay:0s"    aria-hidden="true"></span>
+  <span class="bash-star" style="top:22%; left:46%; animation-delay:.8s"   aria-hidden="true"></span>
+  <span class="bash-star" style="top:8%;  left:72%; animation-delay:1.6s"  aria-hidden="true"></span>
+  <span class="bash-star" style="top:64%; left:5%;  animation-delay:2.2s"  aria-hidden="true"></span>
+  <span class="bash-star" style="top:78%; left:58%; animation-delay:1.1s"  aria-hidden="true"></span>
+  <span class="bash-star" style="top:38%; left:90%; animation-delay:2.7s"  aria-hidden="true"></span>
+  <span class="bash-star" style="top:86%; left:86%; animation-delay:.4s"   aria-hidden="true"></span>
+
+  <!-- Floating balloons -->
+  <span class="bash-balloon bash-balloon--pink"      style="left:6%;  animation-duration:19s; animation-delay:0s;"  aria-hidden="true"></span>
+  <span class="bash-balloon bash-balloon--gold"      style="left:16%; animation-duration:24s; animation-delay:6s; transform:scale(.8);" aria-hidden="true"></span>
+  <span class="bash-balloon bash-balloon--champagne" style="left:47%; animation-duration:27s; animation-delay:11s; transform:scale(.7);" aria-hidden="true"></span>
+  <span class="bash-balloon bash-balloon--pink"      style="left:74%; animation-duration:22s; animation-delay:3s;  transform:scale(.9);" aria-hidden="true"></span>
+  <span class="bash-balloon bash-balloon--gold"      style="left:90%; animation-duration:20s; animation-delay:9s;" aria-hidden="true"></span>
+
+  <div class="bash-inner">
+
+    <!-- ============ LEFT: content ============ -->
+    <div class="bash-content">
+
+      <p class="bash-announce bash-reveal" style="--d:.1s">
+        ✨ New! Glow Protocols + Glow Lab Research are now united under one website.
+      </p>
+
+      <h1 class="bash-headline bash-reveal" style="--d:.25s">
+        🎉 Welcome to <span class="bash-gradient-text">Heather&rsquo;s 54th Birthday&nbsp;Bash!</span> 🎉
+      </h1>
+
+      <p class="bash-sub bash-reveal" style="--d:.4s">
+        ✨ <strong>Glow Protocols + Glow Lab Research have officially combined!</strong>
+        Everything is now together in one place — premium skincare serums, beauty
+        products, and research products are now available on one website.
+      </p>
+
+      <div class="bash-promo bash-reveal" style="--d:.55s">
+        <h2 class="bash-promo__title">🎁 HUGE $250 Birthday Giveaway!</h2>
+        <ul class="bash-promo__list">
+          <li>🎈 Multiple surprise giveaways throughout the celebration!</li>
+          <li>🎂 Birthday specials</li>
+          <li>🎉 Exclusive savings</li>
+          <li>🎁 Mystery prizes</li>
+        </ul>
+        <p class="bash-promo__note">✨ One incredible night of celebrating with our Glow community.</p>
+      </div>
+
+      <!-- Live countdown (end date set in script below) -->
+      <div class="bash-countdown bash-reveal" style="--d:.7s" id="bashCountdown" role="timer" aria-live="polite" aria-label="Time remaining in the Birthday Bash">
+        <span class="bash-countdown__label" id="bashCdLabel">The Bash ends in</span>
+        <span class="bash-countdown__unit"><span class="bash-countdown__num" id="bashDays">--</span><span class="bash-countdown__word">Days</span></span>
+        <span class="bash-countdown__unit"><span class="bash-countdown__num" id="bashHours">--</span><span class="bash-countdown__word">Hours</span></span>
+        <span class="bash-countdown__unit"><span class="bash-countdown__num" id="bashMins">--</span><span class="bash-countdown__word">Mins</span></span>
+        <span class="bash-countdown__unit"><span class="bash-countdown__num" id="bashSecs">--</span><span class="bash-countdown__word">Secs</span></span>
+      </div>
+
+      <div class="bash-cta-row bash-reveal" style="--d:.85s">
+        <a class="bash-cta" href="https://glowlabprotocols.com">
+          🎉 Shop the Birthday Bash
+        </a>
+        <p class="bash-secondary">
+          Don&rsquo;t miss the biggest Glow celebration of the year.
+          Join the Birthday Bash and celebrate with us!
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ============ RIGHT: decorative visual ============ -->
+    <div class="bash-visual" id="bashVisual" data-parallax="10" aria-hidden="true">
+
+      <div class="bash-medallion">
+        <span class="bash-medallion__num">54</span>
+        <span class="bash-medallion__word">Birthday Bash</span>
+      </div>
+
+      <!-- Bouncing gift boxes -->
+      <div class="bash-gift bash-gift--pink" style="top:6%;  left:6%;  --tilt:-6deg; animation-delay:0s">
+        <div class="bash-gift__box"></div><div class="bash-gift__lid"></div>
+        <div class="bash-gift__ribbon-v"></div><div class="bash-gift__bow"></div>
+      </div>
+      <div class="bash-gift bash-gift--gold" style="bottom:4%; left:12%; --tilt:5deg; animation-delay:.9s">
+        <div class="bash-gift__box"></div><div class="bash-gift__lid"></div>
+        <div class="bash-gift__ribbon-v"></div><div class="bash-gift__bow"></div>
+      </div>
+      <div class="bash-gift bash-gift--pink" style="bottom:12%; right:4%; --tilt:-4deg; animation-delay:1.7s; transform:scale(.85)">
+        <div class="bash-gift__box"></div><div class="bash-gift__lid"></div>
+        <div class="bash-gift__ribbon-v"></div><div class="bash-gift__bow"></div>
+      </div>
+      <div class="bash-gift bash-gift--gold" style="top:10%; right:10%; --tilt:7deg; animation-delay:.5s; transform:scale(.75)">
+        <div class="bash-gift__box"></div><div class="bash-gift__lid"></div>
+        <div class="bash-gift__ribbon-v"></div><div class="bash-gift__bow"></div>
+      </div>
+
+      <!-- Floating gold sparkle dots -->
+      <span class="bash-dot" style="top:28%; left:2%;  animation-delay:0s"></span>
+      <span class="bash-dot" style="top:70%; left:30%; animation-delay:1.4s; width:5px; height:5px;"></span>
+      <span class="bash-dot" style="top:16%; right:32%; animation-delay:.7s; width:6px; height:6px;"></span>
+      <span class="bash-dot" style="top:58%; right:0%;  animation-delay:2.1s"></span>
+
+    </div>
+
+  </div>
+</section>
+<!-- ================= BANNER MARKUP ENDS HERE ================= -->
 
 <!-- ======= HERO ======= -->
 <section class="hero" id="top">
@@ -1787,7 +2411,7 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
             <span class="protocol-price">$39</span>
             <span class="protocol-size">0.5 FL OZ / 15 ML</span>
           </div>
-          <a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener" class="protocol-btn">Shop Now</a>
+          <a href="https://glowlabprotocols.com/#shop" target="_blank" rel="noopener" class="protocol-btn">Shop Now</a>
         </div>
       </div>
 
@@ -1804,7 +2428,7 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
             <span class="protocol-price">$25</span>
             <span class="protocol-size">0.5 FL OZ / 15 ML</span>
           </div>
-          <a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener" class="protocol-btn">Shop Now</a>
+          <a href="https://glowlabprotocols.com/#shop" target="_blank" rel="noopener" class="protocol-btn">Shop Now</a>
         </div>
       </div>
 
@@ -1821,7 +2445,7 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
             <span class="protocol-price">$34</span>
             <span class="protocol-size">1 FL OZ / 30 ML</span>
           </div>
-          <a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener" class="protocol-btn">Shop Now</a>
+          <a href="https://glowlabprotocols.com/#shop" target="_blank" rel="noopener" class="protocol-btn">Shop Now</a>
         </div>
       </div>
 
@@ -1838,14 +2462,14 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
             <span class="protocol-price">$48</span>
             <span class="protocol-size">1 FL OZ / 30 ML</span>
           </div>
-          <a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener" class="protocol-btn">Shop Now</a>
+          <a href="https://glowlabprotocols.com/#shop" target="_blank" rel="noopener" class="protocol-btn">Shop Now</a>
         </div>
       </div>
 
     </div>
 
     <div class="text-center" style="margin-top:40px">
-      <a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener" class="btn btn-rose">Shop All Glow Protocols &rarr;</a>
+      <a href="https://glowlabprotocols.com/#shop" target="_blank" rel="noopener" class="btn btn-rose">Shop All Glow Protocols &rarr;</a>
     </div>
   </div>
 </section>
@@ -2033,7 +2657,7 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="https://glowprotocols.com/#shop" target="_blank" rel="noopener">Glow Protocols</a></li>
+          <li><a href="https://glowlabprotocols.com/#shop" target="_blank" rel="noopener">Glow Protocols</a></li>
           <li><a href="#calculators">Calculators</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#join">Join The Glow Lab</a></li>
@@ -2585,5 +3209,233 @@ function submitGuideForm(e){e.preventDefault();var form=document.getElementById(
 </script>
 
 
+<script>
+(function () {
+  'use strict';
+
+  /* ==========================================================
+     ★ EDIT ME ★ — COUNTDOWN END DATE
+     ----------------------------------------------------------
+     Set the exact moment the Birthday Bash promotion ends.
+     Format: 'YYYY-MM-DDTHH:MM:SS' in the visitor's local time.
+     Example (midnight ending July 25, 2026):
+        var BASH_END_DATE = '2026-07-25T23:59:59';
+     Until you set a real date, it defaults to midnight tonight.
+     ========================================================== */
+  var BASH_END_DATE = '2026-07-13T23:59:59';   // Bash ends midnight tonight
+
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------------- Countdown timer ---------------- */
+  var cdEl    = document.getElementById('bashCountdown');
+  var cdLabel = document.getElementById('bashCdLabel');
+  var dEl = document.getElementById('bashDays'),
+      hEl = document.getElementById('bashHours'),
+      mEl = document.getElementById('bashMins'),
+      sEl = document.getElementById('bashSecs');
+
+  var endTime;
+  if (BASH_END_DATE) {
+    endTime = new Date(BASH_END_DATE).getTime();
+  } else {
+    // Default: midnight tonight (visitor's local time)
+    var mid = new Date();
+    mid.setHours(24, 0, 0, 0);
+    endTime = mid.getTime();
+  }
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function tickCountdown() {
+    var diff = endTime - Date.now();
+    if (diff <= 0) {
+      cdEl.classList.add('bash-countdown--done');
+      cdLabel.textContent = '🎉 The Birthday Bash has ended — thanks for celebrating with us!';
+      dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = '00';
+      clearInterval(cdTimer);
+      return;
+    }
+    dEl.textContent = pad(Math.floor(diff / 86400000));
+    hEl.textContent = pad(Math.floor(diff / 3600000) % 24);
+    mEl.textContent = pad(Math.floor(diff / 60000) % 60);
+    sEl.textContent = pad(Math.floor(diff / 1000) % 60);
+  }
+  tickCountdown();
+  var cdTimer = setInterval(tickCountdown, 1000);
+
+  /* ---------------- Subtle mouse parallax ---------------- */
+  if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
+    var hero = document.getElementById('bashHero');
+    var layers = hero.querySelectorAll('[data-parallax]');
+    hero.addEventListener('mousemove', function (e) {
+      var r  = hero.getBoundingClientRect();
+      var nx = (e.clientX - r.left) / r.width  - 0.5;   // -0.5 .. 0.5
+      var ny = (e.clientY - r.top)  / r.height - 0.5;
+      layers.forEach(function (el) {
+        var depth = parseFloat(el.getAttribute('data-parallax')) || 0;
+        el.style.transform = 'translate(' + (nx * depth) + 'px,' + (ny * depth) + 'px)';
+      });
+    });
+  }
+
+  /* ==========================================================
+     Particle canvas: soft fireworks, confetti, gold glitter.
+     Lightweight: capped particle counts, single rAF loop,
+     paused when the tab is hidden or hero scrolled offscreen.
+     ========================================================== */
+  if (reducedMotion) return;   // no canvas animation for reduced motion
+
+  var canvas = document.getElementById('bashCanvas');
+  var ctx = canvas.getContext('2d');
+  var heroEl = document.getElementById('bashHero');
+  var W, H, dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize() {
+    W = heroEl.clientWidth;
+    H = heroEl.clientHeight;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var GOLD  = ['#f4c65c', '#ffe19a', '#d4a437', '#fff3d6'];
+  var PINKS = ['#ff2d8d', '#ff7ab8', '#ff5ea8'];
+  var ALL   = GOLD.concat(PINKS, ['#ffffff', '#f7e7ce']);
+
+  var particles = [];        // firework sparks + confetti
+  var MAX_PARTICLES = 260;   // hard cap for performance
+
+  /* --- persistent drifting gold glitter --- */
+  var glitter = [];
+  var GLITTER_COUNT = Math.min(46, Math.floor(W / 22));
+  for (var i = 0; i < GLITTER_COUNT; i++) {
+    glitter.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.6 + 0.5,
+      vx: Math.random() * 0.28 + 0.06,
+      vy: (Math.random() - 0.5) * 0.14,
+      tw: Math.random() * Math.PI * 2,          // twinkle phase
+      tws: Math.random() * 0.045 + 0.012,       // twinkle speed
+      c: GOLD[(Math.random() * GOLD.length) | 0]
+    });
+  }
+
+  /* --- soft firework burst --- */
+  function firework() {
+    if (particles.length > MAX_PARTICLES - 44) return;
+    var cx = W * (0.15 + Math.random() * 0.7);
+    var cy = H * (0.12 + Math.random() * 0.4);
+    var hueSet = Math.random() < 0.5 ? GOLD : PINKS;
+    var n = 30 + ((Math.random() * 14) | 0);
+    for (var j = 0; j < n; j++) {
+      var a = (Math.PI * 2 * j) / n + Math.random() * 0.25;
+      var sp = Math.random() * 2.3 + 0.9;
+      particles.push({
+        type: 'spark',
+        x: cx, y: cy,
+        vx: Math.cos(a) * sp,
+        vy: Math.sin(a) * sp,
+        life: 1,
+        decay: Math.random() * 0.012 + 0.010,
+        r: Math.random() * 1.8 + 0.9,
+        c: hueSet[(Math.random() * hueSet.length) | 0]
+      });
+    }
+  }
+
+  /* --- occasional confetti flurry --- */
+  function confetti() {
+    if (particles.length > MAX_PARTICLES - 26) return;
+    var n = 18 + ((Math.random() * 8) | 0);
+    for (var j = 0; j < n; j++) {
+      particles.push({
+        type: 'confetti',
+        x: Math.random() * W,
+        y: -12 - Math.random() * 40,
+        vx: (Math.random() - 0.5) * 0.7,
+        vy: Math.random() * 0.9 + 0.7,
+        w: Math.random() * 7 + 4,
+        h: Math.random() * 4 + 2.5,
+        rot: Math.random() * Math.PI * 2,
+        vr: (Math.random() - 0.5) * 0.12,
+        sway: Math.random() * Math.PI * 2,
+        life: 1,
+        decay: 0.0016,
+        c: ALL[(Math.random() * ALL.length) | 0]
+      });
+    }
+  }
+
+  /* --- timers: fireworks every ~4s, confetti every ~7s --- */
+  setTimeout(firework, 900);
+  setInterval(firework, 4200);
+  setInterval(confetti, 7300);
+  setTimeout(confetti, 1600);
+
+  /* --- pause when offscreen / tab hidden --- */
+  var running = true, inView = true;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      inView = entries[0].isIntersecting;
+    }, { threshold: 0.02 }).observe(heroEl);
+  }
+  document.addEventListener('visibilitychange', function () {
+    running = !document.hidden;
+  });
+
+  function frame() {
+    requestAnimationFrame(frame);
+    if (!running || !inView) return;
+    ctx.clearRect(0, 0, W, H);
+
+    /* glitter */
+    for (var g, k = 0; k < glitter.length; k++) {
+      g = glitter[k];
+      g.x += g.vx; g.y += g.vy; g.tw += g.tws;
+      if (g.x > W + 4) { g.x = -4; g.y = Math.random() * H; }
+      var alpha = 0.25 + Math.abs(Math.sin(g.tw)) * 0.6;
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = g.c;
+      ctx.beginPath();
+      ctx.arc(g.x, g.y, g.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    /* sparks & confetti */
+    for (var p, idx = particles.length - 1; idx >= 0; idx--) {
+      p = particles[idx];
+      p.life -= p.decay;
+      if (p.life <= 0 || p.y > H + 20) { particles.splice(idx, 1); continue; }
+
+      if (p.type === 'spark') {
+        p.x += p.vx; p.y += p.vy;
+        p.vx *= 0.985; p.vy = p.vy * 0.985 + 0.022;  // drag + gravity
+        ctx.globalAlpha = Math.max(p.life, 0) * 0.9;
+        ctx.fillStyle = p.c;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * p.life, 0, Math.PI * 2);
+        ctx.fill();
+      } else { /* confetti */
+        p.sway += 0.03;
+        p.x += p.vx + Math.sin(p.sway) * 0.5;
+        p.y += p.vy;
+        p.rot += p.vr;
+        ctx.globalAlpha = Math.min(p.life * 3, 0.85);
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.c;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h * Math.abs(Math.sin(p.sway * 1.4)) + 1);
+        ctx.restore();
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+  frame();
+})();
+</script>
 </body>
 </html>
