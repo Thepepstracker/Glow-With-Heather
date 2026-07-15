@@ -1881,7 +1881,7 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
 </div>
 
 <!-- ================= BANNER MARKUP STARTS HERE ================= -->
-<section class="bash-hero" id="bashHero" aria-label="Heather's 54th Birthday Bash celebration banner">
+<section class="bash-hero" id="bashHero" aria-label="Solas Science Night celebration banner">
 
   <!-- Layered background decor (decorative only) -->
   <div class="bash-orb bash-orb--pink" data-parallax="18" aria-hidden="true"></div>
@@ -1910,46 +1910,38 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
     <div class="bash-content">
 
       <p class="bash-announce bash-reveal" style="--d:.1s">
-        ✨ New! Glow Protocols + Glow Lab Research are now united under one website.
+        ⭐ Featured July Vendor — Solas Science ⭐
       </p>
 
       <h1 class="bash-headline bash-reveal" style="--d:.25s">
-        🎉 Welcome to <span class="bash-gradient-text">Heather&rsquo;s 54th Birthday&nbsp;Bash!</span> 🎉
+        🧬 Welcome to <span class="bash-gradient-text">Solas Science&nbsp;Night!</span> ✨
       </h1>
 
       <p class="bash-sub bash-reveal" style="--d:.4s">
-        ✨ <strong>Glow Protocols + Glow Lab Research have officially combined!</strong>
-        Everything is now together in one place — premium skincare serums, beauty
-        products, and research products are now available on one website.
+        ✨ <strong>Tonight we&rsquo;re spotlighting Solas Science.</strong>
+        Science-backed peptides, 7&times; lab tested — join us live and shop
+        with our exclusive Glow Lab discount.
       </p>
 
       <div class="bash-promo bash-reveal" style="--d:.55s">
-        <h2 class="bash-promo__title">🎁 HUGE $250 Birthday Giveaway!</h2>
+        <h2 class="bash-promo__title">💎 Exclusive Glow Lab Discount — Code: GLOWLAB</h2>
         <ul class="bash-promo__list">
-          <li>🎈 Multiple surprise giveaways throughout the celebration!</li>
-          <li>🎂 Birthday specials</li>
-          <li>🎉 Exclusive savings</li>
-          <li>🎁 Mystery prizes</li>
+          <li>🧬 Science-backed peptides</li>
+          <li>🔬 7&times; lab tested for purity</li>
+          <li>💎 Exclusive savings with code GLOWLAB</li>
+          <li>⭐ July vendor spotlight</li>
         </ul>
-        <p class="bash-promo__note">✨ One incredible night of celebrating with our Glow community.</p>
+        <p class="bash-promo__note">✨ One incredible night of science with our Glow community.</p>
       </div>
 
-      <!-- Live countdown (end date set in script below) -->
-      <div class="bash-countdown bash-reveal" style="--d:.7s" id="bashCountdown" role="timer" aria-live="polite" aria-label="Time remaining in the Birthday Bash">
-        <span class="bash-countdown__label" id="bashCdLabel">The Bash ends in</span>
-        <span class="bash-countdown__unit"><span class="bash-countdown__num" id="bashDays">--</span><span class="bash-countdown__word">Days</span></span>
-        <span class="bash-countdown__unit"><span class="bash-countdown__num" id="bashHours">--</span><span class="bash-countdown__word">Hours</span></span>
-        <span class="bash-countdown__unit"><span class="bash-countdown__num" id="bashMins">--</span><span class="bash-countdown__word">Mins</span></span>
-        <span class="bash-countdown__unit"><span class="bash-countdown__num" id="bashSecs">--</span><span class="bash-countdown__word">Secs</span></span>
-      </div>
 
       <div class="bash-cta-row bash-reveal" style="--d:.85s">
-        <a class="bash-cta" href="https://glowlabprotocols.com">
-          🎉 Shop the Birthday Bash
+        <a class="bash-cta" href="https://solasscience.shop/" target="_blank" rel="noopener">
+          🧬 Shop Solas Science
         </a>
         <p class="bash-secondary">
-          Don&rsquo;t miss the biggest Glow celebration of the year.
-          Join the Birthday Bash and celebrate with us!
+          Don&rsquo;t miss Solas Science Night.
+          Join us live and celebrate the science of the glow!
         </p>
       </div>
 
@@ -1959,8 +1951,8 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
     <div class="bash-visual" id="bashVisual" data-parallax="10" aria-hidden="true">
 
       <div class="bash-medallion">
-        <span class="bash-medallion__num">54</span>
-        <span class="bash-medallion__word">Birthday Bash</span>
+        <span class="bash-medallion__num" style="font-size:clamp(2rem, 4.2vw, 3.1rem); letter-spacing:.08em;">SOLAS</span>
+        <span class="bash-medallion__word">Science Night</span>
       </div>
 
       <!-- Bouncing gift boxes -->
@@ -3213,55 +3205,8 @@ function submitGuideForm(e){e.preventDefault();var form=document.getElementById(
 (function () {
   'use strict';
 
-  /* ==========================================================
-     ★ EDIT ME ★ — COUNTDOWN END DATE
-     ----------------------------------------------------------
-     Set the exact moment the Birthday Bash promotion ends.
-     Format: 'YYYY-MM-DDTHH:MM:SS' in the visitor's local time.
-     Example (midnight ending July 25, 2026):
-        var BASH_END_DATE = '2026-07-25T23:59:59';
-     Until you set a real date, it defaults to midnight tonight.
-     ========================================================== */
-  var BASH_END_DATE = '2026-07-13T23:59:59';   // Bash ends midnight tonight
-
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------- Countdown timer ---------------- */
-  var cdEl    = document.getElementById('bashCountdown');
-  var cdLabel = document.getElementById('bashCdLabel');
-  var dEl = document.getElementById('bashDays'),
-      hEl = document.getElementById('bashHours'),
-      mEl = document.getElementById('bashMins'),
-      sEl = document.getElementById('bashSecs');
-
-  var endTime;
-  if (BASH_END_DATE) {
-    endTime = new Date(BASH_END_DATE).getTime();
-  } else {
-    // Default: midnight tonight (visitor's local time)
-    var mid = new Date();
-    mid.setHours(24, 0, 0, 0);
-    endTime = mid.getTime();
-  }
-
-  function pad(n) { return n < 10 ? '0' + n : '' + n; }
-
-  function tickCountdown() {
-    var diff = endTime - Date.now();
-    if (diff <= 0) {
-      cdEl.classList.add('bash-countdown--done');
-      cdLabel.textContent = '🎉 The Birthday Bash has ended — thanks for celebrating with us!';
-      dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = '00';
-      clearInterval(cdTimer);
-      return;
-    }
-    dEl.textContent = pad(Math.floor(diff / 86400000));
-    hEl.textContent = pad(Math.floor(diff / 3600000) % 24);
-    mEl.textContent = pad(Math.floor(diff / 60000) % 60);
-    sEl.textContent = pad(Math.floor(diff / 1000) % 60);
-  }
-  tickCountdown();
-  var cdTimer = setInterval(tickCountdown, 1000);
 
   /* ---------------- Subtle mouse parallax ---------------- */
   if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
