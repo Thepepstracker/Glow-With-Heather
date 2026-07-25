@@ -2078,80 +2078,23 @@ h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
   <div class="container">
     
     
-    <!-- Monthly Featured Vendor Block -->
-    <div class="mfv-wrapper" id="monthly-featured-vendor">
-      <style>
-        .mfv-wrapper { position:relative; width:100%; margin-bottom:2rem; }
-        .mfv-frame { position:relative; border-radius:22px; padding:5px; background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 22%,#FFF3D6 50%,var(--gold-light) 78%,var(--gold) 100%); box-shadow:0 14px 44px rgba(123,63,168,0.28),0 4px 14px rgba(196,136,58,0.25); }
-        .mfv-container { position:relative; background:linear-gradient(160deg,#2A1050 0%,#3A1868 55%,#2A1050 100%); border-radius:17px; overflow:hidden; text-align:center; }
-        .mfv-container::before { content:''; position:absolute; top:-60px; right:-60px; width:280px; height:280px; background:radial-gradient(circle,rgba(232,184,109,0.16) 0%,transparent 65%); pointer-events:none; }
-        .mfv-container::after { content:''; position:absolute; bottom:-60px; left:-60px; width:280px; height:280px; background:radial-gradient(circle,rgba(200,85,107,0.14) 0%,transparent 65%); pointer-events:none; }
-        .mfv-top-banner { background:linear-gradient(90deg,rgba(232,184,109,0.18),rgba(232,184,109,0.32),rgba(232,184,109,0.18)); border-bottom:1px solid rgba(232,184,109,0.35); text-align:center; padding:9px 16px; font-size:.78rem; font-weight:800; color:var(--gold-light); letter-spacing:4px; text-transform:uppercase; }
-        .mfv-body { padding:2.4rem 2rem 1.8rem; position:relative; z-index:2; }
-        .mfv-label { display:inline-block; background:rgba(232,184,109,0.14); border:1px solid rgba(232,184,109,0.4); color:var(--gold-light); font-size:.68rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:5px 18px; border-radius:30px; margin-bottom:1.1rem; }
-        .mfv-vendor-name { font-family:var(--font-head); font-size:clamp(2rem,4.5vw,3.2rem); font-weight:700; letter-spacing:1px; background:linear-gradient(135deg,#FFF6E8 0%,var(--gold-light) 50%,#FFF6E8 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin:.2rem 0; line-height:1.15; }
-        .mfv-subtitle { color:rgba(255,246,232,0.75); font-size:.85rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:1.2rem; }
-        .mfv-divider { display:flex; align-items:center; gap:12px; margin:1rem auto 1.2rem; max-width:420px; }
-        .mfv-divider-line { flex:1; height:1px; background:linear-gradient(90deg,transparent,rgba(232,184,109,0.55),transparent); }
-        .mfv-divider-icon { font-size:1.1rem; color:var(--gold-light); }
-        .mfv-discount-block { display:inline-flex; flex-direction:column; align-items:center; background:rgba(255,255,255,0.06); border:1px solid rgba(232,184,109,0.35); border-radius:18px; padding:1.2rem 2.6rem; margin:.3rem 0 1rem; }
-        .mfv-discount-text { font-size:clamp(2.2rem,5vw,3.4rem); font-weight:900; color:#FFF6E8; line-height:1; }
-        .mfv-discount-text span { background:linear-gradient(135deg,var(--gold-light),#FFD98A); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-        .mfv-discount-label { color:rgba(255,246,232,0.85); font-size:.85rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; margin-top:.4rem; }
-        .mfv-code-block { display:inline-flex; align-items:center; gap:10px; background:rgba(0,0,0,.3); border:1.5px solid var(--gold-light); border-radius:12px; padding:.55rem 1.5rem; margin:.4rem 0 1rem; }
-        .mfv-code-label { color:rgba(255,246,232,0.7); font-size:.78rem; letter-spacing:2px; text-transform:uppercase; }
-        .mfv-code-value { color:var(--gold-light); font-size:1.3rem; font-weight:900; letter-spacing:4px; text-transform:uppercase; font-family:monospace; }
-        .mfv-cta-btn { display:inline-block; margin-top:.4rem; padding:15px 44px; background:linear-gradient(135deg,var(--gold),#A8702A); color:#241040; font-size:.95rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; text-decoration:none; border-radius:50px; border:1.5px solid rgba(255,246,232,.35); box-shadow:0 6px 22px rgba(196,136,58,.45); transition:transform .25s ease, box-shadow .25s ease; }
-        .mfv-cta-btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(196,136,58,.6); }
-        .mfv-affiliate { margin-top:1.2rem; }
-        .mfv-affiliate a { display:inline-block; color:var(--gold-light); font-size:.88rem; font-weight:600; letter-spacing:.5px; text-decoration:none; border:1px solid rgba(232,184,109,0.45); border-radius:50px; padding:9px 22px; background:rgba(232,184,109,0.08); transition:background .2s ease, transform .2s ease; }
-        .mfv-affiliate a:hover { background:rgba(232,184,109,0.2); transform:translateY(-1px); }
-        .mfv-footer { font-size:.65rem; color:rgba(255,246,232,.45); text-align:center; padding:.6rem 1rem .9rem; position:relative; z-index:2; }
-        @media(max-width:600px){ .mfv-body{padding:1.6rem 1rem 1.2rem} .mfv-discount-block{padding:1rem 1.6rem} .mfv-code-value{font-size:1.1rem} }
-      </style>
-
-      <div class="mfv-frame">
-      <div class="mfv-container">
-        <div class="mfv-top-banner">&#11088; Featured July Vendor &#11088;</div>
-        <div class="mfv-body">
-          <div class="mfv-label">&#127775; Spotlight for July &#127775;</div>
-          <div class="mfv-vendor-name">Solas Science</div>
-          <div class="mfv-subtitle">&#10022; Science-Backed Peptides &middot; 7&times; Lab Tested &#10022;</div>
-          <div class="mfv-divider">
-            <div class="mfv-divider-line"></div>
-            <span class="mfv-divider-icon">&#10022;</span>
-            <div class="mfv-divider-line"></div>
-          </div>
-          <div class="mfv-discount-block">
-            <div class="mfv-discount-text"><span>10% OFF</span></div>
-            <div class="mfv-discount-label">Exclusive Glow Lab Discount</div>
-          </div>
-          <div class="mfv-code-block">
-            <span class="mfv-code-label">Use Code:</span>
-            <span class="mfv-code-value">GLOWLAB</span>
-          </div>
-          <div>
-            <a href="https://solasscience.shop/" target="_blank" rel="noopener" class="mfv-cta-btn">Shop Solas Science Now</a>
-          </div>
-          <div class="mfv-affiliate">
-            <a href="https://useadz.com/r/c/STUB-EEE26455" target="_blank" rel="noopener">&#129309; Become an Affiliate</a>
-          </div>
-        </div>
-        <div class="mfv-footer">Deals change often. Always review vendor pricing and policies before ordering.</div>
-      </div>
-      </div>
-    </div>
-    <!-- End Monthly Featured Vendor Block -->
-
-
-    <div class="ga-banner" style="position:relative;background:linear-gradient(135deg,#8B0057 0%,#C8006A 50%,#8B0057 100%);border-radius:18px;padding:28px 32px;margin:0 0 18px;overflow:hidden;box-shadow:0 8px 32px rgba(200,0,106,0.25);border:2px solid rgba(255,255,255,0.15);text-align:center;"><div style="position:absolute;top:-40px;right:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(255,224,102,0.14),transparent 70%);pointer-events:none;"></div><div class="ga-title" style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:#fff;letter-spacing:1px;margin-bottom:6px;">&#10024; Glow Aminos &#10024;</div><div class="ga-discount" style="font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;color:#ffe066;line-height:1;margin:8px 0;">45% OFF</div><div class="ga-code" style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.3);border:2px solid #ffe066;border-radius:12px;padding:.5rem 1.4rem;margin:.8rem 0;"><span style="color:rgba(255,255,255,.7);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;">Use Code:</span> <span style="color:#ffe066;font-size:1.3rem;font-weight:900;letter-spacing:3px;font-family:monospace;">GLOWLAB</span></div><div><a href="https://glowaminos.com/shop/?coupon=Glowlab" target="_blank" rel="noopener" class="ga-btn" style="display:inline-block;margin-top:14px;padding:14px 36px;background:linear-gradient(135deg,#ffe066,#ffb700);color:#8B0057;font-weight:900;font-size:1.1rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:50px;box-shadow:0 4px 20px rgba(255,183,0,.4);">&#128717;&#65039; Shop Glow Aminos Now</a></div></div>
-
-      <div class="text-center">
-      <p class="section-sub" style="color:var(--gold);letter-spacing:.12em;font-size:.8rem;text-transform:uppercase;font-weight:600;margin-bottom:8px;">Work With Me &middot; 30-Minute Session</p>
-      <h2 class="section-title" style="margin-bottom:16px;">Have a One-on-One<br><em style="color:var(--plum);">With Me</em></h2>
-      <p style="max-width:560px;margin:0 auto 32px;color:var(--gray-700);font-size:1.05rem;line-height:1.7;">Some days you don&rsquo;t need another deep dive &mdash; you need 30 minutes with someone who can look at what you&rsquo;re actually doing and help it make sense. Bring your questions, your current routine, the compound you keep hearing about. We&rsquo;ll sort through it together, in plain English.</p>
-    </div>
-
+   <!-- Monthly Featured Vendor Spotlight -->
+<div id="monthly-featured-vendor" style="width:100%;margin-bottom:2rem;">
+  <a
+    href="https://solasscience.shop/"
+    target="_blank"
+    rel="noopener"
+    aria-label="Shop Solas Science July Giveaway"
+  >
+    <img
+      src="images/solas_science_july_giveaway_promotion.png"
+      alt="Solas Science Monthly Vendor Spotlight July Giveaway with two ways to win"
+      style="display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 12px 36px rgba(0,93,124,.18);"
+      loading="lazy"
+    >
+  </a>
+</div>
+<!-- End Monthly Featured Vendor Spotlight -->
     <div class="book-session-grid">
       <div class="book-session-card">
         <p class="book-session-label">One Session</p>
